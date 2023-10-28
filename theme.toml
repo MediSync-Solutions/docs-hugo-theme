@@ -1,9 +1,9 @@
-name = "Relearn"
+name = "docs-hugo-theme"
 license = "MIT"
 licenselink = "https://github.com/McShelby/hugo-theme-relearn/blob/main/LICENSE"
 description = "A theme for Hugo designed for documentation"
-homepage = "https://github.com/McShelby/hugo-theme-relearn"
-demosite = "https://mcshelby.github.io/hugo-theme-relearn"
+homepage = "https://github.com/crewpvp/docs-hugo-theme"
+demosite = "wiki.crewpvp.xyz"
 tags = ["dark", "dark mode", "docs", "light", "multilingual", "responsive"]
 features = ["badges", "breadcrumbs", "boxes", "buttons",
   "categories", "chemical formulae", "customizable", "color variants",
@@ -27,6 +27,10 @@ features = ["badges", "breadcrumbs", "boxes", "buttons",
     min = "0.95.0"
 
 [author]
+  name = "crewpvp team"
+  homepage = "https://github.com/crewpvp"
+
+[forked from]
   name = "Sören Weber"
   homepage = "https://github.com/McShelby"
 
