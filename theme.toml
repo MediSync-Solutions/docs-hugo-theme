@@ -30,7 +30,7 @@ features = ["badges", "breadcrumbs", "boxes", "buttons",
   name = "crewpvp team"
   homepage = "https://github.com/crewpvp"
 
-[forked from]
+[forked_from]
   name = "Sören Weber"
   homepage = "https://github.com/McShelby"
 
