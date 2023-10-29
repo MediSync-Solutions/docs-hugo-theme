@@ -10,6 +10,27 @@ need a way to calculate them ourself */
     --bpx1: 1;
 }
 
+half-empty-line {
+    line-height: 50%;
+    display: block;
+    user-select: none;
+}
+
+half-empty-line:before {
+    content: '\a';
+    white-space: pre;
+}
+
+seventy-empty-line {
+    line-height: 75%;
+    display: block;
+    user-select: none;
+}
+
+seventy-empty-line:before {
+    content: '\a';
+    white-space: pre;
+}
 
 @media (min-resolution: 105dpi) {
     :root {
