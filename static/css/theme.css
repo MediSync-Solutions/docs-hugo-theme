@@ -1274,6 +1274,9 @@ option {
 .expand .expand-content-inner {
     overflow: hidden;
 }
+.expand .expand-content-inner >* {
+    line-height: normal;
+}
 
 .expand > input[type="checkbox"]:checked ~ .expand-content {
     grid-template-rows: 1fr;
