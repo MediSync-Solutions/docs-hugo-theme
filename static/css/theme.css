@@ -1545,6 +1545,9 @@ option {
     position: absolute;
     visibility: hidden;
 }
+.copy {
+    cursor: pointer;
+}
 
 h2:hover .anchor,
 h3:hover .anchor,

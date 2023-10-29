@@ -553,6 +553,24 @@ function initAnchorClipboard(){
         e.trigger.classList.add( 'tooltipped', 'tooltipped-s'+(isRtl?'e':'w') );
     });
 }
+function initTextClipboard() {
+    document.querySelectorAll( '.copy').forEach( function( element ){
+        element.setAttribute( 'title', window.T_Copy_to_clipboard );
+    });
+    var copies = document.querySelectorAll( '.copy' );
+    for( var i = 0; i < copies.length; i++ ) {
+      copies[i].addEventListener( 'mouseleave', function( e ){
+        this.removeAttribute( 'aria-label' );
+        this.classList.remove( 'tooltipped', 'tooltipped-se', 'tooltipped-sw' );
+      });
+    }
+    var clip = new ClipboardJS('.copy');
+    clip.on( 'success', function( e ){
+        e.clearSelection();
+        e.trigger.setAttribute( 'aria-label', window.T_Copied_to_clipboard );
+        e.trigger.classList.add( 'tooltipped', 'tooltipped-s'+(isRtl?'e':'w') );
+    }); 
+}
 
 function initCodeClipboard(){
     function getCodeText( node ){
@@ -1501,6 +1519,7 @@ ready( function(){
     initMenuScrollbar();
     initToc();
     initAnchorClipboard();
+    initTextClipboard();
     initCodeClipboard();
     fixCodeTabs();
     restoreTabSelections();

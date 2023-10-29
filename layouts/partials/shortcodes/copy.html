@@ -1,0 +1,12 @@
+{{- $page := .page }}
+{{- if and (not $page) .context }}
+  {{- $page = .context }}
+  {{- warnf "%q: DEPRECATED parameter 'context' for shortcode 'expand' found, use 'page' instead; see https://mcshelby.github.io/hugo-theme-relearn/basics/migration/#5180" $page.File.Path }}
+{{- end }}
+{{- $content := .content }}
+{{- $id := cond (or (eq .id nil) (eq .id "")) (partial "make-random-md5.hugo" $page) .id }}
+{{- with $page }}
+  <span class="copy" data-clipboard-target="#copy-{{ $id }}" id="copy-{{ $id }}">
+    {{ $content | safeHTML }}
+  </span>
+{{- end }}
