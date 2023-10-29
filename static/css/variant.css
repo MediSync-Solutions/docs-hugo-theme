@@ -499,3 +499,4 @@ blue { color: var(--INTERNAL-BOX-INFO-color) }
 purple { color: purple }
 yellow { color: yellow }
 gray { color: var(--INTERNAL-MENU-SECTIONS-LINK-color) }
+maincolor { color: var(--MAIN-TEXT-color) }
