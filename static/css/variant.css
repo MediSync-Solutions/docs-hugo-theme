@@ -494,7 +494,7 @@ article ul > li > input[type="checkbox"] {
 
 red { color: Red }
 orange { color: Orange }
-green { color: Green }
+green { color: rgb(0, 136, 71) }
 blue { color: var(--INTERNAL-BOX-INFO-color) }
 purple { color: purple }
 yellow { color: yellow }
