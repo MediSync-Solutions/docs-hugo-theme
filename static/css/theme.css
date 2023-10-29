@@ -21,13 +21,46 @@ half-empty-line:before {
     white-space: pre;
 }
 
-seventy-empty-line {
+seventy-five-empty-line {
     line-height: 75%;
     display: block;
     user-select: none;
 }
 
-seventy-empty-line:before {
+seventy-five-empty-line:before {
+    content: '\a';
+    white-space: pre;
+}
+
+hundred-empty-line {
+    line-height: 100%;
+    display: block;
+    user-select: none;
+}
+
+hundred-empty-line:before {
+    content: '\a';
+    white-space: pre;
+}
+
+hundred-twenty-five-empty-line {
+    line-height: 125%;
+    display: block;
+    user-select: none;
+}
+
+hundred-twenty-five-empty-line:before {
+    content: '\a';
+    white-space: pre;
+}
+
+hundred-fifty-empty-line {
+    line-height: 125%;
+    display: block;
+    user-select: none;
+}
+
+hundred-fifty-empty-line:before {
     content: '\a';
     white-space: pre;
 }
