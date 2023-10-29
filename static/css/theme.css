@@ -10,13 +10,13 @@ need a way to calculate them ourself */
     --bpx1: 1;
 }
 
-half-empty-line {
+fifty-empty-line {
     line-height: 50%;
     display: block;
     user-select: none;
 }
 
-half-empty-line:before {
+fifty-empty-line:before {
     content: '\a';
     white-space: pre;
 }
