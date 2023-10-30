@@ -527,7 +527,7 @@ function initOpenapi( update, attrs ){
 }
 
 function initAnchorClipboard(){
-    document.querySelectorAll( 'h1~h2,h1~h3,h1~h4,h1~h5,h1~h6').forEach( function( element ){
+    document.querySelectorAll( 'h2,h3,h4,h5,h6').forEach( function( element ){
         var url = encodeURI( (document.location.origin == "null" ? (document.location.protocol + "//" + document.location.host) : document.location.origin )+ document.location.pathname);
         var link = url + "#" + element.id;
         var new_element = document.createElement( 'span' );
@@ -537,39 +537,49 @@ function initAnchorClipboard(){
         new_element.innerHTML = '<i class="fas fa-link fa-lg"></i>';
         element.appendChild( new_element );
     });
-
-    var anchors = document.querySelectorAll( '.anchor' );
-    for( var i = 0; i < anchors.length; i++ ) {
-      anchors[i].addEventListener( 'mouseleave', function( e ){
-        this.removeAttribute( 'aria-label' );
-        this.classList.remove( 'tooltipped', 'tooltipped-se', 'tooltipped-sw' );
-      });
-    }
-
     var clip = new ClipboardJS( '.anchor' );
     clip.on( 'success', function( e ){
         e.clearSelection();
-        e.trigger.setAttribute( 'aria-label', window.T_Link_copied_to_clipboard );
-        e.trigger.classList.add( 'tooltipped', 'tooltipped-s'+(isRtl?'e':'w') );
+        showNotify(window.window.T_Link_copied_to_clipboard,'<i class="fa-regular fa-clipboard"></i>');
+    });
+}
+function initLinks() {
+    document.querySelectorAll( '.default-link').forEach( function( element ){
+        if (element.tagName == 'A') {
+            element.setAttribute( 'title', window.T_Open_link );
+        }
     });
 }
 function initTextClipboard() {
     document.querySelectorAll( '.copy').forEach( function( element ){
         element.setAttribute( 'title', window.T_Copy_to_clipboard );
     });
-    var copies = document.querySelectorAll( '.copy' );
-    for( var i = 0; i < copies.length; i++ ) {
-      copies[i].addEventListener( 'mouseleave', function( e ){
-        this.removeAttribute( 'aria-label' );
-        this.classList.remove( 'tooltipped', 'tooltipped-se', 'tooltipped-sw' );
-      });
-    }
     var clip = new ClipboardJS('.copy');
     clip.on( 'success', function( e ){
         e.clearSelection();
-        e.trigger.setAttribute( 'aria-label', window.T_Copied_to_clipboard );
-        e.trigger.classList.add( 'tooltipped', 'tooltipped-s'+(isRtl?'e':'w') );
+        showNotify(window.T_Copied_to_clipboard,'<i class="fa-regular fa-clipboard"></i>');
     }); 
+}
+
+function showNotify(title, icon) {
+   let notifyBox = document.getElementById("notifyBox");
+   let notify = document.createElement("div");
+   notify.classList.add("notify");
+   let notifyIcon = document.createElement("div");
+   notifyIcon.classList.add("icon");
+   notifyIcon.innerHTML = icon;
+   notify.appendChild(notifyIcon);
+   let notifyTitle = document.createElement("div");
+   notifyTitle.classList.add("title");
+   notifyTitle.innerHTML = title;
+   notify.appendChild(notifyTitle);
+   notifyBox.appendChild(notify);
+   setTimeout(() => {
+    notify.classList.add("notify-out");
+     setTimeout(() => {
+        notify.remove();
+    }, 500);
+   }, 3000);
 }
 
 function initCodeClipboard(){
@@ -624,11 +634,7 @@ function initCodeClipboard(){
 
             clip.on( 'success', function( e ){
                 e.clearSelection();
-                var inPre = e.trigger.previousElementSibling && e.trigger.previousElementSibling.tagName.toLowerCase() == 'pre';
-                var isCodeRtl = !inPre ? isRtl : false;
-                var doBeside = inPre || (e.trigger.previousElementSibling && e.trigger.previousElementSibling.tagName.toLowerCase() == 'table' );
-                e.trigger.setAttribute( 'aria-label', window.T_Copied_to_clipboard );
-                e.trigger.classList.add( 'tooltipped', 'tooltipped-' + (doBeside ? 'w' : 's'+(isCodeRtl?'e':'w')) );
+                showNotify(window.T_Copied_to_clipboard,'<i class="fa-regular fa-clipboard"></i>');
             });
 
             clip.on( 'error', function( e ){
@@ -1520,6 +1526,7 @@ ready( function(){
     initToc();
     initAnchorClipboard();
     initTextClipboard();
+    initLinks();
     initCodeClipboard();
     fixCodeTabs();
     restoreTabSelections();
