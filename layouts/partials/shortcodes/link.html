@@ -48,4 +48,4 @@
     {{- end }}
   {{- end }}
 {{- end }}
-<a href="{{ $url | safeURL }}"{{ if $title }} title="{{ $title }}"{{ end }}{{ if gt (len $target) 0 }} target="{{ $target }}"{{ end }}>{{ $content | safeHTML }}</a>
+<a class="default-link" href="{{ $url | safeURL }}"{{ if $title }} title="{{ $title }}"{{ end }}{{ if gt (len $target) 0 }} target="{{ $target }}"{{ end }}>{{ $content | safeHTML }}</a>
