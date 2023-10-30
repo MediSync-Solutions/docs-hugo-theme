@@ -10,6 +10,13 @@ need a way to calculate them ourself */
     --bpx1: 1;
 }
 
+.scale  {
+    transition: all .1s ease-in-out;
+}
+.scale:hover {
+    transform: scale(1.15, 1.15);
+}
+
 fifty-empty-line {
     line-height: 50%;
     display: block;
@@ -55,7 +62,7 @@ hundred-twenty-five-empty-line:before {
 }
 
 hundred-fifty-empty-line {
-    line-height: 125%;
+    line-height: 150%;
     display: block;
     user-select: none;
 }
@@ -462,12 +469,22 @@ dd {
 .topbar-breadcrumbs a:focus *,
 .topbar-content a:hover,
 .topbar-content a:active,
-.topbar-content a:focus,
-article a:hover,
-article a:active,
-article a:focus {
+.topbar-content a:focus {
     outline: none;
     text-decoration: underline;
+}
+
+#R-body-inner a {
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    background: linear-gradient(90deg,transparent 50%,var(--INTERNAL-MAIN-TEXT-color) 50%);
+    background-size: 200%;
+    transition: color 0.5s ease-in-out, background 0.3s ease-in-out;
+}
+
+#R-body-inner a:hover {
+    background-position: 100%;
+    color: var(--BOX-BG-color);
 }
 
 #R-body-inner:focus-visible{
@@ -1328,6 +1345,7 @@ option {
 .expand .expand-content-inner {
     overflow: hidden;
 }
+
 .expand .expand-content-inner >* {
     line-height: normal;
 }
