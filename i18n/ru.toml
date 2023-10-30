@@ -80,13 +80,16 @@ other = "Внимание"
 other = "Копировать в буфер"
 
 [Copied-to-clipboard]
-other = "Скопировано в буфер обмена!"
+other = "Скопировано в буфер обмена"
+
+[Open-link]
+other = "Открыть ссылку"
 
 [Copy-link-to-clipboard]
 other = "Скопировать ссылку в буфер обмена"
 
 [Link-copied-to-clipboard]
-other = "Ссылка скопирована в буфер обмена!"
+other = "Ссылка скопирована в буфер обмена"
 
 [Chapter]
 other = "Глава {{.}}"

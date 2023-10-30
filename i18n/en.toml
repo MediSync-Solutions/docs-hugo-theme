@@ -79,14 +79,17 @@ other = "Warning"
 [Copy-to-clipboard]
 other = "Copy to clipboard"
 
+[Open-link]
+other = "Open link"
+
 [Copied-to-clipboard]
-other = "Copied to clipboard!"
+other = "Copied to clipboard"
 
 [Copy-link-to-clipboard]
 other = "Copy link to clipboard"
 
 [Link-copied-to-clipboard]
-other = "Copied link to clipboard!"
+other = "Copied link to clipboard"
 
 [Chapter]
 other = "Chapter {{.}}"
