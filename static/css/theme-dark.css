@@ -10,6 +10,7 @@
     --SECONDARY-color: rgba( 229, 140, 23, 1 ); /* brand secondary color */
 
     --MAIN-TOPBAR-BORDER-color: rgba( 45, 45, 45, 1 ); /* border color between topbar and content */
+    --MAIN-LINK-color: rgba(255,255,255,1);
     --MAIN-LINK-HOVER-color: rgba( 223, 215, 145, 1 ); /* hoverd link color of content */
     --MAIN-BG-color: rgba( 0, 0, 0, 1 ); /* background color of content */
     --MAIN-TEXT-color: rgba( 239, 239, 239, 1 ); /* text color of content and h1 titles */
@@ -20,7 +21,6 @@
     --CODE-BLOCK-BG-color: rgba( 7, 7, 7, 1 ); /* fallback background color of block code; should be adjusted to your selected chroma style */
     --CODE-BLOCK-BORDER-color: rgba( 45, 45, 45, 1 ); /* border color of block code */
     --EXPAND-HOVER-color: rgba( 15, 15, 15, 1);
-
 
     --CODE-INLINE-color: rgba( 161, 161, 161, 1 ); /* text color of inline code */
     --CODE-INLINE-BG-color: rgba( 0, 5, 22, 1 ); /* background color of inline code */
