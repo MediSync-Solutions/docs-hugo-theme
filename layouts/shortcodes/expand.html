@@ -9,7 +9,6 @@
 {{- partial "shortcodes/expand.html" (dict
   "page"    .Page
   "content" .Inner
-  "open"    (.Get "open" | default (.Get 1))
   "title"   (.Get "title" | default (.Get 0))
   "id"      $id
 ) }}
