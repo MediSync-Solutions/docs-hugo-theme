@@ -12,16 +12,16 @@
 {{- end }}
 {{- $id := cond (or (eq .id nil) (eq .id "")) (partial "make-random-md5.hugo" $page) .id }}
 {{- with $page }}
-  <section class="expand">
-    <input type="checkbox" id="R-expand-{{ $id }}">
-    <label for="R-expand-{{ $id }}" >
-      <i class="expand-button fas fa-chevron-right"></i>
-      <div class = "expand-title"> {{ $title | .RenderString }} </div>
-    </label>
-    <div class="expand-content">
-      <div class="expand-content-inner">
-        {{ $content | safeHTML }}
-      </div>
-    </div>
-  </section>
+<section class="expand">
+<input type="checkbox" id="R-expand-{{ $id }}">
+<label for="R-expand-{{ $id }}" >
+<div class="expand-button fas fa-chevron-right"></div>
+<div class = "expand-title">{{ $title | .RenderString }}</div>
+</label>
+<div class="expand-content">
+<div class="expand-content-inner">
+{{ $content | safeHTML }}
+</div>
+</div>
+</section>
 {{- end }}

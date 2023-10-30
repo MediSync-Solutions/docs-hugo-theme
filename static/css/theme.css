@@ -1345,25 +1345,24 @@ option {
 .expand .expand-content-inner >* {
     line-height: normal;
 }
-
 .expand > input[type="checkbox"]:checked ~ .expand-content {
     grid-template-rows: 1fr;
 }
 
 .expand > label {
+    display: flex;
+    align-items: center;
     line-height: 1.7rem;
     cursor: pointer;
     margin: 0rem;
     margin-left: 1rem;
 }
-
 .expand > label > .expand-title {
-    padding-left: 2rem;
+    flex: 1;
+    padding-left: 1.13rem;
 }
 
 .expand > label > .expand-button  {
-    line-height: 1.7rem;
-    position: absolute;
     transform-origin: center;
     transition: transform 0.2s ease-in-out;    
 }
