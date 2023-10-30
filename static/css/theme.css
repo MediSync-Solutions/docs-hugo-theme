@@ -484,7 +484,7 @@ dd {
 
 #R-body-inner a:hover {
     background-position: 100%;
-    color: var(--BOX-BG-color);
+    color: var(--MAIN-BG-color);
 }
 
 #R-body-inner:focus-visible{
@@ -1325,10 +1325,6 @@ option {
     padding: 0.7rem;
     padding-left: 0;
     line-height: 1.7rem;
-}
-
-.expand:hover {
-    background-color: rgba( 160, 160, 160, .2 );
 }
 
 .expand > input[type="checkbox"] {

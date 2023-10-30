@@ -14,6 +14,10 @@ a {
     color: var(--INTERNAL-MAIN-TEXT-color);
 }
 
+.expand:hover {
+    background-color: var(--INTERNAL-EXPAND-HOVER-color);
+}
+
 .anchor,
 .topbar-button button,
 #R-searchresults .autocomplete-suggestion {

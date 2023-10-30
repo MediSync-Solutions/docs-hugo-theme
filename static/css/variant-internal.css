@@ -33,6 +33,7 @@
     --INTERNAL-CODE-BLOCK-color: var(--CODE-BLOCK-color, var(--MAIN-CODE-color, rgba( 0, 0, 0, 1 )));
     --INTERNAL-CODE-BLOCK-BG-color: var(--CODE-BLOCK-BG-color, var(--MAIN-CODE-BG-color, rgba( 248, 248, 248, 1 )));
     --INTERNAL-CODE-BLOCK-BORDER-color: var(--CODE-BLOCK-BORDER-color, var(--MAIN-CODE-BG-color, var(--INTERNAL-CODE-BLOCK-BG-color)));
+    --INTERNAL-EXPAND-HOVER-color: var(--EXPAND-HOVER-color);
 
     --INTERNAL-CODE-INLINE-color: var(--CODE-INLINE-color, rgba( 94, 94, 94, 1 ));
     --INTERNAL-CODE-INLINE-BG-color: var(--CODE-INLINE-BG-color, rgba( 255, 250, 233, 1 ));

@@ -19,6 +19,7 @@
     --CODE-BLOCK-color: rgba( 0, 0, 0, 1 ); /* fallback text color of block code; should be adjusted to your selected chroma style */
     --CODE-BLOCK-BG-color: rgba( 248, 248, 248, 1 ); /* fallback background color of block code; should be adjusted to your selected chroma style */
     --CODE-BLOCK-BORDER-color: rgba( 210, 210, 210, 1 ); /* border color of block code */
+    --EXPAND-HOVER-color: rgba( 240, 240, 240, 1);
 
     --CODE-INLINE-color: rgba( 94, 94, 94, 1 ); /* text color of inline code */
     --CODE-INLINE-BG-color: rgba( 255, 250, 233, 1 ); /* background color of inline code */
@@ -36,7 +37,7 @@
     --MENU-HEADER-BORDER-color: transparent; /* border color between menu header and menu */
     --MENU-HEADER-SEPARATOR-color: rgba( 210, 210, 210, .66 ); /* separator color between menu header and menu */
 
-    --MENU-HOME-LINK-color: rgba( 64, 64, 64, 1 ); /* home button color if configured */
+    --MENU-HOME-LINK-color: rgba( 0, 0, 0, 1 ); /* home button color if configured */
     --MENU-HOME-LINK-HOVER-color: rgba( 26, 115, 232, 1 ); /* hoverd home button color if configured */
 
     --MENU-SEARCH-color: rgba( 26, 115, 232, 1 ); /* text and icon color of search box */
