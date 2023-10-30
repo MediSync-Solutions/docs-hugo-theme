@@ -1,0 +1,19 @@
+{{- $page := .page }}
+{{- if and (not $page) .context }}
+  {{- $page = .context }}
+  {{- warnf "%q: DEPRECATED parameter 'context' for shortcode 'expand' found, use 'page' instead; see https://mcshelby.github.io/hugo-theme-relearn/basics/migration/#5180" $page.File.Path }}
+{{- end }}
+{{- $content := .content }}
+{{- $icon := .icon }}
+{{- $url := .url }}
+{{- $id := cond (or (eq .id nil) (eq .id "")) (partial "make-random-md5.hugo" $page) .id }}
+{{- with $page }}
+<a class="big-link" {{- if $url }}href="{{ $url }}"{{- end }}>
+<div class="title">
+{{ $content | safeHTML }}
+</div>
+<div class="icon">
+<i class="{{ $icon }}"></i>
+</div>
+</a>
+{{- end }}
