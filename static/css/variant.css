@@ -10,14 +10,16 @@ body {
     font-family: var(--INTERNAL-MAIN-font);
 }
 
-a,
+a {
+    color: var(--INTERNAL-MAIN-TEXT-color);
+}
+
 .anchor,
 .topbar-button button,
 #R-searchresults .autocomplete-suggestion {
     color: var(--INTERNAL-MENU-SECTIONS-LINK-color);
 }
 
-a:hover,
 .anchor:hover,
 .topbar-button button:hover {
     color: var(--INTERNAL-MAIN-TEXT-color);
