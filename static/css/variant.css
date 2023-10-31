@@ -499,5 +499,5 @@ green { color: rgb(0, 136, 71) }
 blue { color: var(--INTERNAL-BOX-INFO-color) }
 purple { color: purple }
 yellow { color: yellow }
-gray { color: var(--INTERNAL-MENU-SECTIONS-LINK-color) }
+gray { color: rgb(160, 160, 160) }
 maincolor { color: var(--MAIN-TEXT-color) }
