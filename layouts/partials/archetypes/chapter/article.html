@@ -1,6 +1,7 @@
 {{- $page := .page }}
 {{- $content := .content }}
 {{- with $page }}
+		<div class="flex-block-wrapper">
           <article class="chapter">
             <header class="headline">
               {{- partial "content-header.html" . }}
@@ -13,4 +14,5 @@
               {{- partial "content-footer.html" . }}
             </footer>
           </article>
+        </div>
 {{- end }}

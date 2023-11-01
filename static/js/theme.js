@@ -60,15 +60,7 @@ function scrollbarWidth(){
 }
 
 var scrollbarSize = scrollbarWidth();
-function adjustContentWidth(){
-    var start = parseFloat( getComputedStyle( elc ).getPropertyValue( dir_padding_start ) );
-    var end = start;
-    if( elc.scrollHeight > elc.clientHeight ){
-        // if we have a scrollbar reduce the end margin by the scrollbar width
-        end = Math.max( 0, start - scrollbarSize );
-    }
-    elc.style[ dir_padding_end ] = '' + end + 'px';
-}
+
 
 function fixCodeTabs(){
     /* if only a single code block is contained in the tab and no style was selected, treat it like style=code */
@@ -863,9 +855,6 @@ function initMenuScrollbar(){
     psm && setTimeout( function(){ psm.update(); }, 10 );
     psc && setTimeout( function(){ psc.update(); }, 10 );
 
-    // finally, we want to adjust the contents end padding if there is a scrollbar visible
-    window.addEventListener('resize', adjustContentWidth );
-    adjustContentWidth();
 }
 
 function imageEscapeHandler( event ){

@@ -1,13 +1,15 @@
 {{- $page := .page }}
 {{- $content := .content }}
 {{- with $page }}
-	<article class="default">
-		<header class="headline">
-		{{- partial "content-header.html" . }}
-		</header>
-		{{ $content | safeHTML }}
-        <footer class="footline">
-      	{{- partial "content-footer.html" . }}
-        </footer>
-	</article>
+	<div class="flex-block-wrapper">
+		<article class="default">
+			<header class="headline">
+			{{- partial "content-header.html" . }}
+			</header>
+			{{ $content | safeHTML }}
+	        <footer class="footline">
+	      	{{- partial "content-footer.html" . }}
+	        </footer>
+		</article>
+	</div>
 {{- end }}
