@@ -612,7 +612,7 @@ function initCodeClipboard(){
     }
 
     var codeElements = document.querySelectorAll( 'code' );
-	for( var i = 0; i < codeElements.length; i++ ){
+	for( var i = 0; i < codeElements.length; i++ ) {
         var code = codeElements[i];
         var text = getCodeText( code );
         var inPre = code.parentNode.tagName.toLowerCase() == 'pre';
@@ -621,36 +621,7 @@ function initCodeClipboard(){
         // avoid copy-to-clipboard for highlight shortcode in table lineno mode
         var isFirstLineCell = inTable &&
             code.parentNode.parentNode.parentNode.querySelector( 'td:first-child > pre > code' ) == code;
-
         if( !isFirstLineCell && ( inPre || text.length > 5 ) ){
-            var clip = new ClipboardJS( '.copy-to-clipboard-button', {
-                text: function( trigger ){
-                    if( !trigger.previousElementSibling ){
-                        return '';
-                    }
-                    return trigger.previousElementSibling.dataset.code || '';
-                }
-            });
-
-            clip.on( 'success', function( e ){
-                e.clearSelection();
-                showNotify(window.T_Copied_to_clipboard,'<i class="fa-regular fa-clipboard"></i>');
-            });
-
-            clip.on( 'error', function( e ){
-                var inPre = e.trigger.previousElementSibling && e.trigger.previousElementSibling.tagName.toLowerCase() == 'pre';
-                var isCodeRtl = !inPre ? isRtl : false;
-                var doBeside = inPre || (e.trigger.previousElementSibling && e.trigger.previousElementSibling.tagName.toLowerCase() == 'table' );
-                e.trigger.setAttribute( 'aria-label', fallbackMessage(e.action) );
-                e.trigger.classList.add( 'tooltipped', 'tooltipped-' + (doBeside ? 'w' : 's'+(isCodeRtl?'e':'w')) );
-                var f = function(){
-                    e.trigger.setAttribute( 'aria-label', window.T_Copied_to_clipboard );
-                    e.trigger.classList.add( 'tooltipped', 'tooltipped-' + (doBeside ? 'w' : 's'+(isCodeRtl?'e':'w')) );
-                    document.removeEventListener( 'copy', f );
-                };
-                document.addEventListener( 'copy', f );
-            });
-
             code.classList.add( 'copy-to-clipboard-code' );
             if( inPre ){
                 code.classList.add( 'copy-to-clipboard' );
@@ -668,10 +639,6 @@ function initCodeClipboard(){
             button.classList.add( 'copy-to-clipboard-button' );
             button.setAttribute( 'title', window.T_Copy_to_clipboard );
             button.innerHTML = '<i class="far fa-copy"></i>';
-            button.addEventListener( 'mouseleave', function() {
-                this.removeAttribute( 'aria-label' );
-                this.classList.remove( 'tooltipped', 'tooltipped-w', 'tooltipped-se', 'tooltipped-sw' );
-            });
             if( inTable ){
                 var table = code.parentNode.parentNode.parentNode.parentNode.parentNode;
                 table.dataset[ 'code' ] = text;
@@ -701,6 +668,34 @@ function initCodeClipboard(){
             }
         }
     }
+    
+    var clip = new ClipboardJS( '.copy-to-clipboard-button', {
+        text: function( trigger ){
+            if( !trigger.previousElementSibling ){
+                return '';
+            }
+            return trigger.previousElementSibling.dataset.code || '';
+        }
+    });
+
+    clip.on( 'error', function( e ){
+        var inPre = e.trigger.previousElementSibling && e.trigger.previousElementSibling.tagName.toLowerCase() == 'pre';
+        var isCodeRtl = !inPre ? isRtl : false;
+        var doBeside = inPre || (e.trigger.previousElementSibling && e.trigger.previousElementSibling.tagName.toLowerCase() == 'table' );
+        e.trigger.setAttribute( 'aria-label', fallbackMessage(e.action) );
+        e.trigger.classList.add( 'tooltipped', 'tooltipped-' + (doBeside ? 'w' : 's'+(isCodeRtl?'e':'w')) );
+        var f = function(){
+            e.trigger.setAttribute( 'aria-label', window.T_Copied_to_clipboard );
+            e.trigger.classList.add( 'tooltipped', 'tooltipped-' + (doBeside ? 'w' : 's'+(isCodeRtl?'e':'w')) );
+            document.removeEventListener( 'copy', f );
+        };
+        document.addEventListener( 'copy', f );
+    });
+
+    clip.on( 'success', function( e ){
+        e.clearSelection();
+        showNotify(window.T_Copied_to_clipboard,'<i class="fa-regular fa-clipboard"></i>');
+    });
 }
 
 function initArrowNav(){
