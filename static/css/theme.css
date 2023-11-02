@@ -2111,7 +2111,6 @@ article ul > li > input[type="checkbox"]:checked::before {
 
 #R-sidebar ul.enlarge > li > :is( a, span ) {
     font-size: 1.1rem;
-    line-height: 2rem;
     user-select: none;
 }
 #R-sidebar ul.enlarge > li > a > .read-icon {
@@ -2159,7 +2158,6 @@ article ul > li > input[type="checkbox"]:checked::before {
 }
 #R-sidebar ul.collapsible-menu.enlarge > li > label {
     font-size: 1.1rem;
-    line-height: 2rem;
 }
 
 #R-sidebar ul.collapsible-menu > li > label:after {
