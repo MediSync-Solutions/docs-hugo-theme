@@ -514,6 +514,110 @@ dd {
     color: var(--MAIN-BG-color);   
 }
 
+.carousel-container {
+    width: 100%;
+    height: 40rem;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.375rem;
+}
+.carousel-container .item {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: none;
+    animation: fade 0.3s ease-in-out;
+}
+.carousel-container .item .numbertext {
+    padding: 0.5rem 0.75rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border-radius: 0.9375rem;
+    font-size: 0.875rem;
+    color: #f2f2f2;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+.carousel-container .item .image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.carousel-container .item .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel-container .item .text {
+    width: 100%;
+    padding: 0.625rem 0.9375rem;
+    position: absolute;
+    bottom: 0;
+    font-size: 0.9rem;
+    color: #f2f2f2;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+.carousel-container .item .text .title {
+    margin: 0.5rem 0 0 0;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+.carousel-container .prev,
+.carousel-container .next {
+    width: 2rem;
+    height: 2rem;
+    padding: 0.3125rem;
+    position: absolute;
+    top: calc(50% - 1rem);
+    user-select: none;
+    font-size: 1rem;
+    color: #f2f2f2;
+    border-radius: 50%;
+    transition: 0.6s ease;
+}
+.carousel-container .prev:focus,
+.carousel-container .prev:hover,
+.carousel-container .next:focus,
+.carousel-container .next:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+.carousel-container .prev {
+    left: 0.8rem;
+}
+.carousel-container .next {
+    right: 0.8rem;
+}
+.carousel-container .dots {
+    padding: 0.9375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel-container .dots .dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    margin: 0 0.125rem;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #bbb;
+    transition: background-color 0.6s ease;
+}
+.carousel-container .dots .dot:focus,
+.carousel-container .dots .dot:hover {
+    background-color: #717171;
+}
+@keyframes fade {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
 #R-body-inner:focus-visible{
     /* remove focus indicator for programatically set focus */
     outline: none;
