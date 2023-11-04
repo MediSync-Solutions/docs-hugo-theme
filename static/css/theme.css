@@ -515,81 +515,111 @@ dd {
 }
 
 .carousel-container {
-    width: 100%;
-    height: 40rem;
+    position: relative;
+}
+
+.image-container {
+    position: relative;
     padding: 0;
-    position: relative;
+    border-radius: 5px;
     overflow: hidden;
-    border-radius: 0.375rem;
+    padding-top: 50%;
 }
-.carousel-container .item {
-    width: 100%;
-    height: 100%;
-    position: relative;
+.image-container .item {
+    top: 0;
+    position: absolute;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0%);
     display: none;
-    animation: fade 0.3s ease-in-out;
 }
-.carousel-container .item .numbertext {
+.image-container .without-animation {
+    transition: none;
+}
+.image-container .active {
+    display: block;
+}
+.image-container .to-left {
+    transform: translateX(-101%);
+    display: block;
+}
+.image-container .to-right {
+    transform: translateX(101%);
+    display: block;
+}
+
+.image-container .number {
+    user-select: none;
     padding: 0.5rem 0.75rem;
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    border-radius: 0.9375rem;
+    top: 1%;
+    right: 1%;
+    border-radius: 5px;
     font-size: 0.875rem;
     color: #f2f2f2;
     background-color: rgba(0, 0, 0, 0.9);
+    transform: translateX(150%);
+    transition: all 0.15s ease-in-out;
 }
-.carousel-container .item .image {
-    width: 100%;
-    height: 100%;
-    display: flex;
+.image-container:hover .number {
+    transform: translateX(0%);
 }
-.carousel-container .item .image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.carousel-container .item .text {
-    width: 100%;
-    padding: 0.625rem 0.9375rem;
-    position: absolute;
+
+.image-container > .item .label {
+    position: sticky;
     bottom: 0;
-    font-size: 0.9rem;
-    color: #f2f2f2;
-    background-color: rgba(0, 0, 0, 0.9);
-}
-.carousel-container .item .text .title {
-    margin: 0.5rem 0 0 0;
+    padding: 0.5rem 1rem;
+    width: 100%;
     font-size: 1.2rem;
-    font-weight: normal;
-}
-.carousel-container .prev,
-.carousel-container .next {
-    width: 2rem;
-    height: 2rem;
-    padding: 0.3125rem;
-    position: absolute;
-    top: calc(50% - 1rem);
-    user-select: none;
-    font-size: 1rem;
+    transition: all 0.15s ease-in-out;
+    
     color: #f2f2f2;
-    border-radius: 50%;
-    transition: 0.6s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translateY(101%);
 }
-.carousel-container .prev:focus,
-.carousel-container .prev:hover,
-.carousel-container .next:focus,
-.carousel-container .next:hover {
-    background-color: rgba(0, 0, 0, 0.9);
+.image-container:hover > .item .label {
+    transform: translateY(0%);
 }
-.carousel-container .prev {
-    left: 0.8rem;
+
+.image-container .prev,
+.image-container .next {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    top: 0%;
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    user-select: none;
+    transition: all 0.2s ease;
 }
-.carousel-container .next {
-    right: 0.8rem;
+
+.image-container .prev:focus,
+.image-container .prev:hover,
+.image-container .next:focus,
+.image-container .next:hover {
+    font-size: 130%;
 }
+.image-container .prev {
+    padding-left: 1.5%;
+    left: 0%;
+    text-align: left;
+    transform: translateX(-10%);
+}
+.image-container .next {
+    padding-right: 1.5%;
+    right: 0%;
+    text-align: right;
+    transform: translateX(10%);
+}
+
+.image-container:hover .prev, 
+.image-container:hover .next {
+    transform: translateX(0%);
+}
+
 .carousel-container .dots {
-    padding: 0.9375rem;
+    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -597,23 +627,26 @@ dd {
 .carousel-container .dots .dot {
     width: 0.625rem;
     height: 0.625rem;
-    margin: 0 0.125rem;
+    margin: 0 0.25rem;
     display: inline-block;
     cursor: pointer;
     border-radius: 50%;
-    background-color: #bbb;
-    transition: background-color 0.6s ease;
+    background-color: #fff;
+    transition: all 0.6s ease;
 }
+.carousel-container .dots .active,
 .carousel-container .dots .dot:focus,
 .carousel-container .dots .dot:hover {
-    background-color: #717171;
+    transform: scale(1.3);
+    opacity: 50%;
 }
+
 @keyframes fade {
   from {
-    opacity: 0.8;
+
   }
   to {
-    opacity: 1;
+
   }
 }
 
