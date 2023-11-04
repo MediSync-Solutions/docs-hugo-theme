@@ -514,6 +514,29 @@ dd {
     color: var(--MAIN-BG-color);   
 }
 
+.highlighting {
+    background-color: var(--INTERNAL-EXPAND-HOVER-color);
+    border-radius: 5px; 
+    padding-left: 0.25rem; 
+    padding-right: 0.25rem; 
+    margin-left: -0.25rem; 
+    margin-right: -0.25rem;
+}
+
+.hidden-text {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+    background: linear-gradient(90deg, transparent 50%, var(--INTERNAL-MAIN-TEXT-color) 50%);
+    background-size: 201%;
+    transition: background-position 0.3s ease-in-out;
+    background-position: 100%;
+}
+.hidden-text:hover {
+    background-position: 0%;
+}
+
 .carousel-container {
     position: relative;
 }
