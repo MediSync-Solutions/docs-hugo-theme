@@ -14,7 +14,7 @@ need a way to calculate them ourself */
     transition: all .1s ease-in-out;
 }
 .scale:hover {
-    transform: scale(1.15, 1.15);
+    transform: scale(0.9, 0.9   );
 }
 
 fifty-empty-line {
@@ -791,12 +791,12 @@ h2, h3, h4, h5, h6 {
 }
 
 blockquote {
-    border-inline-start: .6rem solid rgba( 134, 134, 134, .4 );
+    border-inline-start: .4rem solid rgb(20, 20, 20);
+    border-radius: 5px;
 }
 
 blockquote p {
     font-size: 1.3rem;
-    text-align: justify;
 }
 
 blockquote cite {
