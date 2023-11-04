@@ -870,7 +870,6 @@ function initMenuScrollbar(){
 function initCarousel() {
   document.querySelectorAll(".carousel-container").forEach(carousel => {
     insertNumber(carousel);
-    updateNumber(carousel);
     carousel.querySelector(".image-container").querySelectorAll(".item")[0].classList.add("active");
     
     carousel.querySelector(".prev").addEventListener("click", e => {
@@ -882,7 +881,6 @@ function initCarousel() {
     });
 
     insertDots(carousel);
-    updateDot(carousel,0);
 
     carousel.querySelectorAll(".dot").forEach(dot => {
       dot.addEventListener("click", e => {
@@ -918,7 +916,9 @@ function initCarousel() {
       const dot = document.createElement("div");
       dot.classList.add("dot");
       carousel.querySelector(".dots").append(dot);
+
     });
+    carousel.querySelectorAll(".dot")[0].classList.add("active");
   }
 
   function prevItem(carousel) {
