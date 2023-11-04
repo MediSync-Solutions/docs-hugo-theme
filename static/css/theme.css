@@ -527,11 +527,18 @@ dd {
 }
 .image-container .item {
     top: 0;
+    right: 0;
+    left: 0;
     position: absolute;
     transition: transform 0.3s ease-in-out;
     transform: translateX(0%);
     display: none;
 }
+.image-container .item img {
+    position: relative;
+    width: 100%;
+}
+
 .image-container .without-animation {
     transition: none;
 }
