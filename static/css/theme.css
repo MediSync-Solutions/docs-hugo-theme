@@ -514,7 +514,7 @@ dd {
     color: var(--MAIN-BG-color);   
 }
 
-.highlighting {
+.lighting {
     background-color: var(--INTERNAL-EXPAND-HOVER-color);
     border-radius: 5px; 
     padding-left: 0.25rem; 
