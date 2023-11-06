@@ -12,6 +12,7 @@
 
     --INTERNAL-MAIN-TEXT-color: var(--MAIN-TEXT-color, rgba( 16, 16, 16, 1 ));
     --INTERNAL-MAIN-TITLES-TEXT-color: var(--MAIN-TITLES-TEXT-color, var(--INTERNAL-MAIN-TEXT-color));
+    --INTERNAL-MAIN-TEXT-HOVER-color: var(--MAIN-TEXT-HOVER-color);
 
     --INTERNAL-MAIN-TITLES-H1-color: var(--MAIN-TITLES-H1-color, var(--INTERNAL-MAIN-TEXT-color));
     --INTERNAL-MAIN-TITLES-H2-color: var(--MAIN-TITLES-H2-color, var(--INTERNAL-MAIN-TITLES-TEXT-color));

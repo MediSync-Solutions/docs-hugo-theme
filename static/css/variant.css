@@ -63,7 +63,7 @@ a {
 #R-sidebar .collapsible-menu li:not(.active) > label:hover,
 #R-sidebar .menu-control:hover,
 #R-sidebar a:hover {
-    color: var(--VARIABLE-BOX-TEXT-color);
+    color: var(--INTERNAL-MAIN-TEXT-HOVER-color);
 }
 
 #R-sidebar ul.enlarge > li.parent,
