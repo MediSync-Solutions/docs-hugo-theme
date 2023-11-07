@@ -524,15 +524,34 @@ dd {
 }
 
 .hidden-text {
+    position: relative; 
     padding-left: 0.25rem;
     padding-right: 0.25rem;
     margin-left: -0.25rem;
     margin-right: -0.25rem;
     background: linear-gradient(90deg, transparent 50%, var(--INTERNAL-MAIN-TEXT-color) 50%);
     background-size: 201%;
+    overflow: hidden;
     transition: background-position 0.3s ease-in-out;
     background-position: 100%;
 }
+.hidden-text .icon {
+    position: absolute;
+    color: var(--INTERNAL-BOX-BG-color);
+    margin-left: auto;
+    margin-right: auto;
+    right: 50%;
+    transform: scaleX(100%);
+    transform-origin: right;
+}
+.hidden-text .icon {
+    transition: transform 0.14s 0.16s ease-in-out;
+}
+.hidden-text:hover .icon {
+    transform: scaleX(0%);
+    transition: transform 0.14s 0s ease-in-out;
+}
+
 .hidden-text:hover {
     background-position: 0%;
 }
