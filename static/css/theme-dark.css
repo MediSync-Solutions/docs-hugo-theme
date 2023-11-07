@@ -13,7 +13,8 @@
     --MAIN-LINK-color: rgba(255,255,255,1);
     --MAIN-LINK-HOVER-color: rgba( 223, 215, 145, 1 ); /* hoverd link color of content */
     --MAIN-BG-color: rgba( 0, 0, 0, 1 ); /* background color of content */
-    --MAIN-TEXT-color: rgba( 239, 239, 239, 1 ); /* text color of content and h1 titles */
+    --MAIN-TEXT-color: rgba( 255, 255, 255, 1 ); /* text color of content and h1 titles */
+    --MAIN-TEXT-HOVER-color: rgba( 215, 215, 215, 1);
     --MAIN-TITLES-TEXT-color: rgba( 181, 181, 181, 1 ); /* text color of h2-h6 titles and transparent box titles */
 
     /* adjusted to relearn-light chroma style */
