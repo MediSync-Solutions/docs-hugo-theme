@@ -6,7 +6,7 @@
 {{- if or (and (eq $major 0) (ge $minor 108)) (gt $major 0) }}
   {{- $id = "" }}
 {{- end }}
-{{- partial "shortcodes/hidden.html" (dict
+{{- partial "shortcodes/spoiler.html" (dict
   "page"    .Page
   "content" .Inner
 ) }}

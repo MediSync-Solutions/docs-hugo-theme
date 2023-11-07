@@ -523,38 +523,16 @@ dd {
     margin-right: -0.25rem;
 }
 
-.hidden-text {
-    position: relative; 
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-    margin-left: -0.25rem;
-    margin-right: -0.25rem;
-    background: linear-gradient(90deg, transparent 50%, var(--INTERNAL-MAIN-TEXT-color) 50%);
-    background-size: 201%;
-    overflow: hidden;
-    transition: background-position 0.3s ease-in-out;
-    background-position: 100%;
+.spoiler {
+
+    filter: blur(5px);
+    transition: filter 0.3s ease-in-out;
 }
-.hidden-text .icon {
-    position: absolute;
-    color: var(--INTERNAL-BOX-BG-color);
-    margin-left: auto;
-    margin-right: auto;
-    right: 50%;
-    transform: scaleX(100%);
-    transform-origin: right;
-}
-.hidden-text .icon {
-    transition: transform 0.14s 0.16s ease-in-out;
-}
-.hidden-text:hover .icon {
-    transform: scaleX(0%);
-    transition: transform 0.14s 0s ease-in-out;
+.spoiler:hover {
+    filter: blur(0px);
+    transition: filter 0.3s ease-in-out;
 }
 
-.hidden-text:hover {
-    background-position: 0%;
-}
 
 .carousel-container {
     position: relative;
@@ -772,7 +750,6 @@ h1 {
     margin: 0.85rem 0 1rem 0;
     /* big titles cause a horizontal scrollbar - fixing this by wrapping text */
     overflow-wrap: break-word;
-    overflow-x: hidden;
     text-align: center;
     text-rendering: optimizeLegibility;
     text-transform: uppercase;
@@ -823,7 +800,6 @@ h2, h3, .article-subheading, h4, h5, h6 {
     margin: 2rem 0 0rem 0;
     /* big titles cause a horizontal scrollbar - fixing this by wrapping text */
     overflow-wrap: break-word;
-    overflow-x: hidden;
     text-rendering: optimizeLegibility;
 }
 
