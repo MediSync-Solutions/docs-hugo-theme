@@ -53,9 +53,19 @@
                     {{- $item := . }}
                     {{- with $page.Site.GetPage (printf "%s" $item.url ) }}
                       {{- $to := . }}
-                      <li><a class="padding"  {{ if $item.url }}href="{{ partial "relLangPrettyUglyURL.hugo" (dict "to" $to) }}"{{ end }}>{{ safeHTML $item.name }}</a></li>
+                      {{- if not $item.url }}
+                        {{- $id := partial "make-random-md5.hugo" $page }}
+                        <li><span class="padding copy" data-clipboard-target="#copy-{{ $id }}" id="copy-{{ $id }}">{{ safeHTML $item.name }}</span></li>
+                      {{- else }}
+                        <li><a class="padding" href="{{ partial "relLangPrettyUglyURL.hugo" (dict "to" $to) }}">{{ safeHTML $item.name }}</a></li>
+                      {{- end }}
                     {{- else }}
-                      <li><a class="padding" {{ if $item.url }}href="{{ $item.url | relLangURL }}"{{ end }}>{{ safeHTML $item.name }}</a></li>
+                      {{- if not $item.url }}
+                        {{- $id := partial "make-random-md5.hugo" $page }}
+                        <li><span class="padding copy" data-clipboard-target="#copy-{{ $id }}" id="copy-{{ $id }}">{{ safeHTML $item.name }}</span></li>
+                      {{- else }}
+                        <li><a class="padding" href="{{ $item.url | relLangURL }}">{{ safeHTML $item.name }}</a></li>
+                      {{- end }}
                     {{- end }}
                   {{- end }}
                 {{- end }} 
