@@ -222,13 +222,14 @@ dd {
     inset-inline-start: 0;
     line-height: 1.574;
     min-height: 100%;
-    min-width: calc(18.75rem + 5px);
-    max-width: calc(18.75rem + 5px);
+
     position: fixed;
-    width: calc(18.75rem + 5px);
-   
-    background-repeat: no-repeat;
+    width: 18.75rem;
+    min-width: 18.75rem;
+    max-width: 18.75rem;
+
     background-size: calc(100% - 5px) 100%;
+        background-repeat: no-repeat;
     z-index: 75;
 }
 
@@ -401,13 +402,13 @@ dd {
     flex-grow: 1;
     flex-shrink: 0;
     height: 100%;
-    margin-inline-start: calc(18.75rem + 1px);
+    margin-inline-start: calc(18.75rem - 5px);
     min-height: 100%;
-    min-width: calc( 100% - 18.75rem - 1px);
-    max-width: calc( 100% - 18.75rem - 1px);
+    min-width: calc( 100% - 18.75rem + 5px);
+    max-width: calc( 100% - 18.75rem + 5px);
     overflow-wrap: break-word; /* avoid x-scrolling of body if it is to large to fit */
     position: relative; /* PS */
-    width: calc( 100% - 18.75rem - 1px);
+    width: calc( 100% - 18.75rem + 5px);
     z-index: 70;
 }
 
@@ -685,11 +686,11 @@ dd {
     width: 5px;
     background-color: transparent;
 }
+
 *::-webkit-scrollbar-thumb {
     border-radius: 6px;
     transition: all 0.3s ease-in-out;
 }
-
 
 
 #R-body h1 + hr {
@@ -1348,7 +1349,6 @@ html[dir="rtl"] .topbar-button-next i {
         visibility: hidden;
     }
 }
-
 .breadcrumbs {
     min-width: 0;
     overflow: hidden;
@@ -1381,6 +1381,9 @@ html[dir="rtl"] .topbar-button-next i {
         min-width: calc( 100% - 14.375rem + 5px);
         max-width: calc( 100% - 14.375rem + 5px);
         width: calc( 100% - 14.375rem + 5px);
+    }
+    #R-topics {
+        width: calc(100% - 0.1px);
     }
 }
 @media screen and (max-width: 48rem) {
@@ -1420,6 +1423,7 @@ html[dir="rtl"] .topbar-button-next i {
         top: 0;
         z-index: 190;
     }
+
 }
 
 .copy-to-clipboard-button {

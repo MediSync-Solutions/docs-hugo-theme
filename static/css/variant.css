@@ -487,6 +487,7 @@ article ul > li > input[type="checkbox"] {
     color: var(--VARIABLE-BOX-TEXT-color);
     font-weight: bold;
 }
+
 *::-webkit-scrollbar-thumb {
     background-color: transparent;
     border-color: transparent;
@@ -497,6 +498,21 @@ article ul > li > input[type="checkbox"] {
 #R-content-wrapper:hover::-webkit-scrollbar-thumb {
     background: linear-gradient(90deg, var(--INTERNAL-thumb-color) 25%, transparent 25%);
 }
+
+* {
+    scrollbar-color: transparent transparent;
+    scrollbar-width: thin;
+}
+#R-body-inner:hover {
+    scrollbar-color: var(--INTERNAL-thumb-color) transparent;
+    scrollbar-width: thin;
+}
+#R-content-wrapper:hover {
+    scrollbar-color: red transparent;
+    scrollbar-width: thin;
+}
+
+
 
 
 red { color: Red }
