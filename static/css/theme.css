@@ -9,7 +9,6 @@ need a way to calculate them ourself */
     --bpx: 1;
     --bpx1: 1;
 }
-
 .scale  {
     transition: all .1s ease-in-out;
 }
@@ -223,10 +222,14 @@ dd {
     inset-inline-start: 0;
     line-height: 1.574;
     min-height: 100%;
-    min-width: 18.75rem;
-    max-width: 18.75rem;
+    min-width: calc(18.75rem + 5px);
+    max-width: calc(18.75rem + 5px);
     position: fixed;
-    width: 18.75rem;
+    width: calc(18.75rem + 5px);
+   
+    background-repeat: no-repeat;
+    background-size: calc(100% - 5px) 100%;
+    z-index: 75;
 }
 
 #R-sidebar a{
@@ -236,6 +239,7 @@ dd {
 #R-header-wrapper {
     text-align: center;
     padding: 1rem;
+    width: calc(100% - 5px);
     position: relative;
 }
 #R-header {
@@ -307,11 +311,12 @@ dd {
 }
 
 #R-content-wrapper {
-    --ps-rail-hover-color: rgba( 176, 176, 176, .25 );
     display: flex;
     flex-direction: column;
     flex: 1; /* fill rest of vertical space */
-    overflow: hidden;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
     position: relative; /* PS */
     z-index: 100;
 }
@@ -396,13 +401,13 @@ dd {
     flex-grow: 1;
     flex-shrink: 0;
     height: 100%;
-    margin-inline-start: 18.75rem;
+    margin-inline-start: calc(18.75rem + 1px);
     min-height: 100%;
-    min-width: calc( 100% - 18.75rem);
-    max-width: calc( 100% - 18.75rem);
+    min-width: calc( 100% - 18.75rem - 1px);
+    max-width: calc( 100% - 18.75rem - 1px);
     overflow-wrap: break-word; /* avoid x-scrolling of body if it is to large to fit */
     position: relative; /* PS */
-    width: calc( 100% - 18.75rem);
+    width: calc( 100% - 18.75rem - 1px);
     z-index: 70;
 }
 
@@ -440,14 +445,12 @@ dd {
 }
 
 #R-body-inner {
-    --ps-rail-hover-color: rgba( 176, 176, 176, .25 );
     display: flex;
     flex: auto;
     flex-direction: column;
     overflow-y: auto;
     position: relative; /* PS */
 }
-
 #R-body-inner > .flex-block-wrapper {
     padding: 0 1.25rem .375rem 1.25rem;
 }
@@ -677,17 +680,17 @@ dd {
     /* remove focus indicator for programatically set focus */
     outline: none;
 }
-
-#R-body-inner::-webkit-scrollbar {
+*::-webkit-scrollbar {
     opacity: 0.25;
+    width: 5px;
     background-color: transparent;
-    width: 6px;
 }
-
-
-#R-body-inner::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     border-radius: 6px;
+    transition: all 0.3s ease-in-out;
 }
+
+
 
 #R-body h1 + hr {
     margin-bottom: 2rem;
@@ -1374,10 +1377,10 @@ html[dir="rtl"] .topbar-button-next i {
         width: 14.375rem;
     }
     #R-body {
-        margin-inline-start: 14.375rem;
-        min-width: calc( 100% - 14.375rem);
-        max-width: calc( 100% - 14.375rem);
-        width: calc( 100% - 14.375rem);
+        margin-inline-start: calc(14.375rem - 5px);
+        min-width: calc( 100% - 14.375rem + 5px);
+        max-width: calc( 100% - 14.375rem + 5px);
+        width: calc( 100% - 14.375rem + 5px);
     }
 }
 @media screen and (max-width: 48rem) {
@@ -1404,11 +1407,10 @@ html[dir="rtl"] .topbar-button-next i {
         z-index: 90;
     }
     .mobile-support.sidebar-flyout #R-body {
-        margin-inline-start: 14.375rem;
+        margin-inline-start: calc(14.375rem - 5px);
         overflow: hidden;
     }
     .mobile-support.sidebar-flyout #R-body-overlay{
-        background-color: rgba( 134, 134, 134, .5 );
         bottom: 0;
         cursor: pointer;
         height: 100vh;
@@ -1486,6 +1488,7 @@ pre:not(.mermaid) > .copy-to-clipboard-button {
 
 #R-homelinks {
     padding: 0;
+    width: calc(100% - 5px);
 }
 #R-homelinks ul {
     margin: .5rem 0;
@@ -1689,7 +1692,6 @@ option {
 }
 
 .topbar-content-wrapper {
-    --ps-rail-hover-color: rgba( 176, 176, 176, .25 );
     max-height: 90vh;
     overflow: hidden;
     padding: .5rem 1rem;
@@ -2500,7 +2502,7 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
     height: 3rem;
     position: absolute;
     top: 0;
-    width: 100%;
+    width: calc(100% - 5px);
     z-index: 1;
 }
 
@@ -2509,6 +2511,9 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
 #R-content-wrapper > * {
     border-inline-end-style: solid;
     border-inline-end-width: 1px;
+}
+#R-content-wrapper::-webkit-scrollbar-thumb {
+	border-radius: 0px;
 }
 
 #topics > ul {

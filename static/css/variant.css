@@ -30,7 +30,7 @@ a {
 }
 
 #R-sidebar {
-    background: var(--INTERNAL-MENU-SECTIONS-BG-color);
+    background-image: linear-gradient(90deg, var(--INTERNAL-MENU-SECTIONS-BG-color) 50%, var(--INTERNAL-MENU-SECTIONS-BG-color) 50%);
 }
 
 #R-header-wrapper {
@@ -487,11 +487,17 @@ article ul > li > input[type="checkbox"] {
     color: var(--VARIABLE-BOX-TEXT-color);
     font-weight: bold;
 }
-
-#R-body-inner::-webkit-scrollbar-thumb {
-    background-color: var(--ps-thumb-color);
-    border-color:  var(--ps-thumb-color);
+*::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-color: transparent;
 }
+#R-body-inner:hover::-webkit-scrollbar-thumb {
+    background-color: var(--INTERNAL-thumb-color);
+}
+#R-content-wrapper:hover::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, var(--INTERNAL-thumb-color) 25%, transparent 25%);
+}
+
 
 red { color: Red }
 orange { color: Orange }

@@ -31,9 +31,6 @@ var touchsupport = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) 
 
 var formelements = 'button, datalist, fieldset, input, label, legend, meter, optgroup, option, output, progress, select, textarea';
 
-// PerfectScrollbar
-var psc;
-var psm;
 var pst = new Map();
 var elc = document.querySelector('#R-body-inner');
 
@@ -43,7 +40,6 @@ function regexEscape( s ){
 
 function documentFocus(){
     elc.focus();
-    psc && psc.scrollbarY.focus();
 }
 
 function scrollbarWidth(){
@@ -765,108 +761,6 @@ function initArrowNav(){
     });
 }
 
-function initMenuScrollbar(){
-    if( isPrint ){
-        return;
-    }
-
-    var elm = document.querySelector('#R-content-wrapper');
-    var elt = document.querySelector('.topbar-button.topbar-flyout .topbar-content-wrapper');
-
-    var autofocus = true;
-    document.addEventListener('keydown', function(event){
-        // for initial keyboard scrolling support, no element
-        // may be hovered, but we still want to react on
-        // cursor/page up/down. because we can't hack
-        // the scrollbars implementation, we try to trick
-        // it and give focus to the scrollbar - only
-        // to just remove the focus right after scrolling
-        // happend
-        autofocus = false;
-        if( event.shiftKey || event.altKey || event.ctrlKey || event.metaKey || event.which < 32 || event.which > 40 ){
-            // if tab key was pressed, we are ended with our initial
-            // focus job
-            return;
-        }
-
-        var c = elc && elc.matches(':hover');
-        var m = elm && elm.matches(':hover');
-        var t = elt && elt.matches(':hover');
-        var f = event.target.matches( formelements );
-        if( !c && !m && !t && !f ){
-            // only do this hack if none of our scrollbars
-            // is hovered
-            // if we are showing the sidebar as a flyout we
-            // want to scroll the content-wrapper, otherwise we want
-            // to scroll the body
-            var nt = document.querySelector('body').matches('.topbar-flyout');
-            var nm = document.querySelector('body').matches('.sidebar-flyout');
-            if( nt ){
-                var psb = pst.get( document.querySelector('.topbar-button.topbar-flyout') );
-                psb && psb.scrollbarY.focus();
-            }
-            else if( nm ){
-                psm && psm.scrollbarY.focus();
-            }
-            else{
-                document.querySelector('#R-body-inner').focus();
-                psc && psc.scrollbarY.focus();
-            }
-        }
-    });
-    // scrollbars will install their own keyboard handlers
-    // that need to be executed inbetween our own handlers
-    // PSC removed for #242 #243 #244
-    // psc = elc && new PerfectScrollbar('#R-body-inner');
-    psm = elm && new PerfectScrollbar('#R-content-wrapper');
-    document.querySelectorAll('.topbar-button .topbar-content-wrapper').forEach( function( e ){
-        var button = getTopbarButtonParent( e );
-        if( !button ){
-            return;
-        }
-        pst.set( button, new PerfectScrollbar( e ) );
-        e.addEventListener( 'click', toggleTopbarFlyoutEvent );
-    });
-
-    document.addEventListener('keydown', function(){
-        // if we facked initial scrolling, we want to
-        // remove the focus to not leave visual markers on
-        // the scrollbar
-        if( autofocus ){
-            psc && psc.scrollbarY.blur();
-            psm && psm.scrollbarY.blur();
-            pst.forEach( function( psb ){
-                psb.scrollbarY.blur();
-            });
-            autofocus = false;
-        }
-    });
-    // on resize, we have to redraw the scrollbars to let new height
-    // affect their size
-    window.addEventListener('resize', function(){
-        pst.forEach( function( psb ){
-            setTimeout( function(){ psb.update(); }, 10 );
-        });
-        psm && setTimeout( function(){ psm.update(); }, 10 );
-        psc && setTimeout( function(){ psc.update(); }, 10 );
-    });
-    // now that we may have collapsible menus, we need to call a resize
-    // for the menu scrollbar if sections are expanded/collapsed
-    document.querySelectorAll('#R-sidebar .collapsible-menu input').forEach( function(e){
-        e.addEventListener('change', function(){
-            psm && setTimeout( function(){ psm.update(); }, 10 );
-        });
-    });
-    // bugfix for PS in RTL mode: the initial scrollbar position is off;
-    // calling update() once, fixes this
-    pst.forEach( function( psb ){
-        setTimeout( function(){ psb.update(); }, 10 );
-    });
-    psm && setTimeout( function(){ psm.update(); }, 10 );
-    psc && setTimeout( function(){ psc.update(); }, 10 );
-
-}
-
 function initCarousel() {
   document.querySelectorAll(".carousel-container").forEach(carousel => {
     insertNumber(carousel);
@@ -1051,8 +945,6 @@ function openNav(){
     closeSomeTopbarButtonFlyout();
     var b = document.querySelector( 'body' );
     b.classList.add( 'sidebar-flyout' );
-    psm && setTimeout( function(){ psm.update(); }, 10 );
-    psm && psm.scrollbarY.focus();
     var a = document.querySelector( '#R-sidebar a' )
     if( a ){
         a.focus();
@@ -1398,7 +1290,6 @@ function mark() {
 			parent = parent.parentNode;
 		}
 	}
-    psm && setTimeout( function(){ psm.update(); }, 10 );
 }
 window.relearn.markSearch = mark;
 
@@ -1486,7 +1377,6 @@ function unmark() {
 
 	var highlighted = document.querySelectorAll( '.highlightable' );
     unhighlight( highlighted, { element: 'mark' } );
-    psm && setTimeout( function(){ psm.update(); }, 10 );
 }
 
 function unhighlight( es, options ){
@@ -1640,7 +1530,6 @@ ready( function(){
     initArrowNav();
     initMermaid();
     initOpenapi();
-    initMenuScrollbar();
     initToc();
     initAnchorClipboard();
     initTextClipboard();
