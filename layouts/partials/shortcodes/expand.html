@@ -6,10 +6,11 @@
 {{- $content := .content }}
 {{- $title := .title | default (T "Expand-title") }}
 {{- $title = trim $title " " }}
+{{- $open := .open | default "" }}
 {{- $id := cond (or (eq .id nil) (eq .id "")) (partial "make-random-md5.hugo" $page) .id }}
 {{- with $page }}
 <section class="expand">
-<input type="checkbox" id="R-expand-{{ $id }}">
+<input type="checkbox" id="R-expand-{{ $id }}"{{ if eq $open "true" }}checked{{ end }}>
 <label for="R-expand-{{ $id }}" >
 <div class="expand-button fas fa-chevron-right"></div>
 <div class = "expand-title">{{ $title | .RenderString }}</div>
