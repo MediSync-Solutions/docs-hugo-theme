@@ -8,12 +8,24 @@ need a way to calculate them ourself */
     --dpr: 1;
     --bpx: 1;
     --bpx1: 1;
+    --thumb-size: 0.79vh;
 }
 .scale  {
     transition: all .1s ease-in-out;
 }
 .scale:hover {
     transform: scale(0.9, 0.9   );
+}
+
+*::-webkit-scrollbar {
+    opacity: 0.25;
+    width: var(--thumb-size);
+    background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
 }
 
 fifty-empty-line {
@@ -207,7 +219,7 @@ dd {
     list-style: circle;
 }
 
-.default-animation{
+.default-animation {
     transition: all 0.35s ease;
 }
 
@@ -224,23 +236,23 @@ dd {
     min-height: 100%;
 
     position: fixed;
-    width: 18.75rem;
-    min-width: 18.75rem;
-    max-width: 18.75rem;
+    width: calc(18.75rem + var(--thumb-size));
+    min-width: calc(18.75rem + var(--thumb-size));
+    max-width: calc(18.75rem + var(--thumb-size));
 
-    background-size: calc(100% - 5px) 100%;
-        background-repeat: no-repeat;
+    background-size: calc(100% - var(--thumb-size)) 100%;
+    background-repeat: no-repeat;
     z-index: 75;
 }
 
-#R-sidebar a{
+#R-sidebar a {
     text-decoration: none;
 }
 
 #R-header-wrapper {
     text-align: center;
     padding: 1rem;
-    width: calc(100% - 5px);
+    width: calc(100% - var(--thumb-size));
     position: relative;
 }
 #R-header {
@@ -355,6 +367,8 @@ dd {
 
 #R-sidebar ul li {
     padding: 0;
+    padding-top: 0.11rem;
+    padding-bottom: 0.11rem;
 }
 
 #R-sidebar ul li.visited + span {
@@ -402,13 +416,13 @@ dd {
     flex-grow: 1;
     flex-shrink: 0;
     height: 100%;
-    margin-inline-start: calc(18.75rem - 5px);
+    margin-inline-start: calc(18.75rem);
     min-height: 100%;
-    min-width: calc( 100% - 18.75rem + 5px);
-    max-width: calc( 100% - 18.75rem + 5px);
+    min-width: calc( 100% - 18.75rem);
+    max-width: calc( 100% - 18.75rem);
     overflow-wrap: break-word; /* avoid x-scrolling of body if it is to large to fit */
     position: relative; /* PS */
-    width: calc( 100% - 18.75rem + 5px);
+    width: calc( 100% - 18.75rem);
     z-index: 70;
 }
 
@@ -449,7 +463,7 @@ dd {
     display: flex;
     flex: auto;
     flex-direction: column;
-    overflow-y: auto;
+    overflow-y: scroll;
     position: relative; /* PS */
 }
 #R-body-inner > .flex-block-wrapper {
@@ -680,16 +694,6 @@ dd {
 #R-body-inner:focus-visible{
     /* remove focus indicator for programatically set focus */
     outline: none;
-}
-*::-webkit-scrollbar {
-    opacity: 0.25;
-    width: 5px;
-    background-color: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-    border-radius: 6px;
-    transition: all 0.3s ease-in-out;
 }
 
 
@@ -1377,10 +1381,10 @@ html[dir="rtl"] .topbar-button-next i {
         width: 14.375rem;
     }
     #R-body {
-        margin-inline-start: calc(14.375rem - 5px);
-        min-width: calc( 100% - 14.375rem + 5px);
-        max-width: calc( 100% - 14.375rem + 5px);
-        width: calc( 100% - 14.375rem + 5px);
+        margin-inline-start: calc(14.375rem - var(--thumb-size));
+        min-width: calc( 100% - 14.375rem + var(--thumb-size));
+        max-width: calc( 100% - 14.375rem + var(--thumb-size));
+        width: calc( 100% - 14.375rem + var(--thumb-size));
     }
     #R-topics {
         width: calc(100% - 0.1px);
@@ -1410,7 +1414,7 @@ html[dir="rtl"] .topbar-button-next i {
         z-index: 90;
     }
     .mobile-support.sidebar-flyout #R-body {
-        margin-inline-start: calc(14.375rem - 5px);
+        margin-inline-start: calc(14.375rem - var(--thumb-size));
         overflow: hidden;
     }
     .mobile-support.sidebar-flyout #R-body-overlay{
@@ -1492,7 +1496,7 @@ pre:not(.mermaid) > .copy-to-clipboard-button {
 
 #R-homelinks {
     padding: 0;
-    width: calc(100% - 5px);
+    width: calc(100% - var(--thumb-size));
 }
 #R-homelinks ul {
     margin: .5rem 0;
@@ -2343,8 +2347,8 @@ article ul > li > input[type="checkbox"]:checked::before {
 #R-sidebar ul.collapsible-menu > li > :is( a, span ) {
     display: inline-block;
     width: 100%;
-}
 
+}
 /* menu states for not(.collapsible-menu) */
 
 #R-sidebar ul ul {
@@ -2506,7 +2510,7 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
     height: 3rem;
     position: absolute;
     top: 0;
-    width: calc(100% - 5px);
+    width: calc(100% - var(--thumb-size));
     z-index: 1;
 }
 

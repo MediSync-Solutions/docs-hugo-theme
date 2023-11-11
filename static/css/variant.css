@@ -508,7 +508,7 @@ article ul > li > input[type="checkbox"] {
     scrollbar-width: thin;
 }
 #R-content-wrapper:hover {
-    scrollbar-color: red transparent;
+    scrollbar-color: var(--INTERNAL-thumb-color) transparent;
     scrollbar-width: thin;
 }
 
