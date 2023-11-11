@@ -129,19 +129,16 @@ h6 {
     font-family: var(--INTERNAL-MAIN-TITLES-H6-font);
 }
 
-div.box {
+.notice {
     background-color: var(--VARIABLE-BOX-color);
     border-color: var(--VARIABLE-BOX-color);
-}
-
-div.box > .box-label {
     color: var(--VARIABLE-BOX-CAPTION-color);
 }
-
-div.box > .box-content {
+.notice .notice-content {
     background-color: var(--VARIABLE-BOX-BG-color);
     color: var(--VARIABLE-BOX-TEXT-color);
 }
+
 
 .cstyle.info {
     --VARIABLE-BOX-color: var(--INTERNAL-BOX-INFO-color);

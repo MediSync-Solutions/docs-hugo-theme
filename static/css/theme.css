@@ -842,26 +842,6 @@ blockquote cite {
     color-adjust: exact;
 }
 
-div.box {
-    margin: 1.5rem 0;
-    border-style: solid;
-    border-width: 1px;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-}
-
-div.box > .box-label {
-    font-weight: 500;
-    padding: .2rem .6rem;
-}
-
-div.box > .box-content {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
 p:empty {
     /* in case of image render hook, Hugo may generate empty <p>s that we want to ignore */
     display: none;
@@ -872,10 +852,6 @@ p:empty {
 #R-body table th > :nth-child(1 of :not(:empty)) :nth-child(1 of :not(:empty)),
 #R-body table td > :nth-child(1 of :not(:empty)),
 #R-body table td > :nth-child(1 of :not(:empty)) :nth-child(1 of :not(:empty)),
-#R-body div.box > .box-content > :nth-child(1 of :not(:empty)),
-#R-body div.box > .box-content > :nth-child(1 of :not(:empty)) :nth-child(1 of :not(:empty)),
-#R-body div.expand > .expand-content-text > :nth-child(1 of :not(:empty)),
-#R-body div.expand > .expand-content-text > :nth-child(1 of :not(:empty)) :nth-child(1 of :not(:empty)),
 #R-body div.tab-content > .tab-content-text > :nth-child(1 of :not(:empty)),
 #R-body div.tab-content > .tab-content-text > :nth-child(1 of :not(:empty)) :nth-child(1 of :not(:empty)) {
     margin-top: 0;
@@ -887,12 +863,6 @@ p:empty {
 #R-body table td > :nth-last-child(1 of :not(:empty)),
 #R-body table td > :nth-last-child(1 of :not(:empty)) :nth-last-child(1 of :not(:empty)),
 #R-body table td > div:last-child pre:not(.mermaid),
-#R-body div.box > .box-content > :nth-last-child(1 of :not(:empty)),
-#R-body div.box > .box-content > :nth-last-child(1 of :not(:empty)) :nth-last-child(1 of :not(:empty)),
-#R-body div.box > .box-content > div:last-child pre:not(.mermaid),
-#R-body div.expand > .expand-content-text > :nth-last-child(1 of :not(:empty)),
-#R-body div.expand > .expand-content-text > :nth-last-child(1 of :not(:empty)) :nth-last-child(1 of :not(:empty)),
-#R-body div.expand > .expand-content-text > div:last-child pre:not(.mermaid),
 #R-body div.tab-content > .tab-content-text > :nth-last-child(1 of :not(:empty)),
 #R-body div.tab-content > .tab-content-text > :nth-last-child(1 of :not(:empty)) :nth-last-child(1 of :not(:empty)),
 #R-body div.tab-content > .tab-content-text > div:last-child pre:not(.mermaid) {
@@ -1390,7 +1360,7 @@ html[dir="rtl"] .topbar-button-next i {
     }
 }
 /* mobile menu slide */
-@media screen and (max-width: 48rem) {
+@media screen and (max-width: 40rem) {
     .mobile-support #R-sidebar {
         inset-inline-start: -14.375rem;
     }
@@ -1528,7 +1498,7 @@ option {
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows 500ms;
-    padding-left: 3rem;
+    padding-left: 2.931rem;
 }
 
 .expand .expand-content-inner {
@@ -2496,7 +2466,7 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
 }
 
 #R-content-wrapper::-webkit-scrollbar-thumb {
-	border-radius: 0px;
+    border-radius: 0px;
 }
 
 #topics > ul {
@@ -2539,4 +2509,48 @@ a#R-logo {
 }
 #R-sidebar ul.space > li:hover > a {
     transform: scale(104%);
+}
+
+.notice {
+    margin: 1.5rem 0;
+    border-style: solid;
+    border-width: 1px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.notice > input[type="checkbox"] {
+    display: none;
+}
+
+.notice .notice-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 500ms;
+}
+
+.notice .notice-content-inner {
+    overflow: hidden;
+}
+
+.notice .notice-content-inner > * {
+    padding: 1rem;
+}
+.notice > input[type="checkbox"]:checked ~ .notice-content {
+    grid-template-rows: 1fr;
+}
+
+.notice > label {
+    line-height: 1.7rem;
+    font-weight: 500;
+    margin-left: 0.65rem;
+    padding-top: 0.25rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    
+}
+.notice > label > .notice-title {
+    flex: 1;
+    padding-left: 0.65rem;
 }
