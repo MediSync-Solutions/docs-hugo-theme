@@ -1372,6 +1372,7 @@ html[dir="rtl"] .topbar-button-next i {
     text-decoration: none;
 }
 
+/* mobile platform */
 @media screen and (max-width: 60rem) {
     #R-sidebar {
         min-width: 14.375rem;
@@ -1385,11 +1386,11 @@ html[dir="rtl"] .topbar-button-next i {
         width: calc( 100% - 14.375rem + var(--thumb-size));
     }
     #R-topics {
-        width: calc(100% - 0.1px);
+        width: calc(14.375rem - var(--thumb-size));
     }
 }
+/* mobile menu slide */
 @media screen and (max-width: 48rem) {
-    /* we don't support sidebar flyout in mobile */
     .mobile-support #R-sidebar {
         inset-inline-start: -14.375rem;
     }
