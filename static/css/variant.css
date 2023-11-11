@@ -61,8 +61,7 @@ a {
 
 #R-sidebar select:hover,
 #R-sidebar .collapsible-menu li:not(.active) > label:hover,
-#R-sidebar .menu-control:hover,
-#R-sidebar a:hover {
+#R-sidebar .menu-control:hover {
     color: var(--INTERNAL-MAIN-TEXT-HOVER-color);
 }
 
@@ -463,7 +462,9 @@ article ul > li > input[type="checkbox"] {
 #R-topbar {
     border-bottom-color: var(--INTERNAL-MAIN-TOPBAR-BORDER-color);
 }
-
+#R-sidebar-line {
+    background-color: var(--INTERNAL-MENU-BORDER-color);
+}
 #R-header-topbar {
     border-inline-end-color: var(--INTERNAL-MENU-TOPBAR-BORDER-color);
 }
@@ -488,13 +489,11 @@ article ul > li > input[type="checkbox"] {
     font-weight: bold;
 }
 
-*::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    border-color: transparent;
-}
-#R-body-inner:hover::-webkit-scrollbar-thumb {
+
+*:hover::-webkit-scrollbar-thumb {
     background-color: var(--INTERNAL-thumb-color);
 }
+
 #R-content-wrapper:hover::-webkit-scrollbar-thumb {
     background: linear-gradient(90deg, var(--INTERNAL-thumb-color) 25%, transparent 25%);
 }
@@ -503,7 +502,8 @@ article ul > li > input[type="checkbox"] {
     scrollbar-color: transparent transparent;
     scrollbar-width: thin;
 }
-#R-body-inner:hover {
+
+*:hover {
     scrollbar-color: var(--INTERNAL-thumb-color) transparent;
     scrollbar-width: thin;
 }
