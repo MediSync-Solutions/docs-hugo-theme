@@ -42,21 +42,6 @@ function documentFocus(){
     elc.focus();
 }
 
-function scrollbarWidth(){
-    // https://davidwalsh.name/detect-scrollbar-width
-    // Create the measurement node
-    var scrollDiv = document.createElement("div");
-    scrollDiv.className = "scrollbar-measure";
-    document.body.appendChild(scrollDiv);
-    // Get the scrollbar width
-    var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-    // Delete the DIV
-    document.body.removeChild(scrollDiv);
-    return scrollbarWidth;
-}
-
-var scrollbarSize = scrollbarWidth();
-
 
 function fixCodeTabs(){
     /* if only a single code block is contained in the tab and no style was selected, treat it like style=code */
@@ -1150,10 +1135,6 @@ function initImage(){
     document.querySelectorAll( '.lightbox-back' ).forEach( function(e){ e.addEventListener( 'keydown', imageEscapeHandler ); });
 }
 
-function initExpand(){
-    document.querySelectorAll( '.expand > input' ).forEach( function(e){ e.addEventListener( 'change', initMermaid.bind( null, true, null ) ); });
-}
-
 function clearHistory() {
     var visitedItem = baseUriFull + 'visited-url/'
     for( var item in sessionStorage ){
@@ -1186,6 +1167,18 @@ function initHistory() {
             });
         }
     }
+    document.querySelector("#R-sidebar").querySelectorAll("input").forEach( function(el) {
+       el.checked = sessionStorage.getItem(el.id) == 1;
+    });
+    window.addEventListener('beforeunload', function(e){
+       document.querySelector("#R-sidebar").querySelectorAll("input").forEach( function(el){
+        if (el.checked) {
+            sessionStorage.setItem(el.id,1)
+        } else {
+            sessionStorage.removeItem(el.id);
+        }
+       });
+    });
 }
 
 function initScrollPositionSaver(){
@@ -1527,6 +1520,7 @@ if( window.themeUseOpenapi ){
 }
 
 ready( function(){
+    initHistory(); 
     initArrowNav();
     initMermaid();
     initOpenapi();
@@ -1540,14 +1534,13 @@ ready( function(){
     fixCodeTabs();
     restoreTabSelections();
     initSwipeHandler();
-    initHistory();
     initSearch();
     initImage();
-    initExpand();
     initScrollPositionSaver();
     scrollToPositions();
 });
 
+   
 (function(){
     var body = document.querySelector( 'body' );
     var topbar = document.querySelector( '#R-topbar' );
