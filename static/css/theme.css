@@ -2327,9 +2327,10 @@ article ul > li > input[type="checkbox"]:checked::before {
     transition: transform 0.3s ease-in-out;
     transform: scale(100%);
 }
+#R-sidebar ul.collapsible-menu > li.active > a > span,
 #R-sidebar ul.collapsible-menu > li:not(.active) > a:hover > span {
     transition: transform 0.3s ease-in-out;
-    transform: scale(108%);
+    transform: scale(104%);
 }
 /* menu states for not(.collapsible-menu) */
 
@@ -2537,5 +2538,5 @@ a#R-logo {
     transition: transform 0.3s ease-in-out;
 }
 #R-sidebar ul.space > li:hover > a {
-    transform: scale(108%);
+    transform: scale(104%);
 }
