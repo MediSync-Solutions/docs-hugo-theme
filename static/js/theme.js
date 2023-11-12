@@ -749,7 +749,12 @@ function initArrowNav(){
 function initCarousel() {
   document.querySelectorAll(".carousel-container").forEach(carousel => {
     insertNumber(carousel);
-    carousel.querySelector(".image-container").querySelectorAll(".item")[0].classList.add("active");
+    let imageContainer = carousel.querySelector(".image-container");
+    let firstItem = imageContainer.querySelectorAll(".item")[0]
+    firstItem.classList.add("active");
+    let width = firstItem.querySelector("img").clientWidth;
+    console.log(width);
+    //imageContainer.setAttribute("style","max-width:"+width+"px");
     
     carousel.querySelector(".prev").addEventListener("click", e => {
       prevItem(carousel);
