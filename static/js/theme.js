@@ -518,9 +518,9 @@ function initAnchorClipboard(){
 }
 
 function initCarousels() {
-
     document.querySelectorAll(".carousel-container").forEach(carousel => {
-      let firstImage = carousel.querySelectorAll(".item")[0].querySelector("img");
+      let firstImage = carousel.querySelector(".item > img");
+      if (firstImage == null) { carousel.remove(); return; }
       carousel.style.setProperty("aspect-ratio",firstImage.naturalWidth/firstImage.naturalHeight);
       carousel.style.setProperty("max-width","calc(70vh * " + (firstImage.naturalWidth/firstImage.naturalHeight)+")");
 
@@ -536,79 +536,68 @@ function initCarousels() {
 
       insertDots(carousel);
 
-      carousel.querySelectorAll(".dot").forEach(dot => {
+      carousel.querySelectorAll("#" + carousel.id + " > " + ".dots > .dot").forEach(dot => {
         dot.addEventListener("click", e => {
           let item = Array.prototype.indexOf.call(
           e.target.parentNode.children,
           e.target);
-
-
           showItems(carousel, item);
         });
       });
       showItems(carousel, 0);
-
-      
     });
 
     function insertNumbers(carousel) {
-      const length = carousel.querySelectorAll(".item").length;
-      for (let i = 0; i < length; i++) {
-        const nmbr = document.createElement("div");
-        nmbr.classList.add("counter");
-        nmbr.innerText = i + 1 + " / " + length;
-
-        carousel.querySelectorAll(".item")[i].append(nmbr);
-      }
+      const items = carousel.querySelectorAll("#" + carousel.id + " > " + ".item");
+      const length = items.length;
+      let i = 1;
+      items.forEach(item => {
+        const number = document.createElement("div");
+        number.classList.add("counter");
+        number.innerText = i++ + " / " + length;
+        item.append(number);
+      });
     }
 
     function insertDots(carousel) {
       const dots = document.createElement("div");
       dots.classList.add("dots");
 
-      carousel.append(dots);
-
-      carousel.querySelectorAll(".item").forEach(elem => {
+      carousel.querySelectorAll("#" + carousel.id + " > " + ".item").forEach(elem => {
         const dot = document.createElement("div");
         dot.classList.add("dot");
-
-        carousel.querySelector(".dots").append(dot);
+        dots.append(dot);
       });
+      carousel.append(dots);
     }
 
     function plusItem(carousel) {
       let item = currentItem(carousel);
-
-      carousel.
-      querySelectorAll(".item")[
-      item].nextElementSibling.classList.contains("item") ?
-      showItems(carousel, item + 1) :
-      showItems(carousel, 0);
+      let length = carousel.querySelectorAll("#" + carousel.id + " > " + ".item").length;
+      if (length < 2) return;
+      item < length-1 ? showItems(carousel, item + 1) : showItems(carousel, 0);
     }
 
     function minusItem(carousel) {
       let item = currentItem(carousel);
-
-      carousel.querySelectorAll(".item")[item].previousElementSibling != null ?
-      showItems(carousel, item - 1) :
-      showItems(carousel, carousel.querySelectorAll(".item").length - 1);
+      let length = carousel.querySelectorAll("#" + carousel.id + " > " + ".item").length;
+      if (length < 2) return;
+      item > 0 ? showItems(carousel, item - 1) : showItems(carousel, length - 1);
     }
 
     function currentItem(carousel) {
-      return [...carousel.querySelectorAll(".item")].findIndex(
+      return [...carousel.querySelectorAll("#" + carousel.id + " > " + ".item")].findIndex(
       item => item.style.display == "block");
-
     }
 
     function showItems(carousel, item) {
-      if (carousel.querySelectorAll(".item")[currentItem(carousel)] != undefined)
-      carousel.querySelectorAll(".item")[currentItem(carousel)].style.display =
-      "none";
-      carousel.querySelectorAll(".item")[item].style.display = "block";
-
-      if (carousel.querySelector(".dot.active") != null)
-      carousel.querySelector(".dot.active").classList.remove("active");
-      carousel.querySelectorAll(".dot")[item].classList.add("active");
+      let items = carousel.querySelectorAll("#" + carousel.id + " > " + ".item");
+      let current = currentItem(carousel);
+      items[current < 0 ? 0 : current].style.display = "none";
+      items[item].style.display = "block";
+      if (carousel.querySelector("#" + carousel.id + " > " + ".dots > .dot.active") != null)
+      carousel.querySelector("#" + carousel.id + " > " + ".dots > .dot.active").classList.remove("active");
+      carousel.querySelectorAll("#" + carousel.id + " > " + ".dots > .dot")[item].classList.add("active");
     }
 }
 
