@@ -1,0 +1,11 @@
+{{- $page := .page }}
+{{- $content := .content }}
+{{- $image := .image }}
+{{- with $page }}
+  <div class="item">
+    <img src="{{ $image }}"/>
+    {{- if $content }}
+      <div class="label">{{ $content | safeHTML }}</div>
+    {{- end }}
+  </div>
+{{- end }}  
