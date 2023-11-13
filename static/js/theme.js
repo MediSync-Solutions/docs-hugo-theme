@@ -517,6 +517,101 @@ function initAnchorClipboard(){
     });
 }
 
+function initCarousels() {
+
+    document.querySelectorAll(".carousel-container").forEach(carousel => {
+      let firstImage = carousel.querySelectorAll(".item")[0].querySelector("img");
+      carousel.style.setProperty("aspect-ratio",firstImage.naturalWidth/firstImage.naturalHeight);
+      carousel.style.setProperty("max-width","calc(70vh * " + (firstImage.naturalWidth/firstImage.naturalHeight)+")");
+
+      insertNumbers(carousel);
+
+      carousel.querySelector(".prev").addEventListener("click", e => {
+        minusItem(carousel);
+      });
+
+      carousel.querySelector(".next").addEventListener("click", () => {
+        plusItem(carousel);
+      });
+
+      insertDots(carousel);
+
+      carousel.querySelectorAll(".dot").forEach(dot => {
+        dot.addEventListener("click", e => {
+          let item = Array.prototype.indexOf.call(
+          e.target.parentNode.children,
+          e.target);
+
+
+          showItems(carousel, item);
+        });
+      });
+      showItems(carousel, 0);
+
+      
+    });
+
+    function insertNumbers(carousel) {
+      const length = carousel.querySelectorAll(".item").length;
+      for (let i = 0; i < length; i++) {
+        const nmbr = document.createElement("div");
+        nmbr.classList.add("counter");
+        nmbr.innerText = i + 1 + " / " + length;
+
+        carousel.querySelectorAll(".item")[i].append(nmbr);
+      }
+    }
+
+    function insertDots(carousel) {
+      const dots = document.createElement("div");
+      dots.classList.add("dots");
+
+      carousel.append(dots);
+
+      carousel.querySelectorAll(".item").forEach(elem => {
+        const dot = document.createElement("div");
+        dot.classList.add("dot");
+
+        carousel.querySelector(".dots").append(dot);
+      });
+    }
+
+    function plusItem(carousel) {
+      let item = currentItem(carousel);
+
+      carousel.
+      querySelectorAll(".item")[
+      item].nextElementSibling.classList.contains("item") ?
+      showItems(carousel, item + 1) :
+      showItems(carousel, 0);
+    }
+
+    function minusItem(carousel) {
+      let item = currentItem(carousel);
+
+      carousel.querySelectorAll(".item")[item].previousElementSibling != null ?
+      showItems(carousel, item - 1) :
+      showItems(carousel, carousel.querySelectorAll(".item").length - 1);
+    }
+
+    function currentItem(carousel) {
+      return [...carousel.querySelectorAll(".item")].findIndex(
+      item => item.style.display == "block");
+
+    }
+
+    function showItems(carousel, item) {
+      if (carousel.querySelectorAll(".item")[currentItem(carousel)] != undefined)
+      carousel.querySelectorAll(".item")[currentItem(carousel)].style.display =
+      "none";
+      carousel.querySelectorAll(".item")[item].style.display = "block";
+
+      if (carousel.querySelector(".dot.active") != null)
+      carousel.querySelector(".dot.active").classList.remove("active");
+      carousel.querySelectorAll(".dot")[item].classList.add("active");
+    }
+}
+
 function initLinks() {
     document.querySelectorAll( '.default-link').forEach( function( element ){
         if (element.tagName == 'A') {
@@ -744,135 +839,6 @@ function initArrowNav(){
             }
         });
     });
-}
-
-function initCarousel() {
-  document.querySelectorAll(".carousel-container").forEach(carousel => {
-    insertNumber(carousel);
-    let imageContainer = carousel.querySelector(".image-container");
-    let firstItem = imageContainer.querySelectorAll(".item")[0]
-    firstItem.classList.add("active");
-    let width = firstItem.querySelector("img").clientWidth;
-    console.log(width);
-    //imageContainer.setAttribute("style","max-width:"+width+"px");
-    
-    carousel.querySelector(".prev").addEventListener("click", e => {
-      prevItem(carousel);
-    });
-
-    carousel.querySelector(".next").addEventListener("click", () => {
-      nextItem(carousel);
-    });
-
-    insertDots(carousel);
-
-    carousel.querySelectorAll(".dot").forEach(dot => {
-      dot.addEventListener("click", e => {
-        let item = Array.prototype.indexOf.call(
-        e.target.parentNode.children,
-        e.target);
-        showItem(carousel, item);
-      });
-    });
-  });
-
-  function insertNumber(carousel) {
-    const length = carousel.querySelectorAll(".item").length;
-    const nmbr = document.createElement("div");
-    nmbr.classList.add("number");
-    nmbr.innerText = 1 + " / " + length;
-    carousel.querySelector(".image-container").append(nmbr);
-  }
-
-  function updateNumber(carousel) {
-    const length = carousel.querySelectorAll(".item").length;
-    let item = currentItem(carousel)
-    carousel.querySelector(".image-container").querySelector(".number").innerText = (1+item) + " / " + length;
-  }
-
-  function insertDots(carousel) {
-    const dots = document.createElement("div");
-    dots.classList.add("dots");
-
-    carousel.append(dots);
-
-    carousel.querySelectorAll(".item").forEach(elem => {
-      const dot = document.createElement("div");
-      dot.classList.add("dot");
-      carousel.querySelector(".dots").append(dot);
-
-    });
-    carousel.querySelectorAll(".dot")[0].classList.add("active");
-  }
-
-  function prevItem(carousel) {
-    let item = currentItem(carousel);
-    let items =  carousel.querySelectorAll(".item");
-    let itemsAmount = items.length;
-    let nextItem = item-1 >= 0 ? item-1 : itemsAmount-1;
-    items[item].classList.add("to-right");
-    items[item].classList.remove("active");
-    items[nextItem].classList.add("active","without-animation","to-left");
-    items[nextItem].classList.remove("to-right");
-    setTimeout(() => {
-        items[nextItem].classList.remove("without-animation","to-left");
-    },1);
-    updateNumber(carousel);
-    updateDot(carousel,nextItem);
-  }
-
-  function nextItem(carousel) {
-    let item = currentItem(carousel);
-    let items =  carousel.querySelectorAll(".item");
-    let itemsAmount = items.length;
-    let nextItem = item+1 < itemsAmount ? item+1 : 0;
-    items[item].classList.add("to-left");
-    items[item].classList.remove("active");
-    items[nextItem].classList.add("active","without-animation","to-right");
-    items[nextItem].classList.remove("to-left");
-    setTimeout(() => {
-        items[nextItem].classList.remove("without-animation","to-right");
-    },1);
-    updateNumber(carousel);
-    updateDot(carousel,nextItem);
-  }
-
-  function currentItem(carousel) {
-    return [...carousel.querySelectorAll(".item")].findIndex(
-    item => item.classList.contains("active"));
-  }
-
-  function showItem(carousel, newItem) {
-    item = currentItem(carousel);
-    if (item == newItem) return;
-    let items =  carousel.querySelectorAll(".item");
-    let itemsAmount = items.length;
-    if (item > newItem) {
-        items[item].classList.add("to-right");
-        items[item].classList.remove("active");
-        items[newItem].classList.add("active","without-animation","to-left");
-        items[newItem].classList.remove("to-right");
-        setTimeout(() => {
-            items[newItem].classList.remove("without-animation","to-left");
-        },1);
-    }
-    else {
-        items[item].classList.add("to-left");
-        items[item].classList.remove("active");
-        items[newItem].classList.add("active","without-animation","to-right");
-        items[newItem].classList.remove("to-left");
-        setTimeout(() => {
-            items[newItem].classList.remove("without-animation","to-right");
-        },1);
-    }
-    updateNumber(carousel);
-    updateDot(carousel,newItem);
-  }
-  function updateDot(carousel, item) {
-    if (carousel.querySelector(".dot.active") != null)
-    carousel.querySelector(".dot.active").classList.remove("active");
-    carousel.querySelectorAll(".dot")[item].classList.add("active");
-  }
 }
 
 function imageEscapeHandler( event ){
@@ -1532,10 +1498,10 @@ ready( function(){
     initToc();
     initAnchorClipboard();
     initTextClipboard();
+    initCarousels();
     initLinks();
     initBigLinks();
     initCodeClipboard();
-    initCarousel();
     fixCodeTabs();
     restoreTabSelections();
     initSwipeHandler();

@@ -307,6 +307,29 @@ pre:not(.mermaid) .copy-to-clipboard-button:hover {
     color: var(--INTERNAL-MAIN-TEXT-color);
 }
 
+.carousel-container {
+    color: var(--INTERNAL-MAIN-TEXT-color);
+}
+
+.carousel-container .item .counter {
+    background-color: var(--INTERNAL-BOX-BG-color);
+}
+.carousel-container .item .label {
+    background-color: var(--MENU-HEADER-SEPARATOR-color);
+}
+.carousel-container .control .next i,
+.carousel-container .control .prev i {
+    background-color: var(--MENU-HEADER-SEPARATOR-color);
+}
+.carousel-container .control .next:hover i,
+.carousel-container .control .prev:hover i {
+    background-color: var(--INTERNAL-BOX-BG-color);
+}
+
+.carousel-container .dots .dot {
+    background-color: var(--INTERNAL-MAIN-TEXT-color);
+}
+
 .svg-reset-button {
     border-color: transparent;
     color: var(--INTERNAL-MAIN-LINK-color);

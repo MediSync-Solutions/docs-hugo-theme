@@ -1,25 +1,21 @@
 {{- $page := .page }}
-{{- if and (not $page) .context }}
-  {{- $page = .context }}
-  {{- warnf "%q: DEPRECATED parameter 'context' for shortcode 'expand' found, use 'page' instead; see https://mcshelby.github.io/hugo-theme-relearn/basics/migration/#5180" $page.File.Path }}
-{{- end }}
 {{- $images := .images }}
 {{- with $page }}
 <div class="carousel-container">
-  <div class="image-container">
+  {{- range $images }}
+    {{ $arg := split . "|" }}
+    {{ $image := index $arg 0 }}
+    {{ $label := index $arg 1 }}
+    <div class="item">
+      <img src="{{ $image }}"/>
+      {{- if $label }}
+        <div class="label">{{ $label }}</div>
+      {{- end }}
+    </div>
+  {{- end }}  
+  <div class="control">
     <a class="prev"><i class="fas fa-angle-left"></i></a>
     <a class="next"><i class="fas fa-angle-right"></i></a>
-    {{- range $images }}
-  	  {{ $arg := split . "|" }}
-  	  {{ $image := index $arg 0 }}
-  	  {{ $label := index $arg 1 }}
-  	  <div class="item">
-          <img src="{{ $image }}"/>
-          {{- if $label }}
-          <div class="label">{{ $label }}</div>
-          {{- end }}
-      </div>
-    {{- end }}	
   </div>
 </div>
 {{- end }}
