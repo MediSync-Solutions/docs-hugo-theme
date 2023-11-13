@@ -2306,12 +2306,13 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
   padding: 0.625rem 0.9375rem;
   max-height: calc(50% - 2rem);
   position: absolute;
+  font-weight: 450;
   overflow-y: auto;
   bottom: 0%;
-  font-size: 0.9rem;  
+  font-size: 1rem;  
   transform: translateY(101%);
   transition: transform 0.25s ease-in-out;
-  z-index: 5;
+  z-index: 2;
 }
 
 .carousel-container:hover .item .label {
@@ -2324,7 +2325,9 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
     width: 100%;
     height: calc(100% - 1.875rem);
     position: absolute;
+    z-index: 1;
     user-select: none;
+    
 }
 .carousel-container .control .prev,
 .carousel-container .control .next {
