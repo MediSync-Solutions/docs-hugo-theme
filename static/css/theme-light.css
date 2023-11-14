@@ -38,6 +38,7 @@
     --MENU-HEADER-BG-color: transparent; /* background color of menu header */
     --MENU-HEADER-BORDER-color: transparent; /* border color between menu header and menu */
     --MENU-HEADER-SEPARATOR-color: rgba( 210, 210, 210, .66 ); /* separator color between menu header and menu */
+    --MENU-HOVER-color: rgba(220, 220, 220, 1);
 
     --MENU-HOME-LINK-color: rgba( 0, 0, 0, 1 ); /* home button color if configured */
     --MENU-HOME-LINK-HOVER-color: rgba( 26, 115, 232, 1 ); /* hoverd home button color if configured */

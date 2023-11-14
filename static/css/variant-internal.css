@@ -56,6 +56,7 @@
     --INTERNAL-MENU-HEADER-BG-color: var(--MENU-HEADER-BG-color, var(--PRIMARY-color, rgba( 0, 0, 0, 0 ))); /* not --INTERNAL-PRIMARY-color */
     --INTERNAL-MENU-HEADER-BORDER-color: var(--MENU-HEADER-BORDER-color, var(--INTERNAL-MENU-HEADER-BG-color));
     --INTERNAL-MENU-HEADER-SEPARATOR-color: var(--MENU-HEADER-SEPARATOR-color, var(--INTERNAL-MENU-HEADER-BORDER-color));
+    --INTERNAL-MENU-HOVER-color: var(--MENU-HOVER-color, transparent);
 
     --INTERNAL-MENU-HOME-LINK-color: var(--MENU-HOME-LINK-color, rgba( 50, 50, 50, 1 ));
     --INTERNAL-MENU-HOME-LINK-HOVER-color: var(--MENU-HOME-LINK-HOVER-color, var(--MENU-HOME-LINK-HOVERED-color, rgba( 128, 128, 128, 1 )));

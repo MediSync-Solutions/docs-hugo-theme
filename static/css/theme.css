@@ -1990,7 +1990,7 @@ article ul > li > input[type="checkbox"]:checked::before {
 }
 
 #R-sidebar ul.collapsible-menu > li:not(.active) > a {
-    background: linear-gradient(90deg,transparent 50%,#444 100%);
+    background: linear-gradient(90deg,transparent 50%, var(--INTERNAL-MENU-HOVER-color) 100%);
     background-repeat: no-repeat;
     background-size: 201%;
     background-position: 0%;
