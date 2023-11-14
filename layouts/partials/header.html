@@ -5,6 +5,12 @@
 {{- if eq $outputFormat "searchpage" }}
   {{- $basename = partial "BaseName.hugo" $format.RelPermalink }}
 {{- end }}
+{{- if eq . .Site.Sites.First.Home }}
+  {{- $minHugoVersion := "0.95.0" }}
+  {{- if lt hugo.Version $minHugoVersion }}
+    {{- errorf "The Relearn theme requires Hugo %s or later" $minHugoVersion }}
+  {{- end }}
+{{- end }}
 <html lang="{{ .Page.Language | default "en" }}" dir="{{ T "Reading-direction" | default "ltr" }}">
   <head>
     {{- partial "meta.html" . }}
@@ -14,19 +20,17 @@
     {{- if eq $outputFormat "searchpage" }}
       {{- $title = T "Search" }}
     {{- else if eq .Kind "taxonomy" }}
-      {{- $title = i18n .Data.Plural }}
-      {{- if not $title }}
-        {{- $title = .Data.Plural }}
-      {{- end }}
+      {{- $title = default (default .Data.Plural (i18n .Data.Plural)) .Title }}
     {{- else if eq .Kind "term" }}
-      {{- $title = i18n .Data.Singular }}
-      {{- if not $title }}
-        {{- $title = .Data.Singular }}
-      {{- end }}
-      {{- $title = printf "%s %s %s" .Title (default "::" .Site.Params.titleSeparator) $title }}
+      {{- $taxonomy_page := .Site.GetPage .Data.Plural }}
+      {{- $title = default (default .Data.Singular (i18n .Data.Singular)) $taxonomy_page.Params.SingularTitle }}
+      {{- $title = printf "%s %s %s" (default (humanize .Data.Term) .Title) (default "::" .Site.Params.titleSeparator) $title }}
     {{- end }}
     {{- if and $title .Site.Title (not (eq $title .Site.Title)) }}
       {{- $title = printf "%s %s %s" $title (default "::" .Site.Params.titleSeparator) .Site.Title }}
+    {{- end }}
+    {{- if .Params.menuTitle }}
+      {{- warnf "%q: DEPRECATED frontmatter 'menutitle' found, use 'linktitle' instead" $page.File.Filename }}
     {{- end }}
     <title>{{ $title }}</title>
 

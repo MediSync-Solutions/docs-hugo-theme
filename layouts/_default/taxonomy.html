@@ -5,14 +5,28 @@
             </header>
 {{- $page := . }}
 
-{{- $title := i18n .Data.Plural }}
-{{- if not $title }}
-  {{- $title = .Data.Plural }}
-{{- end }}
+{{- $title := default (default .Data.Plural (i18n .Data.Plural)) .Title }}
 <h1 id="{{ $title | plainify | anchorize }}">{{ $title }}</h1>
+{{- .Content }}
 {{- $lastCapital := "" }}
-{{- range .Data.Terms.Alphabetical }}
-  {{- $capital := substr .Page.Title 0 1 | upper }}
+{{- $pages := slice }}
+{{- range .Data.Terms }}
+  {{- $len := 0 }}
+  {{- range .Pages }}
+    {{- $c:=""}}{{/* count pages of term */}}
+    {{- if and .Title .RelPermalink (or (ne (.Scratch.Get "relearnIsHiddenStem") true) (ne .Site.Params.disableTagHiddenPages true) ) }}
+      {{- $len = add $len 1 }}
+    {{- end }}
+  {{- end }}
+  {{- if $len }}
+    {{- $pages = $pages| append (dict "Title" (default (humanize .Page.Data.Term) .Page.Title) "Page" . "Len" $len )}}
+  {{- end }}
+  {{- if not .Page.Title }}
+    {{- warnf "%q: You have not given a 'title' in the frontmatter of your term page, the humanized term will be used instead" .Page.File.Filename }}
+  {{- end }}
+{{- end }}
+{{- range sort $pages ".Title" }}
+  {{- $capital := substr .Title 0 1 | upper }}
   {{- if ne $lastCapital $capital }}
     {{- if ne $lastCapital "" }}
 </ul>
@@ -20,17 +34,8 @@
 <h2 id="{{ $capital | plainify | anchorize }}">{{ $capital }}</h2>
 <ul class="columnize">
   {{- end }}
-    {{- $c:=""}}{{/* display terms of a taxonomy */}}
-    {{- $len := 0 }}
-    {{- range .Pages }}
-      {{- $c:=""}}{{/* count pages of term */}}
-      {{- if and .Title .RelPermalink (or (ne (.Scratch.Get "relearnIsHiddenStem") true) (ne .Site.Params.disableTagHiddenPages true) ) }}
-        {{- $len = add $len 1 }}
-      {{- end }}
-    {{- end }}
-    {{- if $len }}
-  <li><a href="{{ partial "relLangPrettyUglyURL.hugo" (dict "to" .Page) }}">{{ .Page.Title }}</a> ({{ $len }})</li>
-    {{- end }}
+  {{- $c:=""}}{{/* display terms of a taxonomy */}}
+  <li><a href="{{ partial "relLangPrettyUglyURL.hugo" (dict "to" .Page.Page) }}">{{ .Title }}</a> ({{ .Len }})</li>
   {{- $lastCapital = $capital }}
 {{- end }}
 {{- if ne $lastCapital "" }}

@@ -4,16 +4,11 @@
   {{- if and .Title .RelPermalink (or (ne (.Scratch.Get "relearnIsHiddenStem") true) (ne .Site.Params.disableSearchHiddenPages true) ) }}
     {{- $title := .Title }}
     {{- if eq .Kind "taxonomy" }}
-      {{- $title = i18n .Data.Plural }}
-      {{- if not $title }}
-        {{- $title = .Data.Plural }}
-      {{- end }}
+      {{- $title = default (default .Data.Plural (i18n .Data.Plural)) .Title }}
     {{- else if eq .Kind "term" }}
-      {{- $title = i18n .Data.Singular }}
-      {{- if not $title }}
-        {{- $title = .Data.Singular }}
-      {{- end }}
-      {{- $title = printf "%s %s %s" $title (default "::" .Site.Params.titleSeparator) .Title }}
+      {{- $taxonomy_page := .Site.GetPage .Data.Plural }}
+      {{- $title = default (default .Data.Singular (i18n .Data.Singular)) $taxonomy_page.Params.SingularTitle }}
+      {{- $title = printf "%s %s %s" $title (default "::" .Site.Params.titleSeparator) (default (humanize .Data.Term) .Title) }}
     {{- end }}
     {{- $pages = $pages | append (dict
       "uri" (partial "relLangPrettyUglyURL.hugo" (dict "to" .))
