@@ -1136,17 +1136,16 @@ function initHistory() {
             });
         }
     }
-    document.querySelector("#R-sidebar").querySelectorAll("input").forEach( function(el) {
-       el.checked = sessionStorage.getItem(el.id) == 1;
+    console.log(document.querySelectorAll("#R-topics li:not(.alwaysopen)"));
+    document.querySelectorAll("#R-topics li:not(.alwaysopen)").forEach( function(el) {
+       let input = el.querySelector("input");
+       if (input != null) input.checked = sessionStorage.getItem(input.id) == 1;
     });
     window.addEventListener('beforeunload', function(e){
-       document.querySelector("#R-sidebar").querySelectorAll("input").forEach( function(el){
-        if (el.checked) {
-            sessionStorage.setItem(el.id,1)
-        } else {
-            sessionStorage.removeItem(el.id);
-        }
-       });
+      document.querySelectorAll("#R-topics li:not(.alwaysopen)").forEach( function(el){
+        let input = el.querySelector("input");
+        if (input != null) input.checked == true ? sessionStorage.setItem(input.id,1) : sessionStorage.removeItem(input.id);
+      });
     });
 }
 

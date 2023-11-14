@@ -231,7 +231,9 @@ dd {
 }
 
 #R-sidebar .padding {
-    padding: 0 1.798281rem;
+    padding: 0;
+    padding-left: 1.4rem;
+    padding-right: 1.6rem;
 }
 
 .footerFooter {
@@ -264,7 +266,6 @@ dd {
 #R-sidebar ul li {
     padding: 0;
     padding-top: 0.08rem;
-    padding-bottom: 0.08rem;
 }
 
 #R-sidebar ul li.visited + span {
@@ -272,6 +273,7 @@ dd {
 }
 
 #R-sidebar ul li .read-icon {
+    padding-left: 0.5rem;
     display: none;
     font-size: .8125rem;
     inset-inline-end: 0.5rem;
@@ -288,8 +290,8 @@ dd {
     font-weight: 300;
     letter-spacing: -.02175em;
     line-height: 110% !important;
-    margin: 1.2rem 0 .8rem 0;
-    padding-inline-start: 2rem;
+    margin: 1.2rem 0 .35rem 0;
+    padding-inline-start: 1.25rem;
     text-rendering: optimizeLegibility;
     text-transform: uppercase;
 }
@@ -301,7 +303,7 @@ dd {
 #R-content-wrapper hr {
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    margin: 1.5rem 1rem 1rem 1rem;
+    margin: 0.5rem 1rem 1rem 1rem;
 }
 
 #R-body {
@@ -1902,12 +1904,13 @@ article ul > li > input[type="checkbox"]:checked::before {
 }
 
 #R-sidebar ul ul {
-    padding-inline-start: 0.75rem;
+    padding-inline-start: 0.5rem;
 }
 
 /* collapsible menu style overrides */
 
 #R-sidebar ul.collapsible-menu > li {
+    padding-inline-start: 0.3rem;
     position: relative;
 }
 
@@ -1927,15 +1930,24 @@ article ul > li > input[type="checkbox"]:checked::before {
     margin-top: .9rem;
 }
 
+#R-sidebar ul.collapsible-menu.enlarge > li.alwaysopen > input,
+#R-sidebar ul.collapsible-menu.enlarge > li.alwaysopen > label {
+    display: none; 
+}
+#R-sidebar ul.collapsible-menu > li.alwaysopen {
+    padding-inline-start: 0rem;
+}
+
 #R-sidebar ul.collapsible-menu > li > label {
     cursor: pointer;
     display: inline-block;
     inset-inline-start: 0;
     margin-bottom: 0; /* nucleus */
-    padding-inline-start: .6rem;
+    padding-inline-start: .85rem;
     position: absolute;
     width: 1rem;
     z-index: 2;
+    margin-right: 0.3rem;
 }
 #R-sidebar ul.collapsible-menu.enlarge > li > label {
     font-size: 1.1rem;
@@ -1965,13 +1977,28 @@ article ul > li > input[type="checkbox"]:checked::before {
 
 }
 #R-sidebar ul.collapsible-menu > li:not(.active) > a > span {
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.45s ease-in-out;
+    transform-origin: left;
     transform: scale(100%);
 }
 #R-sidebar ul.collapsible-menu > li.active > a > span,
 #R-sidebar ul.collapsible-menu > li:not(.active) > a:hover > span {
-    transition: transform 0.3s ease-in-out;
-    transform: scale(104%);
+    transform: scale(102%);
+}
+#R-sidebar ul.space {
+    font-size: 0.85rem;
+}
+
+#R-sidebar ul.collapsible-menu > li:not(.active) > a {
+    background: linear-gradient(90deg,transparent 50%,#444 100%);
+    background-repeat: no-repeat;
+    background-size: 201%;
+    background-position: 0%;
+    transition: background-position 0.5s ease-in-out;
+    mix-blend-mode: difference;
+}
+#R-sidebar ul.collapsible-menu > li:not(.active) > a:hover {
+    background-position: 100%;
 }
 /* menu states for not(.collapsible-menu) */
 
@@ -2137,7 +2164,9 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
 #topics > ul {
     margin-top: 1rem;
 }
-
+#R-sidebar ul.collapsible-menu li > a {
+    padding-left: 1.5rem;
+}
 #R-sidebar ul.collapsible-menu li.active > a{
     border-style: solid;
     border-width: 1px;
@@ -2149,11 +2178,9 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
 
 #R-menu-footer {
     padding-bottom: 1rem;
+    font-size: 0.85rem;
 }
 
-#R-topics {
-    padding-left: 1rem;
-}
 
 #R-sidebar-line {
     top: 3rem;
