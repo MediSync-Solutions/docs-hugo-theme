@@ -2193,15 +2193,19 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
     background-color: transparent;
 }
 
-#R-sidebar ul.space > li > a {
+#R-sidebar ul.space > li > a,
+#R-sidebar ul.space > li > span {
     transform-origin: center left;
     transform: scale(100%);
     transition: transform 0.3s ease-in-out;
 }
-#R-sidebar ul.space > li:hover > a {
+#R-sidebar ul.space > li:hover > a,
+#R-sidebar ul.space > li:hover > span {
     transform: scale(104%);
 }
-
+#R-sidebar ul.space > li:hover > span {
+    user-select: auto;
+}
 
 .expand {
     border-radius: 5px;
