@@ -1,11 +1,11 @@
 {{- $page := .page }}
 {{- $content := .content }}
-{{- $image := .image }}
+{{- $video := .video }}
 {{- with $page }}
 <div class="item">
-<img src="{{ $image }}"/>
+<video autoplay loop muted src="{{ $video }}"></video>
 {{- if $content }}
 <div class="label">{{ $content | safeHTML }}</div>
 {{- end }}
 </div>
-{{- end }}
+{{- end }}  

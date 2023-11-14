@@ -1,0 +1,9 @@
+{{- $_hugo_config := `{ "version": 1 }` }}
+{{- $version := split hugo.Version "." }}
+{{- $major := int (index $version 0) }}
+{{- $minor := int (index $version 1) }}
+{{- partial "shortcodes/carousel-video.html" (dict
+  "page"    .Page
+  "content" .Inner
+  "video"   (.Get "video" | default (.Get 0))
+) }}

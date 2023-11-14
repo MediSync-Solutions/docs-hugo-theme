@@ -519,10 +519,19 @@ function initAnchorClipboard(){
 
 function initCarousels() {
     document.querySelectorAll(".carousel-container").forEach(carousel => {
-      let firstImage = carousel.querySelector(".item > img");
-      if (firstImage == null) { carousel.remove(); return; }
-      carousel.style.setProperty("aspect-ratio",firstImage.naturalWidth/firstImage.naturalHeight);
-      carousel.style.setProperty("max-width","calc(70vh * " + (firstImage.naturalWidth/firstImage.naturalHeight)+")");
+      let firstItem = carousel.querySelector(".item");
+      if (firstItem == null) { carousel.remove(); return; }
+      if (firstItem.querySelector("#" + carousel.id + " > " + ".item > img") != null) {
+        firstImage = firstItem.querySelector("#" + carousel.id + " > " + ".item > img");
+        carousel.style.setProperty("aspect-ratio",firstImage.naturalWidth/firstImage.naturalHeight);
+        carousel.style.setProperty("max-width","calc(70vh * " + (firstImage.naturalWidth/firstImage.naturalHeight)+")");
+      } else {
+        firstVideo = firstItem.querySelector("#" + carousel.id + " > " + ".item > video");
+        firstVideo.addEventListener("loadedmetadata", function () {
+          carousel.style.setProperty("aspect-ratio",this.videoWidth/this.videoHeight);
+          carousel.style.setProperty("max-width","calc(70vh * " + (this.videoWidth/this.videoHeight)+")");
+        });
+      }
 
       insertNumbers(carousel);
 

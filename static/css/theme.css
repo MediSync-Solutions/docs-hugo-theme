@@ -2295,7 +2295,8 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
     transform: translateX(0rem);
 }
 
-.carousel-container .item  img {
+.carousel-container .item img,
+.carousel-container .item video {
   width: 100%;
   height: 100%;
   object-fit: cover;
