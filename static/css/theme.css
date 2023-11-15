@@ -2,118 +2,120 @@
 
 @import "tags.css";
 
-/* until browsers don't let us set length values based on dppx, we
-need a way to calculate them ourself */
 :root {
-    --thumb-size: 7.125px;
+    --thumb-size: 7.125px
 }
-.scale  {
-    transition: all .1s ease-in-out;
+
+.scale {
+    transition: all .1s ease-in-out
 }
+
 .scale:hover {
-    transform: scale(0.9, 0.9   );
+    transform: scale(.9,.9)
 }
 
-*::-webkit-scrollbar {
-    opacity: 0.25;
+::-webkit-scrollbar {
+    opacity: .25;
     width: var(--thumb-size);
-    background-color: transparent;
+    background-color: transparent
 }
 
-*::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    transition: all 0.3s ease-in-out;
+    transition: all .3s ease-in-out;
     background-color: transparent;
-    border-color: transparent;
+    border-color: transparent
 }
 
 fifty-empty-line {
     line-height: 50%;
     display: block;
-    user-select: none;
+    user-select: none
 }
+
 fifty-empty-line:before {
-    content: '\a';
-    white-space: pre;
+    content: "\a";
+    white-space: pre
 }
 
 seventy-five-empty-line {
     line-height: 75%;
     display: block;
-    user-select: none;
+    user-select: none
 }
+
 seventy-five-empty-line:before {
-    content: '\a';
-    white-space: pre;
+    content: "\a";
+    white-space: pre
 }
 
 hundred-empty-line {
     line-height: 100%;
     display: block;
-    user-select: none;
+    user-select: none
 }
+
 hundred-empty-line:before {
-    content: '\a';
-    white-space: pre;
+    content: "\a";
+    white-space: pre
 }
 
 hundred-twenty-five-empty-line {
     line-height: 125%;
     display: block;
-    user-select: none;
+    user-select: none
 }
+
 hundred-twenty-five-empty-line:before {
-    content: '\a';
-    white-space: pre;
+    content: "\a";
+    white-space: pre
 }
 
 hundred-fifty-empty-line {
     line-height: 150%;
     display: block;
-    user-select: none;
+    user-select: none
 }
+
 hundred-fifty-empty-line:before {
-    content: '\a';
-    white-space: pre;
+    content: "\a";
+    white-space: pre
 }
 
 html {
     height: 100%;
-    width: 100%;
+    width: 100%
 }
 
 body {
     display: flex;
-    flex-direction: row-reverse; /* IE11 to allow body to have initial focus for PS and better SEO and a11y */
-    font-size: 1.280rem;
+    flex-direction: row-reverse;
+    font-size: 1.28rem;
     font-weight: 400;
     height: 100%;
     justify-content: flex-end;
-    line-height: 1.574;
+    line-height: 1.574
 }
 
-b,
-strong,
-label,
-th {
-    font-weight: 600;
+b,strong,label,th {
+    font-weight: 600
 }
 
 ul {
-    list-style: disc;
+    list-style: disc
 }
 
 dt {
-    font-style: italic;
+    font-style: italic
 }
 
 dd {
     display: list-item;
-    list-style: circle;
+    list-style: circle
 }
 
 .default-animation {
-    transition: all 0.35s ease;
+    transition: all .35s ease
 }
 
 #R-sidebar {
@@ -129,183 +131,176 @@ dd {
     inset-inline-start: 0;
     line-height: 1.344;
     min-height: 100%;
-    
-
     width: calc(18rem + var(--thumb-size));
     min-width: calc(18rem + var(--thumb-size));
     max-width: calc(18rem + var(--thumb-size));
-
     background-size: calc(100% - var(--thumb-size)) 100%;
     background-repeat: no-repeat;
-    z-index: 75;
+    z-index: 75
 }
-#R-topics {
-    margin-left: -0.55rem;
-}
+
+
 #R-sidebar a {
-    text-decoration: none;
+    text-decoration: none
 }
 
 #R-header-wrapper {
     text-align: center;
     padding: 1rem;
     width: calc(100% - var(--thumb-size));
-    position: relative;
+    position: relative
 }
+
 #R-header {
     border-block-end: 1px solid transparent;
     position: relative;
-    z-index: 1;
-}
-#R-header a {
-    display: inline-block;
+    z-index: 1
 }
 
-.searchbox  {
+#R-header a {
+    display: inline-block
+}
+
+.searchbox {
     border-radius: 14.72px;
     border-style: solid;
     border-width: 1px;
     position: relative;
-    margin-top: 1rem;
+    margin-top: 1rem
 }
 
-.searchbox > :first-child {
+.searchbox>:first-child {
     inset-inline-start: .4rem;
-    position: absolute;
+    position: absolute
 }
 
-.searchbox > button {
+.searchbox>button {
     -webkit-appearance: none;
     appearance: none;
     background-color: transparent;
     border: 0;
     margin: 0;
     padding: 0;
-    top: 0.35rem;
+    top: .35rem
 }
 
-.searchbox > i {
-    top: .45rem;
+.searchbox>i {
+    top: .45rem
 }
 
-.searchbox > :last-child {
+.searchbox>:last-child {
     inset-inline-end: .5rem;
-    position: absolute;
+    position: absolute
 }
 
-#R-sidebar .searchbox > :first-child,
-#R-sidebar .searchbox > :last-child{
-    opacity: .65;
+#R-sidebar .searchbox>:first-child,#R-sidebar .searchbox>:last-child {
+    opacity: .65
 }
 
 #R-sidebar .searchbox button:hover {
-    opacity: 1;
+    opacity: 1
 }
 
 .searchbox input {
     display: inline-block;
     width: 100%;
     height: 1.875rem;
-    background: transparent;
+    background: 0 0;
     border: 0;
     padding-bottom: 0;
     padding-inline-end: 1.6rem;
     padding-inline-start: 1.8rem;
     padding-top: 0;
     margin: 0;
-    font-weight: 300;
+    font-weight: 300
 }
 
 .searchbox input::placeholder {
-    opacity: .45;
+    opacity: .45
 }
 
 #R-content-wrapper {
     display: flex;
     flex-direction: column;
-    flex: 1; /* fill rest of vertical space */
-
+    flex: 1;
     overflow-y: scroll;
     overflow-x: hidden;
-    position: relative; /* PS */
-    z-index: 100;
-
+    position: relative;
+    z-index: 100
 }
 
 #R-sidebar .padding {
     padding: 0;
     padding-left: 1.8rem;
-    padding-right: 1.6rem;
+    padding-right: 1.8rem
 }
 
 .footerFooter {
     font-size: .8125rem;
     padding-top: 2rem;
-    padding-bottom: 0.7396rem;
-    text-align: center;
+    padding-bottom: .7396rem;
+    text-align: center
 }
 
-.footerFooter > * {
-    margin: 0 auto;
+.footerFooter>* {
+    margin: 0 auto
 }
 
-#R-footer > hr:first-child {
-    margin-top: 0;
+#R-footer>hr:first-child {
+    margin-top: 0
 }
 
-/* increase specifity to override following #R-content-wrapper hr style */
-#R-footer > hr:nth-child(n) {
+#R-footer>hr:nth-child(n) {
     margin-left: 0;
-    margin-right: 0;
+    margin-right: 0
 }
 
 #R-sidebar ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0
 }
 
 #R-sidebar ul li {
-    padding: 0;
-    padding-top: 0.08rem;
+    padding-top: .08rem;
 }
 
-#R-sidebar ul li.visited + span {
-    margin-inline-end: 1rem;
+
+#R-sidebar ul li.visited+span {
+    margin-inline-end: 1rem
 }
 
 #R-sidebar ul li .read-icon {
-    padding-left: 0.5rem;
     display: none;
     font-size: .8125rem;
-    inset-inline-end: 0.5rem;
+    inset-inline-end: .5rem;
     min-width: 1rem;
-    position: absolute;
+    position: absolute
 }
 
-#R-sidebar ul li.visited > a .read-icon {
-    display: inline;
+#R-sidebar ul li.visited>a .read-icon {
+    display: inline
 }
 
 #R-sidebar .nav-title {
     font-size: 1rem;
     font-weight: 300;
     letter-spacing: -.02175em;
-    line-height: 110% !important;
+    line-height: 110%!important;
     margin: 1.2rem 0 .35rem 0;
     padding-inline-start: 1.25rem;
     text-rendering: optimizeLegibility;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
 
 #R-sidebar .footermargin {
-    flex-grow: 1;
+    flex-grow: 1
 }
 
 #R-content-wrapper hr {
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    margin: 0.5rem 1rem 1rem 1rem;
+    margin: .5rem 1rem 1rem 1rem
 }
 
 #R-body {
@@ -317,45 +312,42 @@ dd {
     height: 100%;
     margin-inline-start: calc(18rem);
     min-height: 100%;
-    min-width: calc( 100% - 18rem);
-    max-width: calc( 100% - 18rem);
-    overflow-wrap: break-word; /* avoid x-scrolling of body if it is to large to fit */
-    position: relative; /* PS */
-    width: calc( 100% - 18rem);
-    z-index: 70;
+    min-width: calc(100% - 18rem);
+    max-width: calc(100% - 18rem);
+    overflow-wrap: break-word;
+    position: relative;
+    width: calc(100% - 18rem);
+    z-index: 70
 }
 
-#R-body img,
-#R-body .video-container {
+#R-body img,#R-body .video-container {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
+    text-align: center
 }
 
 #R-body img:not(.lightbox-image).left {
-    margin-left: 0;
+    margin-left: 0
 }
 
 #R-body img:not(.lightbox-image).right {
-    margin-right: 0;
+    margin-right: 0
 }
 
-#R-body img:not(.lightbox-image).border,
-#R-body .video-container.border {
+#R-body img:not(.lightbox-image).border,#R-body .video-container.border {
     background-clip: padding-box;
-    border: 1px solid rgba( 134, 134, 134, .333 );
+    border: 1px solid rgba(134,134,134,.333)
 }
 
-#R-body img:not(.lightbox-image).shadow,
-#R-body .video-container.shadow {
-    box-shadow: 0 10px 30px rgba( 176, 176, 176, .666 );
+#R-body img:not(.lightbox-image).shadow,#R-body .video-container.shadow {
+    box-shadow: 0 10px 30px rgba(176,176,176,.666)
 }
 
 #R-body img:not(.lightbox-image).inline {
-    display: inline !important;
-    margin: 0 !important;
-    vertical-align: bottom;
+    display: inline!important;
+    margin: 0!important;
+    vertical-align: bottom
 }
 
 #R-body-inner {
@@ -363,237 +355,229 @@ dd {
     flex: auto;
     flex-direction: column;
     overflow-y: scroll;
-    position: relative; /* PS */
-}
-#R-body-inner > .flex-block-wrapper {
-    padding: 0 1.25rem .375rem 1.25rem;
+    position: relative
 }
 
-.topbar-breadcrumbs a:hover,
-.topbar-breadcrumbs a:active,
-.topbar-breadcrumbs a:focus,
-.topbar-breadcrumbs a:hover *,
-.topbar-breadcrumbs a:active *,
-.topbar-breadcrumbs a:focus *,
-.topbar-content a:hover,
-.topbar-content a:active,
-.topbar-content a:focus {
-    outline: none;
-    text-decoration: underline;
+#R-body-inner>.flex-block-wrapper {
+    padding: 0 1.25rem .375rem 1.25rem
+}
+
+.topbar-breadcrumbs a:hover,.topbar-breadcrumbs a:active,.topbar-breadcrumbs a:focus,.topbar-breadcrumbs a:hover *,.topbar-breadcrumbs a:active *,.topbar-breadcrumbs a:focus *,.topbar-content a:hover,.topbar-content a:active,.topbar-content a:focus {
+    outline: 0;
+    text-decoration: underline
 }
 
 .default-link {
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-    margin-left: -0.25rem;
-    margin-right: -0.25rem;
+    padding-left: .25rem;
+    padding-right: .25rem;
+    margin-left: -.25rem;
+    margin-right: -.25rem;
     background: linear-gradient(90deg,transparent 50%,var(--INTERNAL-MAIN-TEXT-color) 50%);
     background-size: 201%;
-    transition: color 0.5s ease-in-out, background 0.3s ease-in-out;
+    transition: color .5s ease-in-out,background .3s ease-in-out
 }
 
 .default-link:hover {
     background-position: 100%;
-    color: var(--MAIN-BG-color);
+    color: var(--MAIN-BG-color)
 }
-
 
 .big-link {
     display: flex;
     align-items: center;
     cursor: pointer;
-    background: linear-gradient(90deg, var(--INTERNAL-MAIN-TEXT-color) 50%, var(--INTERNAL-CODE-BLOCK-BG-color) 50% );
+    background: linear-gradient(90deg,var(--INTERNAL-MAIN-TEXT-color) 50%,var(--INTERNAL-CODE-BLOCK-BG-color) 50%);
     background-size: 201%;
     border-radius: 5px;
     border-style: solid;
     border-width: 1px;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    padding: 0.7rem;
+    padding: .7rem;
     padding-left: 0;
     line-height: 1.7rem;
     width: 100%;
     color: var(--INTERNAL-MAIN-TEXT-color);
-    border-color:  var(--INTERNAL-CODE-BLOCK-BORDER-color);
+    border-color: var(--INTERNAL-CODE-BLOCK-BORDER-color);
     padding-left: 1rem;
     background-position: 100%;
-    transition: background 0.5s ease-in-out, color 0.7s ease-in-out;
+    transition: background .5s ease-in-out,color .7s ease-in-out
 }
-.big-link > .icon {
+
+.big-link>.icon {
     text-align: right;
-    padding-right: 1rem;
+    padding-right: 1rem
 }
-.big-link > .title {
+
+.big-link>.title {
     text-align: left;
-    flex: 1;
+    flex: 1
 }
+
 .big-link:hover {
-    background-position: 0%;
-    color: var(--MAIN-BG-color);   
+    background-position: 0;
+    color: var(--MAIN-BG-color)
 }
 
 .lighting {
     background-color: var(--INTERNAL-EXPAND-HOVER-color);
-    border-radius: 5px; 
-    padding-left: 0.25rem; 
-    padding-right: 0.25rem; 
-    margin-left: -0.25rem; 
-    margin-right: -0.25rem;
+    border-radius: 5px;
+    padding-left: .25rem;
+    padding-right: .25rem;
+    margin-left: -.25rem;
+    margin-right: -.25rem
 }
 
 .spoiler {
     filter: blur(5px);
-    transition: filter 0.3s ease-in-out;
+    transition: filter .3s ease-in-out
 }
 
 .spoiler:hover {
-    filter: blur(0px);
-    transition: filter 0.3s ease-in-out;
+    filter: blur(0);
+    transition: filter .3s ease-in-out
 }
 
-#R-body-inner:focus-visible{
-    /* remove focus indicator for programatically set focus */
-    outline: none;
+#R-body-inner:focus-visible {
+    outline: 0
 }
 
-
-#R-body h1 + hr {
+#R-body h1+hr {
     margin-bottom: 2rem;
-    margin-top: -1rem;
+    margin-top: -1rem
 }
 
 #R-body .flex-block-wrapper {
     margin-left: auto;
     margin-right: auto;
-    max-width: calc( 91.25rem - 18rem - 2 * 3.25rem );
-    width: 100%;
-}
-body:not(.print) #R-body .narrow .flex-block-wrapper {
-    max-width: calc( 91.25rem - 18rem - 2 * 9.75rem );
+    max-width: calc(91.25rem - 18rem - 2*3.25rem);
+    width: 100%
 }
 
-/* we limit width if we have large screens */
-@media screen and ( min-width: 91.25rem ){ /* #R-sidebar/width + ./max-width */
+body:not(.print) #R-body .narrow .flex-block-wrapper {
+    max-width: calc(91.25rem - 18rem - 2*9.75rem)
+}
+
+@media screen and (min-width:91.25rem) {
     #R-body .flex-block-wrapper {
-        width: calc( 91.25rem - 18rem - 2 * 3.25rem );
+        width: calc(91.25rem - 18rem - 2*3.25rem)
     }
+
     body:not(.print) #R-body .narrow .flex-block-wrapper {
-        width: calc( 91.25rem - 18rem - 2 * 9.75rem );
+        width: calc(91.25rem - 18rem - 2*9.75rem)
     }
 }
 
 body:not(.print) #R-body-inner.narrow {
-    padding: 2rem 9.75rem;
+    padding: 2rem 9.75rem
 }
-@media screen and (max-width: 60rem) {
+
+@media screen and (max-width:60rem) {
     body:not(.print) #R-body-inner.narrow {
-        padding: 1rem 6.5rem;
-    }
-}
-@media screen and (max-width: 48rem) {
-    body:not(.print) #R-body-inner.narrow {
-        padding: .375rem 3.25rem;
+        padding: 1rem 6.5rem
     }
 }
 
-#R-body-inner div.article-subheading,
-#R-body-inner .chapter.deprecated h3:first-of-type {
+@media screen and (max-width:48rem) {
+    body:not(.print) #R-body-inner.narrow {
+        padding: .375rem 3.25rem
+    }
+}
+
+#R-body-inner div.article-subheading,#R-body-inner .chapter.deprecated h3:first-of-type {
     font-weight: 200;
     margin-top: 0;
-    text-align: center;
+    text-align: center
 }
 
 body:not(.print) #R-body-inner.narrow p {
     font-size: 1.2rem;
-    text-align: justify;
+    text-align: justify
 }
 
 mark {
-    color: rgba( 0, 0, 0, 1 );
+    color: #000
 }
 
 h1 {
     font-size: 3.25rem;
     font-weight: 200;
-    margin: 0.85rem 0 1rem 0;
-    /* big titles cause a horizontal scrollbar - fixing this by wrapping text */
+    margin: .85rem 0 1rem 0;
     overflow-wrap: break-word;
     text-align: center;
     text-rendering: optimizeLegibility;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
 
 body:not(.print) #R-body-inner.narrow h1 {
-    border-bottom: 4px solid rgba( 134, 134, 134, .125 );
-    font-size: 3.5rem;
+    border-bottom: 4px solid rgba(134,134,134,.125);
+    font-size: 3.5rem
 }
-@media only screen and (min-width: 48rem) and (max-width: 60rem) {
+
+@media only screen and (min-width:48rem) and (max-width:60rem) {
     body:not(.print) #R-body-inner.narrow h1 {
-        font-size: 2.8rem;
+        font-size: 2.8rem
     }
 }
-@media only screen and (max-width: 48rem) {
+
+@media only screen and (max-width:48rem) {
     body:not(.print) #R-body-inner.narrow h1 {
-        font-size: 2.5rem;
+        font-size: 2.5rem
     }
 }
 
 h2 {
     font-size: 2.2rem;
-    font-weight: 500;
+    font-weight: 500
 }
 
-h3, .article-subheading {
+h3,.article-subheading {
     font-size: 1.8rem;
-    font-weight: 500;
+    font-weight: 500
 }
 
 h4 {
     font-size: 1.85rem;
-    font-weight: 300;
+    font-weight: 300
 }
 
 h5 {
     font-size: 1.6rem;
-    font-weight: 300;
+    font-weight: 300
 }
 
 h6 {
     font-size: 1.3rem;
-    font-weight: 300;
+    font-weight: 300
 }
 
-h2, h3, .article-subheading, h4, h5, h6 {
+h2,h3,.article-subheading,h4,h5,h6 {
     letter-spacing: -.0625rem;
-    margin: 2rem 0 0rem 0;
-    /* big titles cause a horizontal scrollbar - fixing this by wrapping text */
+    margin: 2rem 0 0 0;
     overflow-wrap: break-word;
-    text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility
 }
 
-h2, h3, h4, h5, h6 {
-    /* leave space for anchor to avoid overflow */
-    padding-inline-end: 2rem;
+h2,h3,h4,h5,h6 {
+    padding-inline-end: 2rem
 }
 
 blockquote {
-    border-inline-start: .4rem solid rgb(20, 20, 20);
-    border-radius: 5px;
+    border-inline-start: .4rem solid #141414;
+    border-radius: 5px
 }
 
 blockquote p {
-    font-size: 1.3rem;
+    font-size: 1.3rem
 }
 
 blockquote cite {
     display: block;
-    font-weight: bold;
+    font-weight: 700;
     opacity: .5;
     padding-top: .5rem;
-    text-align: end;
+    text-align: end
 }
-
-/* colored boxes */
 
 .cstyle {
     --VARIABLE-BOX-color: var(--INTERNAL-BOX-NEUTRAL-color);
@@ -601,93 +585,60 @@ blockquote cite {
     --VARIABLE-BOX-BG-color: var(--INTERNAL-BOX-BG-color);
     --VARIABLE-BOX-TEXT-color: var(--INTERNAL-BOX-NEUTRAL-TEXT-color);
     -webkit-print-color-adjust: exact;
-    color-adjust: exact;
+    color-adjust: exact
 }
 
 p:empty {
-    /* in case of image render hook, Hugo may generate empty <p>s that we want to ignore */
-    display: none;
+    display: none
 }
 
-/* in case of image render hook, Hugo may generate empty <p>s that we want to ignore aswell, so a simple :first-child or :last-child is not enough */
-#R-body table th > :nth-child(1 of :not(:empty)),
-#R-body table th > :nth-child(1 of :not(:empty)) :nth-child(1 of :not(:empty)),
-#R-body table td > :nth-child(1 of :not(:empty)),
-#R-body table td > :nth-child(1 of :not(:empty)) :nth-child(1 of :not(:empty)),
-#R-body div.tab-content > .tab-content-text > :nth-child(1 of :not(:empty)),
-#R-body div.tab-content > .tab-content-text > :nth-child(1 of :not(:empty)) :nth-child(1 of :not(:empty)) {
-    margin-top: 0;
+#R-body table th>:nth-child(1 of:not(:empty)),#R-body table th>:nth-child(1 of:not(:empty)) :nth-child(1 of:not(:empty)),#R-body table td>:nth-child(1 of:not(:empty)),#R-body table td>:nth-child(1 of:not(:empty)) :nth-child(1 of:not(:empty)),#R-body div.tab-content>.tab-content-text>:nth-child(1 of:not(:empty)),#R-body div.tab-content>.tab-content-text>:nth-child(1 of:not(:empty)) :nth-child(1 of:not(:empty)) {
+    margin-top: 0
 }
 
-#R-body table th > :nth-last-child(1 of :not(:empty)),
-#R-body table th > :nth-last-child(1 of :not(:empty)) :nth-last-child(1 of :not(:empty)),
-#R-body table th > div.highlight:last-child pre:not(.mermaid),
-#R-body table td > :nth-last-child(1 of :not(:empty)),
-#R-body table td > :nth-last-child(1 of :not(:empty)) :nth-last-child(1 of :not(:empty)),
-#R-body table td > div:last-child pre:not(.mermaid),
-#R-body div.tab-content > .tab-content-text > :nth-last-child(1 of :not(:empty)),
-#R-body div.tab-content > .tab-content-text > :nth-last-child(1 of :not(:empty)) :nth-last-child(1 of :not(:empty)),
-#R-body div.tab-content > .tab-content-text > div:last-child pre:not(.mermaid) {
-    margin-bottom: 0;
+#R-body table th>:nth-last-child(1 of:not(:empty)),#R-body table th>:nth-last-child(1 of:not(:empty)) :nth-last-child(1 of:not(:empty)),#R-body table th>div.highlight:last-child pre:not(.mermaid),#R-body table td>:nth-last-child(1 of:not(:empty)),#R-body table td>:nth-last-child(1 of:not(:empty)) :nth-last-child(1 of:not(:empty)),#R-body table td>div:last-child pre:not(.mermaid),#R-body div.tab-content>.tab-content-text>:nth-last-child(1 of:not(:empty)),#R-body div.tab-content>.tab-content-text>:nth-last-child(1 of:not(:empty)) :nth-last-child(1 of:not(:empty)),#R-body div.tab-content>.tab-content-text>div:last-child pre:not(.mermaid) {
+    margin-bottom: 0
 }
-
-/* attachments shortcode */
 
 div.attachments .box-content {
     display: block;
     margin: 0;
-    padding-inline-start: 1.75rem;
+    padding-inline-start: 1.75rem
 }
-
-/* Children shortcode */
 
 .children p {
     font-size: .8125rem;
-    margin-bottom:  0;
+    margin-bottom: 0;
     margin-top: 0;
     padding-bottom: 0;
-    padding-top: 0;
+    padding-top: 0
 }
 
 .children-li p {
     font-size: .8125rem;
-    font-style: italic;
+    font-style: italic
 }
 
-.children-h2 p,
-.children-h3 p {
+.children-h2 p,.children-h3 p {
     font-size: .8125rem;
-    margin-bottom:  0;
+    margin-bottom: 0;
     margin-top: 0;
     padding-bottom: 0;
-    padding-top: 0;
+    padding-top: 0
 }
 
-#R-body-inner .children h2,
-#R-body-inner .children h3,
-#R-body-inner .children h4,
-#R-body-inner .children h5,
-#R-body-inner .children h6 {
+#R-body-inner .children h2,#R-body-inner .children h3,#R-body-inner .children h4,#R-body-inner .children h5,#R-body-inner .children h6 {
     margin-bottom: 0;
-    margin-top: 1rem;
-}
-#R-body-inner ul.children-h2,
-#R-body-inner ul.children-h3,
-#R-body-inner ul.children-h4,
-#R-body-inner ul.children-h5,
-#R-body-inner ul.children-h6 {
-    /* if we display children with style=h2 but without a containerstyle
-    a ul will be used for structuring; we remove default indention for uls
-    in this case */
-    padding-inline-start: 0;
+    margin-top: 1rem
 }
 
-code,
-kbd,
-pre:not(.mermaid),
-samp {
+#R-body-inner ul.children-h2,#R-body-inner ul.children-h3,#R-body-inner ul.children-h4,#R-body-inner ul.children-h5,#R-body-inner ul.children-h6 {
+    padding-inline-start: 0
+}
+
+code,kbd,pre:not(.mermaid),samp {
     font-size: .934375rem;
-    vertical-align: baseline;
+    vertical-align: baseline
 }
 
 code {
@@ -698,18 +649,18 @@ code {
     color-adjust: economy;
     padding-left: 2px;
     padding-right: 2px;
-    white-space: nowrap;
+    white-space: nowrap
 }
 
 span.copy-to-clipboard {
     display: inline-block;
-    white-space: nowrap;
+    white-space: nowrap
 }
 
 code.copy-to-clipboard-code {
     border-end-end-radius: 0;
     border-start-end-radius: 0;
-    border-inline-end-width: 0;
+    border-inline-end-width: 0
 }
 
 pre:not(.mermaid) {
@@ -720,14 +671,12 @@ pre:not(.mermaid) {
     color-adjust: economy;
     line-height: 1.15;
     padding: 1rem;
-    position: relative;
+    position: relative
 }
 
-/* pre:not(.mermaid):has( code ), */
-/* the :has() operator isn't available in FF yet, so we patch this by JS */
 pre:not(.mermaid).pre-code {
     direction: ltr;
-    text-align: left;
+    text-align: left
 }
 
 pre:not(.mermaid) code {
@@ -738,121 +687,128 @@ pre:not(.mermaid) code {
     color-adjust: economy;
     font-size: 1.1375rem;
     margin: 0;
-    padding: 0;
+    padding: 0
 }
 
-div.highlight{
-    position: relative;
+div.highlight {
+    position: relative
 }
-/* we may have special treatment if highlight shortcode was used in table lineno mode */
-div.highlight > div{
+
+div.highlight>div {
     border-style: solid;
-    border-width: 1px;
+    border-width: 1px
 }
-/* remove default style for usual markdown tables */
-div.highlight > div table{
+
+div.highlight>div table {
     background-color: transparent;
     border-width: 0;
-    margin: 0;
+    margin: 0
 }
-div.highlight > div td{
-    border-width: 0;
+
+div.highlight>div td {
+    border-width: 0
 }
-#R-body div.highlight > div a {
-    line-height: inherit;
+
+#R-body div.highlight>div a {
+    line-height: inherit
 }
-#R-body div.highlight > div a:after {
-    display: none;
+
+#R-body div.highlight>div a:after {
+    display: none
 }
-/* disable selection for lineno cells */
-div.highlight > div td:first-child:not(:last-child){
-    user-select: none;
+
+div.highlight>div td:first-child:not(:last-child) {
+    user-select: none
 }
-/* increase code column to full width if highlight shortcode was used in table lineno mode  */
-div.highlight > div td:not(:first-child):last-child{
-    width: 100%;
+
+div.highlight>div td:not(:first-child):last-child {
+    width: 100%
 }
-/* add scrollbars if highlight shortcode was used in table lineno mode */
-div.highlight > div table{
+
+div.highlight>div table {
     display: block;
-    overflow: auto;
+    overflow: auto
 }
-div.highlight:not(.wrap-code) pre:not(.mermaid){
-    overflow: auto;
+
+div.highlight:not(.wrap-code) pre:not(.mermaid) {
+    overflow: auto
 }
-div.highlight:not(.wrap-code) pre:not(.mermaid) code{
-    white-space: pre;
+
+div.highlight:not(.wrap-code) pre:not(.mermaid) code {
+    white-space: pre
 }
-div.highlight.wrap-code pre:not(.mermaid) code{
-    white-space: pre-wrap;
+
+div.highlight.wrap-code pre:not(.mermaid) code {
+    white-space: pre-wrap
 }
-/* remove border from row cells if highlight shortcode was used in table lineno mode */
-div.highlight > div td > pre:not(.mermaid) {
+
+div.highlight>div td>pre:not(.mermaid) {
     border-radius: 0;
-    border-width: 0;
+    border-width: 0
 }
-/* in case of table lineno mode we want to move each row closer together - besides the edges
-this usually applies only to wrapfix tables but it doesn't hurt for non-wrapfix tables too */
-div.highlight > div tr:not(:first-child) pre:not(.mermaid){
-    padding-top: 0;
+
+div.highlight>div tr:not(:first-child) pre:not(.mermaid) {
+    padding-top: 0
 }
-div.highlight > div tr:not(:last-child) pre:not(.mermaid){
-    padding-bottom: 0;
+
+div.highlight>div tr:not(:last-child) pre:not(.mermaid) {
+    padding-bottom: 0
 }
-/* in case of table lineno mode we want to move each columns closer together on the inside */
-div.highlight > div td:first-child:not(:last-child) pre:not(.mermaid){
-    padding-right: 0;
+
+div.highlight>div td:first-child:not(:last-child) pre:not(.mermaid) {
+    padding-right: 0
 }
-div.highlight > div td:not(:first-child):last-child pre:not(.mermaid){
-    padding-left: 0;
+
+div.highlight>div td:not(:first-child):last-child pre:not(.mermaid) {
+    padding-left: 0
 }
 
 hr {
-    border-bottom: 4px solid rgba( 134, 134, 134, .125 );
+    border-bottom: 4px solid rgba(134,134,134,.125)
 }
 
 #R-body-inner pre:not(.mermaid) {
-    white-space: pre-wrap;
+    white-space: pre-wrap
 }
 
 table {
-    border: 1px solid rgba( 134, 134, 134, .333 );
+    border: 1px solid rgba(134,134,134,.333);
     margin-bottom: 1rem;
     margin-top: 1rem;
-    table-layout: auto;
+    table-layout: auto
 }
 
-th,
-thead td {
-    background-color: rgba( 134, 134, 134, .166 );
-    border: 1px solid rgba( 134, 134, 134, .333 );
+th,thead td {
+    background-color: rgba(134,134,134,.166);
+    border: 1px solid rgba(134,134,134,.333);
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
-    padding: 0.5rem;
+    padding: .5rem
 }
 
 td {
-    border: 1px solid rgba( 134, 134, 134, .333 );
-    padding: 0.5rem;
+    border: 1px solid rgba(134,134,134,.333);
+    padding: .5rem
 }
-tbody > tr:nth-child(even) > td {
-    background-color: rgba( 134, 134, 134, .045 );
+
+tbody>tr:nth-child(even)>td {
+    background-color: rgba(134,134,134,.045)
 }
 
 .tooltipped {
-    position: relative;
+    position: relative
 }
 
 .tooltipped:after {
-    background: rgba( 0, 0, 0, 1 );
-    border: 1px solid rgba( 119, 119, 119, 1 );
+    background: #000;
+    border: 1px solid #777;
     border-radius: 3px;
-    color: rgba( 255, 255, 255, 1 );
+    color: #fff;
     content: attr(aria-label);
     display: none;
-    font-family: "Roboto", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-family: "Roboto","Helvetica","Tahoma","Geneva","Arial",sans-serif;
     font-size: .6875rem;
-    font-weight: normal;
+    font-weight: 400;
     -webkit-font-smoothing: subpixel-antialiased;
     letter-spacing: normal;
     line-height: 1.5;
@@ -865,215 +821,208 @@ tbody > tr:nth-child(even) > td {
     text-transform: none;
     white-space: pre;
     word-wrap: break-word;
-    z-index: 1;
+    z-index: 1
 }
 
 .tooltipped:before {
     border: 5px solid transparent;
-    color: rgba( 0, 0, 0, 1 );
+    color: #000;
     content: "";
     display: none;
     height: 0;
     pointer-events: none;
     position: absolute;
     width: 0;
-    z-index: 150;
+    z-index: 150
 }
 
-.tooltipped:hover:before,
-.tooltipped:hover:after,
-.tooltipped:active:before,
-.tooltipped:active:after,
-.tooltipped:focus:before,
-.tooltipped:focus:after {
+.tooltipped:hover:before,.tooltipped:hover:after,.tooltipped:active:before,.tooltipped:active:after,.tooltipped:focus:before,.tooltipped:focus:after {
     display: inline-block;
-    text-decoration: none;
+    text-decoration: none
 }
 
-.tooltipped-s:after,
-.tooltipped-se:after,
-.tooltipped-sw:after {
+.tooltipped-s:after,.tooltipped-se:after,.tooltipped-sw:after {
     margin-top: 5px;
     right: 50%;
-    top: 100%;
+    top: 100%
 }
 
-.tooltipped-s:before,
-.tooltipped-se:before,
-.tooltipped-sw:before {
-    border-bottom-color: rgba( 0, 0, 0, .8 );
+.tooltipped-s:before,.tooltipped-se:before,.tooltipped-sw:before {
+    border-bottom-color: rgba(0,0,0,.8);
     bottom: -5px;
     margin-right: -5px;
     right: 50%;
-    top: auto;
+    top: auto
 }
 
 .tooltipped-se:after {
     left: 50%;
     margin-left: -15px;
-    right: auto;
+    right: auto
 }
 
 .tooltipped-sw:after {
-    margin-right: -15px;
+    margin-right: -15px
 }
 
-.tooltipped-n:after,
-.tooltipped-ne:after,
-.tooltipped-nw:after {
+.tooltipped-n:after,.tooltipped-ne:after,.tooltipped-nw:after {
     bottom: 100%;
     margin-bottom: 5px;
-    right: 50%;
+    right: 50%
 }
 
-.tooltipped-n:before,
-.tooltipped-ne:before,
-.tooltipped-nw:before {
-    border-top-color: rgba( 0, 0, 0, .8 );
+.tooltipped-n:before,.tooltipped-ne:before,.tooltipped-nw:before {
+    border-top-color: rgba(0,0,0,.8);
     bottom: auto;
     margin-right: -5px;
     right: 50%;
-    top: -5px;
+    top: -5px
 }
 
 .tooltipped-ne:after {
     left: 50%;
     margin-left: -15px;
-    right: auto;
+    right: auto
 }
 
 .tooltipped-nw:after {
-    margin-right: -15px;
+    margin-right: -15px
 }
 
-.tooltipped-s:after,
-.tooltipped-n:after {
-    transform: translateX(50%);
+.tooltipped-s:after,.tooltipped-n:after {
+    transform: translateX(50%)
 }
 
 .tooltipped-w:after {
     bottom: 50%;
     margin-right: 5px;
     right: 100%;
-    transform: translateY(50%);
+    transform: translateY(50%)
 }
 
 .tooltipped-w:before {
-    border-left-color: rgba( 0, 0, 0, .8 );
+    border-left-color: rgba(0,0,0,.8);
     bottom: 50%;
     left: -5px;
     margin-top: -5px;
-    top: 50%;
+    top: 50%
 }
 
 .tooltipped-e:after {
     bottom: 50%;
     left: 100%;
     margin-left: 5px;
-    transform: translateY(50%);
+    transform: translateY(50%)
 }
 
 .tooltipped-e:before {
-    border-right-color: rgba( 0, 0, 0, .8 );
+    border-right-color: rgba(0,0,0,.8);
     bottom: 50%;
     margin-top: -5px;
     right: -5px;
-    top: 50%;
+    top: 50%
 }
 
 #R-topbar {
     min-height: 3rem;
     position: relative;
-    z-index: 170;
+    z-index: 170
 }
 
-#R-topbar > .topbar-wrapper {
+#R-topbar>.topbar-wrapper {
     align-items: center;
-    background-color: rgba( 134, 134, 134, .066 );
+    background-color: rgba(134,134,134,.066);
     display: flex;
     flex-basis: 100%;
     flex-direction: row;
-    height: 100%;
+    height: 100%
 }
 
 .topbar-button {
     display: inline-block;
-    position: relative;
-}
-.topbar-button:not([data-origin]) {
-    display: none;
+    position: relative
 }
 
-.topbar-button > .topbar-control {
+.topbar-button:not([data-origin]) {
+    display: none
+}
+
+.topbar-button>.topbar-control {
     display: inline-block;
     padding-left: 1rem;
-    padding-right: 1rem;
-}
-.topbar-wrapper > .topbar-area-start > .topbar-button > .topbar-control {
-    border-inline-end: 1px solid rgba( 134, 134, 134, .333 );
-}
-.topbar-wrapper > .topbar-area-end > .topbar-button > .topbar-control {
-    border-inline-start: 1px solid rgba( 134, 134, 134, .333 );
+    padding-right: 1rem
 }
 
-.topbar-button > button:disabled i,
-.topbar-button > span i {
-    color: rgba( 134, 134, 134, .333 );
+.topbar-wrapper>.topbar-area-start>.topbar-button>.topbar-control {
+    border-inline-end: 1px solid rgba(134,134,134,.333)
 }
-.topbar-button button{
+
+.topbar-wrapper>.topbar-area-end>.topbar-button>.topbar-control {
+    border-inline-start: 1px solid rgba(134,134,134,.333)
+}
+
+.topbar-button>button:disabled i,.topbar-button>span i {
+    color: rgba(134,134,134,.333)
+}
+
+.topbar-button button {
     -webkit-appearance: none;
     appearance: none;
-    background-color: transparent;
+    background-color: transparent
 }
 
 .topbar-sidebar-divider {
     border-inline-start-style: solid;
     border-inline-start-width: 1px;
     margin-inline-end: -1px;
-    width: 1px;
+    width: 1px
 }
+
 .topbar-sidebar-divider::after {
-    content: "\00a0";
+    content: " "
 }
 
-.topbar-wrapper > .topbar-area-start {
+.topbar-wrapper>.topbar-area-start {
     display: flex;
     flex-direction: row;
-    flex-shrink: 0;
-}
-.topbar-wrapper > .topbar-area-end {
-    display: flex;
-    flex-direction: row;
-    flex-shrink: 0;
-}
-.topbar-wrapper > .topbar-hidden {
-    display: none;
+    flex-shrink: 0
 }
 
-html[dir="rtl"] .topbar-button-prev i,
-html[dir="rtl"] .topbar-button-next i {
-    transform: scaleX(-1);
+.topbar-wrapper>.topbar-area-end {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0
+}
+
+.topbar-wrapper>.topbar-hidden {
+    display: none
+}
+
+html[dir=rtl] .topbar-button-prev i,html[dir=rtl] .topbar-button-next i {
+    transform: scaleX(-1)
 }
 
 .topbar-content {
-    top: .75rem;
+    top: .75rem
 }
-.topbar-wrapper > .topbar-area-start .topbar-content {
-    inset-inline-start: 1.5rem;
+
+.topbar-wrapper>.topbar-area-start .topbar-content {
+    inset-inline-start: 1.5rem
 }
-.topbar-wrapper > .topbar-area-end .topbar-content {
-    inset-inline-end: 1.5rem;
+
+.topbar-wrapper>.topbar-area-end .topbar-content {
+    inset-inline-end: 1.5rem
 }
-.topbar-content .topbar-content{
-    /* we don't allow flyouts in flyouts; come on, don't get funny... */
-    display: none;
+
+.topbar-content .topbar-content {
+    display: none
 }
 
 .topbar-breadcrumbs {
     flex-grow: 1;
     line-height: 1.2;
     margin: 0;
-    padding: 0 1rem;
+    padding: 0 1rem
 }
 
 .breadcrumbs {
@@ -1081,67 +1030,75 @@ html[dir="rtl"] .topbar-button-next i {
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
-    white-space: nowrap;
+    white-space: nowrap
 }
 
 .breadcrumbs meta {
-    display: none;
+    display: none
 }
 
 .breadcrumbs li {
-    display: inline-block;
+    display: inline-block
 }
 
-#R-body a[aria-disabled="true"] {
+#R-body a[aria-disabled=true] {
     pointer-events: none;
-    text-decoration: none;
+    text-decoration: none
 }
 
-/* mobile platform */
-@media screen and (max-width: 60rem) {
+@media screen and (max-width:60rem) {
     #R-sidebar {
         min-width: 14.375rem;
         max-width: 14.375rem;
-        width: 14.375rem;
+        width: 14.375rem
     }
+
     #R-body {
         margin-inline-start: calc(14.375rem - var(--thumb-size));
-        min-width: calc( 100% - 14.375rem + var(--thumb-size));
-        max-width: calc( 100% - 14.375rem + var(--thumb-size));
-        width: calc( 100% - 14.375rem + var(--thumb-size));
+        min-width: calc(100% - 14.375rem + var(--thumb-size));
+        max-width: calc(100% - 14.375rem + var(--thumb-size));
+        width: calc(100% - 14.375rem + var(--thumb-size))
     }
+
     #R-topics {
-        width: calc(14.375rem - var(--thumb-size));
+        width: calc(14.375rem - var(--thumb-size))
     }
 }
-/* mobile menu slide */
-@media screen and (max-width: 40rem) {
+
+@media screen and (max-width:40rem) {
     .mobile-support #R-sidebar {
-        inset-inline-start: -14.375rem;
+        inset-inline-start: -14.375rem
     }
-    .mobile-support #navshow{
-        display: inline;
+
+    .mobile-support #navshow {
+        display: inline
     }
+
     .mobile-support #R-body {
         min-width: 100%;
         max-width: 100%;
-        width: 100%;
+        width: 100%
     }
+
     .mobile-support #R-body {
-        margin-inline-start: 0;
+        margin-inline-start: 0
     }
+
     .mobile-support.sidebar-flyout {
-        overflow: hidden;
+        overflow: hidden
     }
+
     .mobile-support.sidebar-flyout #R-sidebar {
         inset-inline-start: 0;
-        z-index: 90;
+        z-index: 90
     }
+
     .mobile-support.sidebar-flyout #R-body {
         margin-inline-start: calc(14.375rem - var(--thumb-size));
-        overflow: hidden;
+        overflow: hidden
     }
-    .mobile-support.sidebar-flyout #R-body-overlay{
+
+    .mobile-support.sidebar-flyout #R-body-overlay {
         bottom: 0;
         cursor: pointer;
         height: 100vh;
@@ -1149,15 +1106,13 @@ html[dir="rtl"] .topbar-button-next i {
         position: absolute;
         right: 0;
         top: 0;
-        z-index: 190;
+        z-index: 190
     }
 }
-@media screen and (max-width: 48rem) {
+
+@media screen and (max-width:48rem) {
     .topbar-breadcrumbs {
-        /* we just hide the breadcrumbs instead of display: none;
-        this makes sure that the breadcrumbs are still usable for
-        accessability */
-        visibility: hidden;
+        visibility: hidden
     }
 }
 
@@ -1170,126 +1125,125 @@ html[dir="rtl"] .topbar-button-next i {
     border-width: 1px;
     cursor: pointer;
     font-size: .934375rem;
-    line-height: 1.15;
+    line-height: 1.15
 }
 
-span > .copy-to-clipboard-button {
+span>.copy-to-clipboard-button {
     border-start-start-radius: 0;
     border-start-end-radius: 2px;
     border-end-end-radius: 2px;
-    border-end-start-radius: 0;
+    border-end-start-radius: 0
 }
 
-.copy-to-clipboard-button > i {
-    font-size: .859625rem;
+.copy-to-clipboard-button>i {
+    font-size: .859625rem
 }
 
-/* only show copy to clipboard on hover for code blocks if configured */
 div.highlight .copy-to-clipboard-button {
-    display: none;
+    display: none
 }
+
 div.highlight:hover .copy-to-clipboard-button {
-    display: block;
+    display: block
 }
+
 .disableHoverBlockCopyToClipBoard div.highlight .copy-to-clipboard-button {
-    display: block;
+    display: block
 }
 
-div.highlight > div table + .copy-to-clipboard-button > i,
-div.highlight pre:not(.mermaid) + .copy-to-clipboard-button > i,
-.copy-to-clipboard-code + .copy-to-clipboard-button > i {
+div.highlight>div table+.copy-to-clipboard-button>i,div.highlight pre:not(.mermaid)+.copy-to-clipboard-button>i,.copy-to-clipboard-code+.copy-to-clipboard-button>i {
     padding-left: 5px;
-    padding-right: 5px;
+    padding-right: 5px
 }
 
-div.highlight > div table + .copy-to-clipboard-button,
-div.highlight pre:not(.mermaid) + .copy-to-clipboard-button,
-pre:not(.mermaid) > .copy-to-clipboard-button {
-    background-color: rgba( 160, 160, 160, .2 );
+div.highlight>div table+.copy-to-clipboard-button,div.highlight pre:not(.mermaid)+.copy-to-clipboard-button,pre:not(.mermaid)>.copy-to-clipboard-button {
+    background-color: rgba(160,160,160,.2);
     border-radius: 2px;
     border-style: solid;
     border-width: 1px;
     right: 4px;
     padding: 5px 3px;
     position: absolute;
-    top: 4px;
+    top: 4px
 }
 
-.disableInlineCopyToClipboard span > code.copy-to-clipboard-code + span.copy-to-clipboard-button {
-    display: none;
+.disableInlineCopyToClipboard span>code.copy-to-clipboard-code+span.copy-to-clipboard-button {
+    display: none
 }
 
-.disableInlineCopyToClipboard span > code.copy-to-clipboard-code {
+.disableInlineCopyToClipboard span>code.copy-to-clipboard-code {
     border-start-end-radius: 2px;
     border-end-end-radius: 2px;
-    border-inline-end-width: 1px;
+    border-inline-end-width: 1px
 }
 
 #R-homelinks {
     padding: 0;
-    width: calc(100% - var(--thumb-size));
+    width: calc(100% - var(--thumb-size))
 }
+
 #R-homelinks ul {
-    margin: .5rem 0;
+    margin: .5rem 0
 }
+
 #R-homelinks hr {
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    margin: 0 1rem 3px 1rem;
+    margin: 0 1rem 3px 1rem
 }
 
 option {
-    color: initial;
+    color: initial
 }
 
-
-#R-body footer.footline{
-    margin-top: 2rem;
+#R-body footer.footline {
+    margin-top: 2rem
 }
 
-.headline i,
-.footline i{
-    margin-inline-start: .5rem;
+.headline i,.footline i {
+    margin-inline-start: .5rem
 }
-.headline i:first-child,
-.footline i:first-child{
-    margin-inline-start: 0;
+
+.headline i:first-child,.footline i:first-child {
+    margin-inline-start: 0
 }
 
 .mermaid-container {
     margin-bottom: 1.7rem;
-    margin-top: 1.7rem;
+    margin-top: 1.7rem
 }
 
 .mermaid {
     border: 1px solid transparent;
-    /* don't use display: none, as this will cause no renderinge by Mermaid */
     visibility: hidden;
-    padding: .5rem .5rem 0 .5rem;
+    padding: .5rem .5rem 0 .5rem
 }
+
 .mermaid.mermaid-render {
     display: inline;
-    visibility: visible;
+    visibility: visible
 }
+
 .mermaid.mermaid-render.zoom {
     display: inline-block;
     position: relative;
-    width: 100%;
-}
-.mermaid.zoom:hover {
-    border-color: rgba( 134, 134, 134, .333 );
+    width: 100%
 }
 
-.mermaid > svg {
-    /* remove inline height from generated diagram */
-    height: initial !important;
+.mermaid.zoom:hover {
+    border-color: rgba(134,134,134,.333)
 }
-.mermaid.zoom > svg {
-    cursor: pointer;
+
+.mermaid>svg {
+    height: initial!important
+}
+
+.mermaid.zoom>svg {
+    cursor: pointer
 }
 
 .svg-reset-button {
-    background-color: rgba( 160, 160, 160, .2 );
+    background-color: rgba(160,160,160,.2);
     border-radius: 2px;
     border-style: solid;
     border-width: 1px;
@@ -1300,96 +1254,92 @@ option {
     padding: 5px 3px;
     position: absolute;
     right: 4px;
-    top: 4px;
-}
-.mermaid:hover .svg-reset-button {
-    display: block;
+    top: 4px
 }
 
-.svg-reset-button > i {
+.mermaid:hover .svg-reset-button {
+    display: block
+}
+
+.svg-reset-button>i {
     font-size: .859625rem;
     padding-left: 5px;
-    padding-right: 5px;
+    padding-right: 5px
 }
 
 .mermaid-code {
-    display: none;
+    display: none
 }
 
-/* Table of contents */
-
-.topbar-flyout #R-main-overlay{
+.topbar-flyout #R-main-overlay {
     bottom: 0;
     cursor: pointer;
     left: 0;
     position: absolute;
     right: 0;
     top: 3rem;
-    z-index: 160;
+    z-index: 160
 }
 
 .topbar-content {
-    border: 0 solid rgba( 134, 134, 134, .166 );
-    box-shadow: 1px 2px 5px 1px rgba( 134, 134, 134, .2 );
+    border: 0 solid rgba(134,134,134,.166);
+    box-shadow: 1px 2px 5px 1px rgba(134,134,134,.2);
     height: 0;
     opacity: 0;
     overflow: hidden;
     position: absolute;
     width: 0;
-    z-index: 180;
+    z-index: 180
 }
 
 .topbar-button.topbar-flyout .topbar-content {
     border-width: 1px;
     height: auto;
     opacity: 1;
-    width: auto;
+    width: auto
 }
 
 .topbar-content .topbar-content-wrapper {
-    background-color: rgba( 134, 134, 134, .066 );
+    background-color: rgba(134,134,134,.066)
 }
 
 .topbar-content-wrapper {
     max-height: 90vh;
     overflow: hidden;
     padding: .5rem 1rem;
-    position: relative; /* PS */
+    position: relative
 }
 
 .topbar-content .topbar-button .topbar-control {
     border-width: 0;
-    padding: 0;
-}
-.topbar-content .topbar-button .topbar-control {
-    border-width: 0;
-    padding: .5rem 0;
+    padding: 0
 }
 
-#TableOfContents,
-.TableOfContents {
-    font-size: 1.1rem;
+.topbar-content .topbar-button .topbar-control {
+    border-width: 0;
+    padding: .5rem 0
 }
-#TableOfContents ul,
-.TableOfContents ul {
+
+#TableOfContents,.TableOfContents {
+    font-size: 1.1rem
+}
+
+#TableOfContents ul,.TableOfContents ul {
     list-style: none;
     margin: 0;
-    padding: 0 1rem;
+    padding: 0 1rem
 }
 
-#TableOfContents > ul,
-.TableOfContents > ul {
-    padding: 0;
+#TableOfContents>ul,.TableOfContents>ul {
+    padding: 0
 }
 
-#TableOfContents li,
-.TableOfContents li {
-    white-space: nowrap;
+#TableOfContents li,.TableOfContents li {
+    white-space: nowrap
 }
 
-#TableOfContents > ul > li > a,
-.TableOfContents > ul > li > a {
-    font-weight: 500;
+#TableOfContents>ul>li>a,.TableOfContents>ul>li>a {
+    font-weight: 500
 }
 
 .btn {
@@ -1403,22 +1353,22 @@ option {
     touch-action: manipulation;
     -ms-user-select: none;
     -webkit-user-select: none;
-    user-select: none;
+    user-select: none
 }
 
-.btn > a {
-    display: block;
+.btn>a {
+    display: block
 }
 
-.btn > :where(button) {
+.btn>:where(button) {
     -webkit-appearance: none;
     appearance: none;
     border-width: 0;
     margin: 0;
-    padding: 0;
+    padding: 0
 }
 
-.btn > * {
+.btn>* {
     background-color: transparent;
     border-radius: 4px;
     border-style: solid;
@@ -1429,29 +1379,25 @@ option {
     -ms-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-    white-space: nowrap;
+    white-space: nowrap
 }
 
-.btn > *:after {
-    /* avoid breakage if no content is given */
-    content: "\200b"
+.btn>:after {
+    content: "​"
 }
 
-#R-body #R-body-inner .btn > *.highlight:after {
-    background-color: transparent;
+#R-body #R-body-inner .btn>.highlight:after {
+    background-color: transparent
 }
 
-.btn > *:focus {
-    outline: none;
+.btn>:focus {
+    outline: 0
 }
 
-.btn > *:hover,
-.btn > *:active,
-.btn > *:focus {
-    text-decoration: none;
+.btn>:hover,.btn>:active,.btn>:focus {
+    text-decoration: none
 }
 
-/* anchors */
 .anchor {
     cursor: pointer;
     font-size: .5em;
@@ -1459,10 +1405,11 @@ option {
     margin-top: .9em;
     position: absolute;
     opacity: 0;
-    transition: opacity 0.15s ease-in-out;
+    transition: opacity .15s ease-in-out
 }
+
 .copy {
-    cursor: pointer;
+    cursor: pointer
 }
 
 #notifyBox {
@@ -1472,7 +1419,7 @@ option {
     display: flex;
     align-items: flex-end;
     flex-direction: column;
-    overflow: hidden;
+    overflow: hidden
 }
 
 .notify {
@@ -1485,204 +1432,170 @@ option {
     border-style: solid;
     border-right: none;
     border-width: 1px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-
-    padding: 0.7rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    padding: .7rem;
     padding-right: 1rem;
     padding-left: 1rem;
-
     line-height: 1.7rem;
     width: 100%;
     color: var(--INTERNAL-MAIN-TEXT-color);
     border-color: var(--INTERNAL-MAIN-TEXT-color);
     transform: translateX(100%);
-    animation: notify-in 0.5s ease-out forwards;
-}
-.notify-out {
-    transform: translateX(0);
-    animation: notify-out 0.5s ease-in forwards;
+    animation: notify-in .5s ease-out forwards
 }
 
-.notify > .icon {
-    text-align: left;
-    padding-right: 1rem;
+.notify-out {
+    transform: translateX(0);
+    animation: notify-out .5s ease-in forwards
 }
-.notify > .title {
+
+.notify>.icon {
+    text-align: left;
+    padding-right: 1rem
+}
+
+.notify>.title {
     text-align: right;
-    flex: 1;
+    flex: 1
 }
 
 @keyframes notify-out {
-    100% {
-        transform: translateX(100%);
+    to {
+        transform: translateX(100%)
     }
 }
+
 @keyframes notify-in {
-    100% {
-        transform: translateX(0);
+    to {
+        transform: translateX(0)
     }
 }
 
 .notify::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 0.2rem;
+    height: .2rem;
     background: var(--INTERNAL-MAIN-TEXT-color);
-    animation: notify-time 3000ms linear forwards;
+    animation: notify-time 3000ms linear forwards
 }
 
 @keyframes notify-time {
-    100% {
-        width: 0;
+    to {
+        width: 0
     }
 }
 
-h2:hover .anchor,
-h3:hover .anchor,
-h4:hover .anchor,
-h5:hover .anchor,
-h6:hover .anchor {
-    opacity: 1;
+h2:hover .anchor,h3:hover .anchor,h4:hover .anchor,h5:hover .anchor,h6:hover .anchor {
+    opacity: 1
 }
 
-/* Redfines headers style */
-
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a {
-    font-weight: inherit;
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {
+    font-weight: inherit
 }
 
-#R-body h1 + h2,
-#R-body h1 + h3,
-#R-body h1 + h4,
-#R-body h1 + h5,
-#R-body h1 + h6,
-#R-body h2 + h3,
-#R-body h2 + h4,
-#R-body h2 + h5,
-#R-body h2 + h6,
-#R-body h3 + h4,
-#R-body h3 + h5,
-#R-body h3 + h6,
-#R-body h4 + h5,
-#R-body h4 + h6,
-#R-body h5 + h6 {
-    margin-top: 1rem;
+#R-body h1+h2,#R-body h1+h3,#R-body h1+h4,#R-body h1+h5,#R-body h1+h6,#R-body h2+h3,#R-body h2+h4,#R-body h2+h5,#R-body h2+h6,#R-body h3+h4,#R-body h3+h5,#R-body h3+h6,#R-body h4+h5,#R-body h4+h6,#R-body h5+h6 {
+    margin-top: 1rem
 }
 
 .menu-control .control-style {
     cursor: pointer;
     height: 1.574em;
-    overflow: hidden;
+    overflow: hidden
 }
+
 .menu-control .control-style select:focus-visible {
-   outline: none;
+    outline: 0
 }
 
 .menu-control i {
-    padding-top: .25em;
+    padding-top: .25em
 }
 
-.menu-control i,
-.menu-control span {
+.menu-control i,.menu-control span {
     cursor: pointer;
     display: block;
-    float: left;
-}
-html[dir="rtl"] .menu-control i,
-html[dir="rtl"] .menu-control span {
-    float: right;
+    float: left
 }
 
-.menu-control :hover,
-.menu-control i:hover,
-.menu-control span:hover {
-    cursor: pointer;
+html[dir=rtl] .menu-control i,html[dir=rtl] .menu-control span {
+    float: right
 }
 
-.menu-control select,
-.menu-control button {
+.menu-control :hover,.menu-control i:hover,.menu-control span:hover {
+    cursor: pointer
+}
+
+.menu-control select,.menu-control button {
     -webkit-appearance: none;
     appearance: none;
-    width: 100%;
+    width: 100%
 }
+
 .menu-control select {
     background-color: transparent;
     background-image: none;
-    border: none;
+    border: 0;
     box-shadow: none;
     padding-left: 0;
-    padding-right: 0;
+    padding-right: 0
 }
 
 .menu-control option {
-    color: rgba( 0, 0, 0, 1 );
+    color: #000;
     padding: 0;
-    margin: 0;
+    margin: 0
 }
 
 .menu-control button {
     background-color: transparent;
     cursor: pointer;
     display: block;
-    text-align: start;
+    text-align: start
 }
 
 .clear {
-    clear: both;
+    clear: both
 }
 
-.footerLangSwitch,
-.footerVariantSwitch,
-.footerVisitedLinks,
-.footerFooter {
-    display: none;
+.footerLangSwitch,.footerVariantSwitch,.footerVisitedLinks,.footerFooter {
+    display: none
 }
 
-.showLangSwitch,
-.showVariantSwitch,
-.showVisitedLinks,
-.showFooter {
-    display: block;
+.showLangSwitch,.showVariantSwitch,.showVisitedLinks,.showFooter {
+    display: block
 }
 
-/* clears the 'X' from Chrome's search input */
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration { display: none; }
+input[type=search]::-webkit-search-decoration,input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-results-button,input[type=search]::-webkit-search-results-decoration {
+    display: none
+}
 
-@supports selector(.math:has(> mjx-container)){
-    .math{
-        visibility: hidden;
+@supports selector(.math:has(> mjx-container)) {
+    .math {
+        visibility: hidden
     }
-    .math:has(> mjx-container){
-        visibility: visible;
+
+    .math:has(>mjx-container) {
+        visibility: visible
     }
 }
 
-.math.align-left > mjx-container{
-    text-align: left !important;
+.math.align-left>mjx-container {
+    text-align: left!important
 }
 
-.math.align-center > mjx-container{
-    text-align: center !important;
+.math.align-center>mjx-container {
+    text-align: center!important
 }
 
-.math.align-right > mjx-container{
-    text-align: right !important;
+.math.align-right>mjx-container {
+    text-align: right!important
 }
 
 .a11y-only {
-    /* idea taken from https://www.filamentgroup.com/lab/a11y-form-labels.html */
     clip: rect(1px,1px,1px,1px);
     overflow: hidden;
     position: absolute;
@@ -1690,48 +1603,47 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     transform: translateY(-100%);
     transition: transform .5s cubic-bezier(.18,.89,.32,1.28);
     white-space: nowrap;
-    width: 1px;
+    width: 1px
 }
 
-.mermaid-container.align-right  {
-    text-align: right;
+.mermaid-container.align-right {
+    text-align: right
 }
 
-.mermaid-container.align-center  {
-    text-align: center;
+.mermaid-container.align-center {
+    text-align: center
 }
 
 .mermaid-container.align-left {
-    text-align: left;
+    text-align: left
 }
 
 .searchform {
-    display: flex;
+    display: flex
 }
 
 .searchform input {
     flex: 1 0 60%;
     border-radius: 4px;
-    border: 2px solid rgba( 134, 134, 134, .125 );
-    background: rgba( 134, 134, 134, .125 );
+    border: 2px solid rgba(134,134,134,.125);
+    background: rgba(134,134,134,.125);
     display: block;
     margin: 0;
-    margin-inline-end: .5rem;
+    margin-inline-end: .5rem
 }
 
-.searchform input::-webkit-input-placeholder,
-.searchform input::placeholder {
-    color: rgba( 134, 134, 134, 1 );
-    opacity: .666;
+.searchform input::-webkit-input-placeholder,.searchform input::placeholder {
+    color: #868686;
+    opacity: .666
 }
 
 .searchform .btn {
-    display: inline-flex;
+    display: inline-flex
 }
 
 .searchhint {
     margin-top: 1rem;
-    height: 1.5rem;
+    height: 1.5rem
 }
 
 #R-searchresults a.autocomplete-suggestion {
@@ -1740,27 +1652,27 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     font-weight: 500;
     line-height: 1.5rem;
     padding: 1rem;
-    text-decoration: none;
+    text-decoration: none
 }
 
 #R-searchresults a.autocomplete-suggestion:after {
-    height: 0;
+    height: 0
 }
 
-#R-searchresults .autocomplete-suggestion > .breadcrumbs {
+#R-searchresults .autocomplete-suggestion>.breadcrumbs {
     font-size: .9rem;
     font-weight: 400;
     margin-top: .167em;
     padding-left: .2em;
-    padding-right: .2em;
+    padding-right: .2em
 }
 
-#R-searchresults .autocomplete-suggestion > .context {
+#R-searchresults .autocomplete-suggestion>.context {
     font-size: 1rem;
     font-weight: 300;
     margin-top: .66em;
     padding-left: .1em;
-    padding-right: .1em;
+    padding-right: .1em
 }
 
 .badge {
@@ -1768,10 +1680,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     display: inline-block;
     font-size: .8rem;
     font-weight: 500;
-    vertical-align: middle;
+    vertical-align: middle
 }
 
-.badge > * {
+.badge>* {
     border-radius: 3px;
     border-style: solid;
     border-width: 1px;
@@ -1779,73 +1691,67 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     padding: 0 .25rem
 }
 
-.badge > .badge-title {
-    background-color: rgba( 16, 16, 16, 1 );
+.badge>.badge-title {
+    background-color: #101010;
     border-inline-end: 0;
     border-start-end-radius: 0;
     border-end-end-radius: 0;
-    color: rgba( 240, 240, 240, 1 );
+    color: #f0f0f0;
     filter: contrast(2);
-    opacity: .75;
+    opacity: .75
 }
 
-.badge.badge-with-title > .badge-content {
+.badge.badge-with-title>.badge-content {
     border-start-start-radius: 0;
-    border-end-start-radius: 0;
+    border-end-start-radius: 0
 }
 
 .badge-content:after {
-    /* avoid breakage if no content is given */
-    content: "\200b";
+    content: "​"
 }
 
-/* task list and its checkboxes */
-article ul > li:has(> input[type="checkbox"]) {
+article ul>li:has(>input[type=checkbox]) {
     list-style: none;
-    margin-inline-start: -1rem;
+    margin-inline-start: -1rem
 }
 
-article ul > li:has(> input[type="checkbox"])::before {
-    content: "\200B"; /* accessibilty for Safari https://developer.mozilla.org/en-US/docs/Web/CSS/list-style */
+article ul>li:has(>input[type=checkbox])::before {
+    content: "​"
 }
 
-/* https://moderncss.dev/pure-css-custom-checkbox-style/ */
-article ul > li > input[type="checkbox"] {
+article ul>li>input[type=checkbox] {
     -webkit-appearance: none;
     appearance: none;
-    /* For iOS < 15 */
-    border: 0.15em solid currentColor;
-    border-radius: 0.15em;
+    border: .15em solid currentColor;
+    border-radius: .15em;
     display: inline-grid;
     font: inherit;
     height: 1.15em;
-    margin: 0.5rem;
+    margin: .5rem;
     place-content: center;
-    transform: translateY(-0.075em);
-    width: 1.15em;
+    transform: translateY(-.075em);
+    width: 1.15em
 }
 
-article ul > li > input[type="checkbox"]::before {
+article ul>li>input[type=checkbox]::before {
     box-shadow: inset 1em 1em var(--INTERNAL-PRIMARY-color);
-    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    clip-path: polygon(14% 44%,0 65%,50% 100%,100% 16%,80%0,43% 62%);
     content: "";
-    height: 0.65em;
+    height: .65em;
     transform: scale(0);
     transform-origin: bottom left;
     transition: 120ms transform ease-in-out;
-    width: 0.65em;
-    /* Windows High Contrast Mode fallback must be last */
-    background-color: CanvasText;
+    width: .65em;
+    background-color: CanvasText
 }
 
-article ul > li > input[type="checkbox"]:checked::before {
-    transform: scale(1);
+article ul>li>input[type=checkbox]:checked::before {
+    transform: scale(1)
 }
 
-/* CSS Lightbox https://codepen.io/gschier/pen/kyRXVx */
 .lightbox-back {
     align-items: center;
-    background: rgba( 0, 0, 0, .8 );
+    background: rgba(0,0,0,.8);
     bottom: 0;
     display: none;
     justify-content: center;
@@ -1855,68 +1761,66 @@ article ul > li > input[type="checkbox"]:checked::before {
     text-align: center;
     top: 0;
     white-space: nowrap;
-    z-index: 1999;
+    z-index: 1999
 }
 
 .lightbox-back:target {
-    display: flex;
+    display: flex
 }
 
 .lightbox-back img {
     max-height: 95%;
     max-width: 95%;
     overflow: auto;
-    padding: min(2vh, 2vw);
+    padding: min(2vh,2vw)
 }
 
-/* basic menu list styles (non-collapsible) */
+#R-content-wrapper {
+    margin-left: 0.20rem;
+}
 
-#R-sidebar ul > li > :is( a, span ) {
+#R-sidebar ul>li>:is(a,span) {
     display: block;
-    position: relative;
+    position: relative
 }
 
-#R-sidebar ul.space > li > * {
+#R-sidebar ul.space>li>* {
     padding-bottom: .125rem;
-    padding-top: .125rem;
-}
-#R-sidebar ul.space > li > ul {
-    padding-bottom: 0;
-    padding-top: 0;
+    padding-top: .125rem
 }
 
-#R-sidebar ul.morespace > li > * {
+#R-sidebar ul.space>li>ul {
+    padding-bottom: 0;
+    padding-top: 0
+}
+
+#R-sidebar ul.morespace>li>* {
     padding-bottom: .25rem;
-    padding-top: .25rem;
+    padding-top: .25rem
 }
-#R-sidebar ul.morespace > li > ul {
+
+#R-sidebar ul.morespace>li>ul {
     padding-bottom: 0;
-    padding-top: 0;
+    padding-top: 0
 }
 
-#R-sidebar ul.enlarge > li > :is( a, span ) {
+#R-sidebar ul.enlarge>li>:is(a,span) {
     font-size: 1.1rem;
-    user-select: none;
 }
-#R-sidebar ul.enlarge > li > a > .read-icon {
-    margin-top: .5rem;
-}
-#R-sidebar ul.enlarge > li > ul > li:last-child {
-    padding-bottom: 1rem;
+#R-sidebar ul.collapsible-menu:first-child >li {
+    padding-bottom: 0.7rem;
 }
 
-#R-sidebar ul ul {
-    padding-inline-start: 0.5rem;
+#R-sidebar ul.collapsible-menu:first-child >li.alwaysopen > span {
+    padding-left: 0.7rem;
 }
 
-/* collapsible menu style overrides */
-
-#R-sidebar ul.collapsible-menu > li {
-    padding-inline-start: 0.3rem;
-    position: relative;
+#R-sidebar ul.collapsible-menu>li.alwaysopen>input,
+#R-sidebar ul.collapsible-menu>li.alwaysopen>label {
+    display: none;
 }
 
-#R-sidebar ul.collapsible-menu > li > input {
+#R-sidebar ul.collapsible-menu>li>input {
     -webkit-appearance: none;
     appearance: none;
     cursor: pointer;
@@ -1926,157 +1830,137 @@ article ul > li > input[type="checkbox"]:checked::before {
     margin-top: .65rem;
     position: absolute;
     width: 1rem;
-    z-index: 1;
-}
-#R-sidebar ul.collapsible-menu.enlarge > li > input {
-    margin-top: .9rem;
+    z-index: 1
 }
 
-#R-sidebar ul.collapsible-menu.enlarge > li.alwaysopen > input,
-#R-sidebar ul.collapsible-menu.enlarge > li.alwaysopen > label {
-    display: none; 
+#R-sidebar ul.collapsible-menu.enlarge>li>input {
+    margin-top: .9rem
 }
-#R-sidebar ul.collapsible-menu > li.alwaysopen {
-    padding-inline-start: 0rem;
+
+#R-sidebar ul.collapsible-menu:not(:first-child) > li {
+    padding-inline-start: .4rem;
+}
+#R-sidebar ul.collapsible-menu > li > ul.collapsible-menu label,
+#R-sidebar ul > li label {
+    padding-left: 0.7rem;
 }
 
 #R-sidebar ul.collapsible-menu > li > label {
     cursor: pointer;
     display: inline-block;
-    inset-inline-start: 0;
-    margin-bottom: 0; /* nucleus */
-    padding-inline-start: .85rem;
     position: absolute;
     width: 1rem;
     z-index: 2;
-    margin-right: 0.3rem;
 }
-#R-sidebar ul.collapsible-menu.enlarge > li > label {
-    font-size: 1.1rem;
+#R-sidebar ul.collapsible-menu>li>label>i {
+    font-size: .8rem;
+    width: .6rem
 }
 
-#R-sidebar ul.collapsible-menu > li > label:after {
+#R-sidebar ul.collapsible-menu>li>label:after {
     content: "";
     display: block;
     height: 1px;
-    transition: width 0.5s ease;
-    width: 0%;
+    transition: width .5s ease;
+    width: 0%
 }
 
-#R-sidebar ul.collapsible-menu > li > label:hover:after {
-    width: 100%;
+#R-sidebar ul.collapsible-menu>li>label:hover:after {
+    width: 100%
 }
 
-#R-sidebar ul.collapsible-menu > li > label > .fas {
-    font-size: .8rem;
-    width: .6rem;
-}
-
-#R-sidebar ul.collapsible-menu > li > :is( a, span ) {
+#R-sidebar ul.collapsible-menu>li>:is(a,span) {
     display: flex;
     align-items: center;
-    width: 100%;
-
+    width: 100%
 }
-#R-sidebar ul.collapsible-menu > li:not(.active) > a > span {
-    transition: transform 0.45s ease-in-out;
+
+#R-sidebar ul.collapsible-menu>li:not(.active)>a>span {
+    transition: transform .45s ease-in-out;
     transform-origin: left;
-    transform: scale(100%);
-}
-#R-sidebar ul.collapsible-menu > li.active > a > span,
-#R-sidebar ul.collapsible-menu > li:not(.active) > a:hover > span {
-    transform: scale(102%);
-}
-#R-sidebar ul.space {
-    font-size: 0.85rem;
+    transform: scale(100%)
 }
 
-#R-sidebar ul.collapsible-menu > li:not(.active) > a {
-    background: linear-gradient(90deg,transparent 50%, var(--INTERNAL-MENU-HOVER-color) 100%);
+#R-sidebar ul.collapsible-menu>li.active>a>span,
+#R-sidebar ul.collapsible-menu>li:not(.active)>a:hover>span {
+    transform: scale(102%)
+}
+
+#R-sidebar ul.space {
+    font-size: .85rem
+}
+
+#R-sidebar ul.collapsible-menu>li:not(.active)>a {
+    background: linear-gradient(90deg,transparent 50%,var(--INTERNAL-MENU-HOVER-color) 100%);
     background-repeat: no-repeat;
     background-size: 201%;
-    background-position: 0%;
-    transition: background-position 0.5s ease-in-out;
-    mix-blend-mode: difference;
+    background-position: 0;
+    transition: background-position .5s ease-in-out;
+    mix-blend-mode: difference
 }
-#R-sidebar ul.collapsible-menu > li:not(.active) > a:hover {
-    background-position: 100%;
+
+#R-sidebar ul.collapsible-menu>li:not(.active)>a:hover {
+    background-position: 100%
 }
-/* menu states for not(.collapsible-menu) */
 
 #R-sidebar ul ul {
     display: none;
 }
-#R-sidebar ul.enlarge > li.parent,
-#R-sidebar ul.enlarge > li.active {
+
+#R-sidebar ul.enlarge>li.parent,#R-sidebar ul.enlarge>li.active {
     border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-bottom-left-radius: 20px
 }
 
-#R-sidebar ul > li.parent > ul,
-#R-sidebar ul > li.active > ul,
-#R-sidebar ul > li.alwaysopen > ul {
-    display: block;
+#R-sidebar ul>li.parent>ul,#R-sidebar ul>li.active>ul,#R-sidebar ul>li.alwaysopen>ul {
+    display: block
 }
 
-/* closed menu */
+#R-sidebar ul.collapsible-menu>li>input+label~ul {
+    display: none
+}
 
-#R-sidebar ul.collapsible-menu > li > input + label ~ ul {
-    display: none;
-}
-#R-sidebar ul.collapsible-menu > li > input + label > .fa-chevron-down {
-    display: none;
-}
-#R-sidebar ul.collapsible-menu > li > input + label > .fa-chevron-right {
+#R-sidebar ul.collapsible-menu>li>input+label>.fa-chevron-right {
     display: inline-block;
+    transition: transform 0.15s ease-in-out;
+}
+#R-sidebar ul.collapsible-menu>li>input:checked+label>.fa-chevron-right {
+    transform: rotate(90deg);
 }
 
-/* open menu  */
-
-#R-sidebar ul.collapsible-menu > li > input:checked + label ~ ul {
-    display: block;
-}
-#R-sidebar ul.collapsible-menu > li > input:checked + label > .fa-chevron-down {
-    display: inline-block;
-}
-#R-sidebar ul.collapsible-menu > li > input:checked + label > .fa-chevron-right {
-    display: none;
+#R-sidebar ul.collapsible-menu>li>input:checked+label~ul {
+    display: block
 }
 
-/* adjust menu for RTL reading direction */
-
-html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right {
-    transform: scaleX(-1);
+.columnize {
+    column-count: 2
 }
 
-.columnize{
-    column-count: 2;
-}
-@media screen and (min-width: 79.25rem) {
-    .columnize{
-        column-count: 3;
+@media screen and (min-width:79.25rem) {
+    .columnize {
+        column-count: 3
     }
 }
 
-#R-body .tab-panel{
+#R-body .tab-panel {
     margin-bottom: 1.5rem;
-    margin-top: 1.5rem;
+    margin-top: 1.5rem
 }
 
-#R-body .tab-nav{
+#R-body .tab-nav {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap
 }
 
-#R-body .tab-nav-title{
+#R-body .tab-nav-title {
     font-size: .9rem;
     font-weight: 400;
     line-height: 1.42857143;
     padding: .2rem 0;
-    margin-inline-start: .6rem;
+    margin-inline-start: .6rem
 }
 
-#R-body .tab-nav-button{
+#R-body .tab-nav-button {
     -webkit-appearance: none;
     appearance: none;
     background-color: transparent;
@@ -2085,67 +1969,64 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
     font-size: .9rem;
     font-weight: 300;
     line-height: 1.42857143;
-    margin-inline-start: .6rem;
+    margin-inline-start: .6rem
 }
 
-#R-body .tab-nav-button.active{
+#R-body .tab-nav-button.active {
     border-radius: 2px 2px 0 0;
-    cursor: default;
+    cursor: default
 }
 
-#R-body .tab-nav-button > .tab-nav-text{
+#R-body .tab-nav-button>.tab-nav-text {
     border-bottom-style: solid;
     border-bottom-width: .2rem;
     display: block;
-    padding: .2rem .6rem 0 .6rem;
+    padding: .2rem .6rem 0 .6rem
 }
-/* https://stackoverflow.com/a/46452396 */
-#R-body .tab-nav-button.active > .tab-nav-text{
+
+#R-body .tab-nav-button.active>.tab-nav-text {
     border-bottom-color: transparent;
     border-radius: 1px 1px 0 0;
-    text-shadow: -0.06ex 0 0 currentColor, 0.06ex 0 0 currentColor;
+    text-shadow: -.06ex 0 0 currentColor,.06ex 0 0 currentColor
 }
-@supports (-webkit-text-stroke-width: 0.04ex){
-    #R-body .tab-nav-button.active > .tab-nav-text{
-        text-shadow: -0.03ex 0 0 currentColor, 0.03ex 0 0 currentColor;
-        -webkit-text-stroke-width: 0.04ex;
+
+@supports (-webkit-text-stroke-width:.04ex) {
+    #R-body .tab-nav-button.active>.tab-nav-text {
+        text-shadow: -.03ex 0 0 currentColor,.03ex 0 0 currentColor;
+        -webkit-text-stroke-width: .04ex
     }
 }
 
-#R-body .tab-content{
+#R-body .tab-content {
     border-style: solid;
     border-width: 1px;
     display: none;
-    z-index: 10;
+    z-index: 10
 }
 
-#R-body .tab-content.active{
-    display: block;
+#R-body .tab-content.active {
+    display: block
 }
 
-#R-body .tab-content-text{
-    padding: 1rem;
+#R-body .tab-content-text {
+    padding: 1rem
 }
 
-/* remove margin if only a single code block is contained in the tab (FF without :has using .codify style) */
-#R-body .tab-content.codify > .tab-content-text{
-    padding: 0;
-}
-#R-body .tab-content-text:has(> div.highlight:only-child){
-    padding: 0;
+#R-body .tab-content.codify>.tab-content-text {
+    padding: 0
 }
 
-/* remove border from code block if single in tab */
-#R-body .tab-content-text > div.highlight:only-child > div,
-#R-body .tab-content-text > div.highlight:only-child pre:not(.mermaid),
-#R-body .tab-content-text > pre:not(.mermaid).pre-code:only-child{
-    border-width: 0;
+#R-body .tab-content-text:has(>div.highlight:only-child) {
+    padding: 0
 }
 
-/* bordering the menu and topbar */
+#R-body .tab-content-text>div.highlight:only-child>div,#R-body .tab-content-text>div.highlight:only-child pre:not(.mermaid),#R-body .tab-content-text>pre:not(.mermaid).pre-code:only-child {
+    border-width: 0
+}
+
 #R-topbar {
     border-bottom-style: solid;
-    border-bottom-width: 1px;
+    border-bottom-width: 1px
 }
 
 #R-header-topbar {
@@ -2156,33 +2037,30 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
     position: absolute;
     top: 0;
     width: calc(100% - var(--thumb-size));
-    z-index: 1;
+    z-index: 1
 }
 
 #R-content-wrapper::-webkit-scrollbar-thumb {
-    border-radius: 0px;
+    border-radius: 0
 }
 
-#topics > ul {
-    margin-top: 1rem;
+#topics>ul {
+    margin-top: 1rem
 }
-#R-sidebar ul.collapsible-menu li > a {
-    padding-left: 1.5rem;
-}
-#R-sidebar ul.collapsible-menu li.active > a{
+
+#R-sidebar ul.collapsible-menu li.active>a {
     border-style: solid;
     border-width: 1px;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
     pointer-events: none;
-    cursor: default;
+    cursor: default
 }
 
 #R-menu-footer {
     padding-bottom: 1rem;
-    font-size: 0.85rem;
+    font-size: .85rem
 }
-
 
 #R-sidebar-line {
     top: 3rem;
@@ -2190,21 +2068,21 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
     right: var(--thumb-size);
     width: 1px;
     height: calc(100% - 3rem);
-    background-color: transparent;
+    background-color: transparent
 }
 
-#R-sidebar ul.space > li > a,
-#R-sidebar ul.space > li > span {
+#R-sidebar ul.space>li>a,#R-sidebar ul.space>li>span {
     transform-origin: center left;
     transform: scale(100%);
-    transition: transform 0.3s ease-in-out;
+    transition: transform .3s ease-in-out
 }
-#R-sidebar ul.space > li:hover > a,
-#R-sidebar ul.space > li:hover > span {
-    transform: scale(104%);
+
+#R-sidebar ul.space>li:hover>a,#R-sidebar ul.space>li:hover>span {
+    transform: scale(104%)
 }
-#R-sidebar ul.space > li:hover > span {
-    user-select: auto;
+
+#R-sidebar ul.space>li:hover>span {
+    user-select: auto
 }
 
 .expand {
@@ -2213,46 +2091,55 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
     border-width: 1px;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    padding: 0.7rem;
+    padding: .7rem;
     padding-left: 0;
-    line-height: 1.7rem;
+    line-height: 1.7rem
 }
-.expand > input[type="checkbox"] {
-    display: none;
+
+.expand>input[type=checkbox] {
+    display: none
 }
+
 .expand .expand-content {
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows 500ms;
-    padding-left: 2.931rem;
+    padding-left: 2.931rem
 }
+
 .expand .expand-content-inner {
-    overflow: hidden;
+    overflow: hidden
 }
-.expand .expand-content-inner >* {
-    line-height: normal;
+
+.expand .expand-content-inner>* {
+    line-height: normal
 }
-.expand > input[type="checkbox"]:checked ~ .expand-content {
-    grid-template-rows: 1fr;
+
+.expand>input[type=checkbox]:checked~.expand-content {
+    grid-template-rows: 1fr
 }
-.expand > label {
+
+.expand>label {
     display: flex;
     align-items: center;
     line-height: 1.7rem;
     cursor: pointer;
-    margin: 0rem;
-    margin-left: 1rem;
+    margin: 0;
+    margin-left: 1rem
 }
-.expand > label > .expand-title {
+
+.expand>label>.expand-title {
     flex: 1;
-    padding-left: 1.13rem;
+    padding-left: 1.13rem
 }
-.expand > label > .expand-button  {
+
+.expand>label>.expand-button {
     transform-origin: center;
-    transition: transform 0.2s ease-in-out;    
+    transition: transform .2s ease-in-out
 }
-.expand > input[type="checkbox"]:checked ~ label > .expand-button  {
-    transform: rotate(90deg);
+
+.expand>input[type=checkbox]:checked~label>.expand-button {
+    transform: rotate(90deg)
 }
 
 .notice {
@@ -2260,155 +2147,164 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
     border-style: solid;
     border-width: 1px;
     border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+    border-top-left-radius: 5px
 }
-.notice > input[type="checkbox"] {
-    display: none;
+
+.notice>input[type=checkbox] {
+    display: none
 }
+
 .notice .notice-content {
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows 500ms;
+    transition: grid-template-rows 500ms
 }
+
 .notice .notice-content-inner {
-    overflow: hidden;
+    overflow: hidden
 }
-.notice .notice-content-inner > * {
-    padding: 1rem;
+
+.notice .notice-content-inner>* {
+    padding: 1rem
 }
-.notice > input[type="checkbox"]:checked ~ .notice-content {
-    grid-template-rows: 1fr;
+
+.notice>input[type=checkbox]:checked~.notice-content {
+    grid-template-rows: 1fr
 }
-.notice > label {
+
+.notice>label {
     line-height: 1.7rem;
     font-weight: 500;
-    margin-left: 0.65rem;
-    padding-top: 0.25rem;
+    margin-left: .65rem;
+    padding-top: .25rem;
     display: flex;
     align-items: center;
-    cursor: pointer;
-    
+    cursor: pointer
 }
-.notice > label > .notice-title {
+
+.notice>label>.notice-title {
     flex: 1;
-    padding-left: 0.65rem;
+    padding-left: .65rem
 }
 
 .carousel-container {
-  margin: 1.5rem 0;
-  margin-left: auto;
-  margin-right: auto;
-  max-height: calc(70vh + 1.875rem);
-  padding: 0;
-  position: relative;
-  overflow: hidden;
+    margin: 1.5rem 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: calc(70vh + 1.875rem);
+    padding: 0;
+    position: relative;
+    overflow: hidden
 }
 
 .carousel-container .item {
-  width: 100%;
-  height: calc(100% - 1.875rem);
-  position: relative;
-  display: none;
-  overflow: hidden;
-  border-radius: 0.375rem;
+    width: 100%;
+    height: calc(100% - 1.875rem);
+    position: relative;
+    display: none;
+    overflow: hidden;
+    border-radius: .375rem
 }
 
 .carousel-container .item .counter {
-  padding: 0.5rem 0.75rem;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-weight: 600;
-  border-radius: 0.9375rem;
-  font-size: 0.875rem;
-  transition: all 0.3s ease-in-out;
-  transform: translateX(5rem);
-}
-.carousel-container:hover .item .counter {
-    transform: translateX(0rem);
+    padding: .5rem .75rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-weight: 600;
+    border-radius: .9375rem;
+    font-size: .875rem;
+    transition: all .3s ease-in-out;
+    transform: translateX(5rem)
 }
 
-.carousel-container .item img,
-.carousel-container .item video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.carousel-container:hover .item .counter {
+    transform: translateX(0)
+}
+
+.carousel-container .item img,.carousel-container .item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
 }
 
 .carousel-container .item .label {
-  width: 100%;
-  padding: 0.625rem 0.9375rem;
-  max-height: calc(50% - 2rem);
-  position: absolute;
-  font-weight: 450;
-  overflow-y: auto;
-  bottom: 0%;
-  font-size: 1rem;  
-  transform: translateY(101%);
-  transition: transform 0.25s ease-in-out;
-  z-index: 2;
+    width: 100%;
+    padding: .625rem .9375rem;
+    max-height: calc(50% - 2rem);
+    position: absolute;
+    font-weight: 450;
+    overflow-y: auto;
+    bottom: 0;
+    font-size: 1rem;
+    transform: translateY(101%);
+    transition: transform .25s ease-in-out;
+    z-index: 2
 }
 
 .carousel-container:hover .item .label {
-    transform: translateY(0%);
+    transform: translateY(0)
 }
 
 .carousel-container .control {
-    top: 0%;
+    top: 0;
     display: flex;
     width: 100%;
     height: calc(100% - 1.875rem);
     position: absolute;
     z-index: 1;
+    user-select: none
+}
+
+.carousel-container .control .prev,.carousel-container .control .next {
+    flex: 1;
+    width: 50%
+}
+
+.carousel-container .control .next i,.carousel-container .control .prev i {
+    position: absolute;
+    margin: 1rem;
+    padding: .4rem .65rem;
+    position: absolute;
+    top: calc(50% - 2rem);
     user-select: none;
-    
+    font-size: 1rem;
+    border-radius: 50%;
+    transition: .3s ease-in-out
 }
-.carousel-container .control .prev,
-.carousel-container .control .next {
-  flex: 1;
-  width: 50%;
-}
-.carousel-container .control .next i,
-.carousel-container .control .prev i {
-  position: absolute;
-  margin: 1rem;
-  padding: 0.4rem 0.65rem;
-  position: absolute;
-  top: calc(50% - 2rem);
-  user-select: none;
-  font-size: 1rem;
-  border-radius: 50%;
-  transition: 0.3s ease-in-out;
-}
-.carousel-container .control .next:hover i,
-.carousel-container .control .prev:hover i {
+
+.carousel-container .control .next:hover i,.carousel-container .control .prev:hover i {
     font-size: 1.5rem;
     top: calc(50% - 2.5rem);
-    padding: 0.6rem 0.975rem;
+    padding: .6rem .975rem
 }
+
 .carousel-container .control .next i {
-    right: 0%;
+    right: 0
 }
+
 .carousel-container .control .prev i {
-    left: 0%;
+    left: 0
 }
+
 .carousel-container .dots {
-  padding: 0.9375rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    padding: .9375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
+
 .carousel-container .dots .dot {
-  width: 0.625rem;
-  height: 0.625rem;
-  margin: 0 0.125rem;
-  display: inline-block;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: opacity 0.6s ease;
-  opacity: 0.5;
+    width: .625rem;
+    height: .625rem;
+    margin: 0 .125rem;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: opacity .6s ease;
+    opacity: .5
 }
-.carousel-container .dots .dot:hover,
-.carousel-container .dots .active {
-  opacity: 1;
+
+.carousel-container .dots .dot:hover,.carousel-container .dots .active {
+    opacity: 1
 }
