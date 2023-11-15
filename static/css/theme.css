@@ -288,7 +288,7 @@ dd {
     letter-spacing: -.02175em;
     line-height: 110%!important;
     margin: 1.2rem 0 .35rem 0;
-    padding-inline-start: 1.25rem;
+    padding-inline-start: 0.7rem;
     text-rendering: optimizeLegibility;
     text-transform: uppercase
 }
