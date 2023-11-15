@@ -2047,12 +2047,14 @@ article ul>li>input[type=checkbox]:checked::before {
 #topics>ul {
     margin-top: 1rem
 }
-
 #R-sidebar ul.collapsible-menu li.active>a {
     border-style: solid;
     border-width: 1px;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
+    border-color: transparent;
+}
+#R-sidebar ul.collapsible-menu li.active>a {
     pointer-events: none;
     cursor: default
 }
