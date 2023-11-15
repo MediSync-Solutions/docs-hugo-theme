@@ -68,8 +68,8 @@
 {{- if $effects.lightbox -}}
 <a href="#R-image-{{ $id }}" class="lightbox-link">
 {{- end -}}
-<img src="{{ $url | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} class="figure-image {{ delimit $classes " " }}" style="height: {{ $height }}; width: {{ $width }};" loading="lazy">
+<img src="{{ $url | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} class="figure-image {{ delimit $classes " " }}">
 {{- if $effects.lightbox -}}
 </a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-{{ $id }}"><img src="{{ $url | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} class="lightbox-image {{ delimit $classes " " }}" loading="lazy"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-{{ $id }}"><img src="{{ $url | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} class="lightbox-image {{ delimit $classes " " }}"></a>
 {{- end }}
