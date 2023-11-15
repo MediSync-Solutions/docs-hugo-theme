@@ -1136,7 +1136,7 @@ function initHistory() {
             });
         }
     }
-    document.querySelectorAll("#R-topics li:not(.alwaysopen)").forEach( function(el) {
+    document.querySelectorAll("#R-topics li:not(.active):not(.alwaysopen)").forEach( function(el) {
        let input = el.querySelector("input");
        if (input != null) input.checked = sessionStorage.getItem(input.id) == 1;
     });
