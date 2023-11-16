@@ -322,16 +322,16 @@ dd {
 #R-body .image-container, #R-body .video-container {
     position: relative;
     overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
     border: none;
     border-radius: .9375rem;
+    max-height: 70rem;
 }
 #R-body .image-container img,#R-body .video-container video {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     width: 100%;
 }
-
 
 
 #R-body-inner {

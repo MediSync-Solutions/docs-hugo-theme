@@ -516,7 +516,27 @@ function initAnchorClipboard(){
         showNotify(window.window.T_Link_copied_to_clipboard,'<i class="fa-regular fa-clipboard"></i>');
     });
 }
-
+function initMedia() {
+    document.querySelectorAll(".image-container").forEach(container => {
+        let item = container.querySelector("img");
+        if (item.complete) {
+            container.style.setProperty("aspect-ratio",item.naturalWidth/item.naturalHeight);
+            container.style.setProperty("max-width","calc(70vh * " + (item.naturalWidth/item.naturalHeight)+")");
+        } else {
+            item.addEventListener("load", function () {
+                container.style.setProperty("aspect-ratio",item.naturalWidth/item.naturalHeight);
+                container.style.setProperty("max-width","calc(70vh * " + (item.naturalWidth/item.naturalHeight)+")");
+            });
+        }
+    });
+    document.querySelectorAll(".video-container").forEach(container => {
+        let item = container.querySelector("video");
+        item.addEventListener("loadedmetadata", function () {
+            container.style.setProperty("aspect-ratio",item.videoWidth/item.videoHeight);
+            container.style.setProperty("max-width","calc(70vh * " + (item.videoWidth/item.videoHeight)+")");
+        });
+    });
+}
 function initCarousels() {
     document.querySelectorAll(".carousel-container").forEach(carousel => {
       let firstItem = carousel.querySelector(".item");
@@ -1436,6 +1456,7 @@ ready( function(){
     initToc();
     initAnchorClipboard();
     initTextClipboard();
+    initMedia();
     initCarousels();
     initLinks();
     initBigLinks();
