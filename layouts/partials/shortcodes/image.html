@@ -65,11 +65,9 @@
   {{- $classes = $classes | append $c }}
 {{- end }}
 {{- $id := cond (or (eq .id nil) (eq .id "")) (partial "make-random-md5.hugo" $page) .id }}
-{{- if $effects.lightbox -}}
-<a href="#R-image-{{ $id }}" class="lightbox-link">
-{{- end -}}
-<img src="{{ $url | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} class="figure-image {{ delimit $classes " " }}">
-{{- if $effects.lightbox -}}
-</a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-{{ $id }}"><img src="{{ $url | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} class="lightbox-image {{ delimit $classes " " }}"></a>
+<div class="image-container">
+<img src="{{ $url | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} class="figure-image {{ delimit $classes " " }}"/>
+{{- if $alt }}
+<div class="label">{{ $alt | safeHTML }}</div>
 {{- end }}
+</div>

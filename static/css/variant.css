@@ -314,6 +314,7 @@ pre:not(.mermaid) .copy-to-clipboard-button:hover {
 .carousel-container .item .counter {
     background-color: var(--INTERNAL-BOX-BG-color);
 }
+#R-body .image-container .label,
 .carousel-container .item .label {
     background-color: var(--MENU-HEADER-SEPARATOR-color);
 }

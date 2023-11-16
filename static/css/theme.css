@@ -319,13 +319,15 @@ dd {
     width: calc(100% - 18rem);
     z-index: 70
 }
-
-#R-body img,#R-body .video-container {
+#R-body .image-container, #R-body .video-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: .9375rem;
+}
+#R-body .image-container img,#R-body .video-container video {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
-    border-radius: .9375rem;
     width: 100%;
 }
 
@@ -2207,7 +2209,7 @@ article ul>li>input[type=checkbox]:checked::before {
     position: relative;
     display: none;
     overflow: hidden;
-    border-radius: .375rem
+    border-radius: .9375rem
 }
 
 .carousel-container .item .counter {
@@ -2232,6 +2234,7 @@ article ul>li>input[type=checkbox]:checked::before {
     object-fit: cover
 }
 
+#R-body .image-container .label,
 .carousel-container .item .label {
     width: 100%;
     padding: .625rem .9375rem;
@@ -2246,6 +2249,7 @@ article ul>li>input[type=checkbox]:checked::before {
     z-index: 2
 }
 
+#R-body .image-container:hover .label,
 .carousel-container:hover .item .label {
     transform: translateY(0)
 }
