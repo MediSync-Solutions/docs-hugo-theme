@@ -322,6 +322,7 @@ dd {
 #R-body .image-container, #R-body .video-container {
     position: relative;
     overflow: hidden;
+    border: none;
     border-radius: .9375rem;
 }
 #R-body .image-container img,#R-body .video-container video {
@@ -331,28 +332,7 @@ dd {
     width: 100%;
 }
 
-#R-body img:not(.lightbox-image).left {
-    margin-left: 0
-}
 
-#R-body img:not(.lightbox-image).right {
-    margin-right: 0
-}
-
-#R-body img:not(.lightbox-image).border,#R-body .video-container.border {
-    background-clip: padding-box;
-    border: 1px solid rgba(134,134,134,.333)
-}
-
-#R-body img:not(.lightbox-image).shadow,#R-body .video-container.shadow {
-    box-shadow: 0 10px 30px rgba(176,176,176,.666)
-}
-
-#R-body img:not(.lightbox-image).inline {
-    display: inline!important;
-    margin: 0!important;
-    vertical-align: bottom
-}
 
 #R-body-inner {
     display: flex;
