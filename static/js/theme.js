@@ -523,8 +523,15 @@ function initCarousels() {
       if (firstItem == null) { carousel.remove(); return; }
       if (firstItem.querySelector("#" + carousel.id + " > " + ".item > img") != null) {
         firstImage = firstItem.querySelector("#" + carousel.id + " > " + ".item > img");
-        carousel.style.setProperty("aspect-ratio",firstImage.naturalWidth/firstImage.naturalHeight);
-        carousel.style.setProperty("max-width","calc(70vh * " + (firstImage.naturalWidth/firstImage.naturalHeight)+")");
+        if (firstImage.complete) {
+            carousel.style.setProperty("aspect-ratio",firstImage.naturalWidth/firstImage.naturalHeight);
+            carousel.style.setProperty("max-width","calc(70vh * " + (firstImage.naturalWidth/firstImage.naturalHeight)+")");
+        } else {
+            firstImage.addEventListener("load", function () {
+                carousel.style.setProperty("aspect-ratio",firstImage.naturalWidth/firstImage.naturalHeight);
+                carousel.style.setProperty("max-width","calc(70vh * " + (firstImage.naturalWidth/firstImage.naturalHeight)+")");
+            });
+        }
       } else {
         firstVideo = firstItem.querySelector("#" + carousel.id + " > " + ".item > video");
         firstVideo.addEventListener("loadedmetadata", function () {
