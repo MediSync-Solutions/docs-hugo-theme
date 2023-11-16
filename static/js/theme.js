@@ -846,13 +846,6 @@ function initArrowNav(){
     });
 }
 
-function imageEscapeHandler( event ){
-    if( event.key == "Escape" ){
-        var image = event.target;
-        image.click();
-    }
-}
-
 function navShortcutHandler( event ){
     if( !event.shiftKey && event.altKey && event.ctrlKey && !event.metaKey && event.which == 78 /* n */ ){
         toggleNav();
@@ -986,20 +979,6 @@ function toggleTopbarFlyout( e ){
     toggleTopbarButtonFlyout( button );
 }
 
-function toggleTopbarFlyoutEvent( event ){
-    if( event.target.classList.contains( 'topbar-content' )
-        || event.target.classList.contains( 'topbar-content-wrapper' )
-        || event.target.classList.contains( 'ps__rail-x' )
-        || event.target.classList.contains( 'ps__rail-y' )
-        || event.target.classList.contains( 'ps__thumb-x' )
-        || event.target.classList.contains( 'ps__thumb-y' )
-        ){
-        // the scrollbar was used, don't close flyout
-        return;
-    }
-    toggleTopbarFlyout( event.target )
-}
-
 function topbarFlyoutEscapeHandler( event ){
     if( event.key == "Escape" ){
         closeSomeTopbarButtonFlyout();
@@ -1058,57 +1037,6 @@ function initToc(){
 
     // finally give initial focus to allow keyboard scrolling in FF
     documentFocus();
-}
-
-function initSwipeHandler(){
-    if( !touchsupport ){
-        return;
-    }
-
-    var startx = null;
-    var starty = null;
-    var handleStartX = function(evt) {
-        startx = evt.touches[0].clientX;
-        starty = evt.touches[0].clientY;
-        return false;
-    };
-    var handleMoveX = function(evt) {
-        if( startx !== null ){
-            var diffx = startx - evt.touches[0].clientX;
-            var diffy = starty - evt.touches[0].clientY || .1 ;
-            if( diffx / Math.abs( diffy ) < 2 ){
-                // detect mostly vertical swipes and reset our starting pos
-                // to not detect a horizontal move if vertical swipe is unprecise
-                startx = evt.touches[0].clientX;
-            }
-            else if( diffx > 30 ){
-                startx = null;
-                starty = null;
-                closeNav();
-            }
-        }
-        return false;
-    };
-    var handleEndX = function(evt) {
-        startx = null;
-        starty = null;
-        return false;
-    };
-
-    var s = document.querySelector( '#R-body-overlay' );
-    s && s.addEventListener("touchstart", handleStartX, false);
-    document.querySelector( '#R-sidebar' ).addEventListener("touchstart", handleStartX, false);
-    document.querySelectorAll( '#R-sidebar *' ).forEach( function(e){ e.addEventListener("touchstart", handleStartX); }, false);
-    s && s.addEventListener("touchmove", handleMoveX, false);
-    document.querySelector( '#R-sidebar' ).addEventListener("touchmove", handleMoveX, false);
-    document.querySelectorAll( '#R-sidebar *' ).forEach( function(e){ e.addEventListener("touchmove", handleMoveX); }, false);
-    s && s.addEventListener("touchend", handleEndX, false);
-    document.querySelector( '#R-sidebar' ).addEventListener("touchend", handleEndX, false);
-    document.querySelectorAll( '#R-sidebar *' ).forEach( function(e){ e.addEventListener("touchend", handleEndX); }, false);
-}
-
-function initImage(){
-    document.querySelectorAll( '.lightbox-back' ).forEach( function(e){ e.addEventListener( 'keydown', imageEscapeHandler ); });
 }
 
 function clearHistory() {
@@ -1507,9 +1435,7 @@ ready( function(){
     initCodeClipboard();
     fixCodeTabs();
     restoreTabSelections();
-    initSwipeHandler();
     initSearch();
-    initImage();
     initScrollPositionSaver();
     scrollToPositions();
 });
